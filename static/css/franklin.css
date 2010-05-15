@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+/**
+ * Example stylesheet for a franklin report	
+ * @author Marcel Eichner
+ */
+body {
+	font-family: Lucida Sans Unicode, Lucida Grande;
+	font-size: 100%;
+	line-height: 1.125em;
+	background: #050505;
+	color: #51AACC;
+	margin-left: 40px;
+}
+
+h1 {
+	font-size: 2em;
+	line-height: 2em;
+}
+h2 {
+	font-size: 1.5em;
+	line-height: 1.5em;
+}
+h3 {
+	font-size: 1.2em;
+	line-height: 1.2em;
+}
+
+a {
+	color: #ffffff;
+}
+
+.Test {
+	float: left;
+	padding: 10px;
+}
+.TestGroup {
+	display: table;
+}
+
+#footer {
+	font-size: 0.8em;
+}

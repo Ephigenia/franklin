@@ -30,8 +30,9 @@ class LeserchartsDeTest extends ScrapeTest
 	public function afterConstruct()
 	{
 		$this->url = 'http://lesercharts.de/';
+		$search = $this->search or $this->name;
 		// optional country code to record
-		$this->regexp = "@<td class='rank'>([0-9]+)</td><td class='blog'><a href='[^']+'>".preg_quote($this->name, '@')."</a>@i";
+		$this->regexp = '@<td class="rank">(\d+)</td><td class="blog"><a href="[^"]+">'.preg_quote($search, '@').'</a>@';
 		return parent::afterConstruct();
 	}
 }

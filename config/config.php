@@ -68,12 +68,13 @@ $config = array(
 					'config' => array(
 						'name' 	=> 'Feedburner Hits',
 						'uri'	=> 'HorrorblogOrg',
-						'interval' => '12 hours'
+						'interval' => '12 hours',
 					)
 				),
 				array(
 					'test' => 'LeserchartsDe',
 					'config' => array(
+						'search' => 'Horrorblog.org',
 						'interval' => '1 day',
 						'name' => 'Lesercharts.de',
 					),

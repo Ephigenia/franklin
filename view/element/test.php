@@ -36,7 +36,10 @@
 		// colors and styles
 		'chm' => 'o,50741D,0,-1,4', // point style (type,color,index,series,size)
 		'chco' => '84D626', // line color
-		'chf' => 'bg,s,65432100', // background color
+		'chf' => implode('|', array(
+			'bg,s,65432100', // all chart solid background color
+			'c,lg,90,FDFDF9,0,FFFFFF,1', // chart background color
+		)),
 		// axis colors and styles
 		'chxs' => implode('|', array(
 			'0,30303F,9,0,lt',

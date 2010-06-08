@@ -1,0 +1,8 @@
+@import url("franklin.css");
+
+body {
+	background: #000000;
+}
+body, h1, h2, h3 {
+	color: #E9E9E9;
+}

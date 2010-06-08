@@ -27,12 +27,21 @@
 		'cht' => 'lc',
 		'chd' => 't:'.implode(',', $data),
 		// title
-		'chtt' => $title,
-		'chts' => '000000,10',
+		'chtt' => $title,		// title
+		'chts' => '30303F,10',	// title color and size
 		// size
-		'chs' => '300x150',
+		'chs' => '275x135',
 		// margin
 		'chma' => '',
+		// colors and styles
+		'chm' => 'o,50741D,0,-1,4', // point style (type,color,index,series,size)
+		'chco' => '84D626', // line color
+		'chf' => 'bg,s,65432100', // background color
+		// axis colors and styles
+		'chxs' => implode('|', array(
+			'0,30303F,9,0,lt',
+			'1,30303F,9',
+		)),
 		// axis
 		'chxt' => 'x,y',
 		// axis sizes

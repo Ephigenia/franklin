@@ -37,7 +37,7 @@ class Franklin extends Object
 {	
 	const APPNAME	= 'Franklin';
 	
-	const APPVERSION	= '0.2a';
+	const APPVERSION	= '0.2';
 	
 	public static $CLIMODE = false;
 	

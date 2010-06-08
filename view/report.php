@@ -7,7 +7,10 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta http-equiv="imagetoolbar" content="no" />
 		<meta name="MSSmartTagsPreventParsing" content="false" />
-		<link rel="stylesheet" type="text/css" href="static/css/franklin.css" />
+		<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<link rel="stylesheet" type="text/css" href="static/css/light.css" />
+		<link rel="alternate stylesheet" title="Light Style" href="static/css/light.css">
+		<link rel="alternate stylesheet" title="Dark Style" href="static/css/dark.css">
 	</head>
 	<body>
 		<div id="app">
@@ -20,8 +23,8 @@
 			?>
 			</div>
 			<div id="footer">
-				© 2009 Marcel Eichner // Ephigenia,
-				check <a href="http://code.marceleichner.de/project/franklin" rel="external" title="Frankling project home on code.marceleichner.de">code.marceleichner.de</a>
+				<a href="http://code.marceleichner.de/project/franklin/?ref=franklin" rel="external" title="Frankling project home on code.marceleichner.de">Franklin <?php echo Franklin::APPVERSION; ?></a> •
+				<a href="http://www.marceleichner.de/?ref=franklin" rel="external">Marcel Eichner // Ephigenia</a>
 			</div>
 		</div>
 	</body>

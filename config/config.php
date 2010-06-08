@@ -152,38 +152,6 @@ $config = array(
 			),
 		),
 		
-		// Jefferson 
-		array(
-			'name'	=> 'Jefferson',
-			'host'	=> 'jefferson.marceleichner.de',
-			'tests'	=> array(
-				array(
-					'test'	=> 'FeedburnerReaders',
-					'config' => array(
-						'name' 	=> 'Feedburner Readers',
-						'uri'	=> 'marceleichner/OeVY',
-						'interval' => '12 hours' 
-					)
-				),
-				array(
-					'test'	=> 'FeedburnerHits',
-					'config' => array(
-						'name' 	=> 'Feedburner Hits',
-						'uri'	=> 'marceleichner/OeVY',
-						'interval' => '12 hours'
-					)
-				),
-				array(
-					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours') 
-				),
-				array(
-					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours') 
-				),
-			),
-		),
-		
 		// Berliner Gazette
 		array(
 			'name'	=> 'Berliner Gazette',
@@ -240,23 +208,6 @@ $config = array(
 			), 
 		),
 		
-		// StudentSN
-		array(
-			'name'	=> 'StudentSN',
-			'host'	=> 'www.studentsn.com',
-			// tests in this group
-			'tests'	=> array(
-				array(
-					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours') 
-				),
-				array(
-					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours') 
-				),
-			), 
-		),
-		
 		// StudioAM Berlin
 		array(
 			'name'	=> 'StudioAM',
@@ -269,67 +220,6 @@ $config = array(
 				array(
 					'test'	 => 'GoogleResultsCount',
 					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours') 
-				),
-			),
-		),
-		
-		// NoMoreSleep
-		array(
-			'name'	=> 'NoMoreSleep™',
-			'host'	=> 'www.nomoresleep.net',
-			'tests'	=> array(
-				array(
-					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours') 
-				),
-				array(
-					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name'	 => 'Indexed Pages', 'interval' => '12 hours') 
-				),
-			),
-		),
-		
-		// Freundevonfreunden
-		array(
-			'name'	=> 'Freundevonfreunden',
-			'host'	=> 'www.freundevonfreunden.com',
-			'tests'	=> array(
-				array(
-					'test' => 'TwitterFollowers',
-					'config' => array(
-						'username' => 'fvonf',
-						'interval' => '12 hours'
-					),
-				),
-				array(
-					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours') 
-				),
-				array(
-					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name'	 => 'Indexed Pages', 'interval' => '12 hours') 
-				),
-				/*
-				array(
-					'test'	=> 'GooglePageRank',
-					'config' => array('interval' => '12 hours')
-				),
-				* */
-			),
-		),
-		
-		// Meconomy
-		array(
-			'name' => 'Meconomy',
-			'host' => 'www.meconomy.me',
-			'tests' => array(
-				array(
-					'test' => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours')
-				),
-				array(
-					'test' => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name' => 'indexed pages', 'interval' => '12 hours')
 				),
 			),
 		),
@@ -402,38 +292,6 @@ $config = array(
 		array(
 			'name'	=> 'Mongrelnation (Maiko Gubler)',
 			'host'	=> 'www.mongrelnation.com',
-			'tests'	=> array(
-				array(
-					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours') 
-				),
-				array(
-					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours') 
-				),
-			),
-		),
-		
-		// PIV Berlin
-		array(
-			'name'	=> 'PIV Berlin',
-			'host'	=> 'www.piv-berlin.de',
-			'tests'	=> array(
-				array(
-					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours') 
-				),
-				array(
-					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours') 
-				),
-			),
-		),
-		
-		// Peter Arold Website
-		array(
-			'name'	=> 'Peter Arold',
-			'host'	=> 'www.peterarold.de',
 			'tests'	=> array(
 				array(
 					'test'	 => 'GoogleResultsCount',

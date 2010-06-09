@@ -20,30 +20,52 @@
 		}
 		$i++;
 	}
-
+	
+	// rescale data to fit into 0-100
+	$max = max($data);
+	foreach($data as $timestamp => $value) {
+		$scaledData[$timestamp] = 100/$max * $value;
+	}
+	
+	$skin = 'dark';
+	
+	$colors = array(
+		'light' => array(
+			'point' => '50741D',
+			'text' => '30303F',
+			'grid' => '30303F',
+			'line' => '84D626',
+		),
+		'dark' => array(
+			'point' => 'E76C19',
+			'text' => 'fefefe',
+			'grid' => '80BDF6',
+			'line' => '50A0FA',
+		),
+	);
+	
 	// google charting api image parameters
 	$imgParams = array(
 		// type and data
 		'cht' => 'lc',
-		'chd' => 't:'.implode(',', $data),
+		'chd' => 't:'.implode(',', $scaledData),
 		// title
 		'chtt' => $title,		// title
-		'chts' => '30303F,10',	// title color and size
+		'chts' => $colors[$skin]['text'].',11',	// title color and size
 		// size
 		'chs' => '275x135',
 		// margin
 		'chma' => '',
 		// colors and styles
-		'chm' => 'o,50741D,0,-1,4', // point style (type,color,index,series,size)
-		'chco' => '84D626', // line color
+		'chm' => 'o,'.$colors[$skin]['point'].',0,-1,5', // point style (type,color,index,series,size)
+		'chco' => $colors[$skin]['line'], // line color
 		'chf' => implode('|', array(
 			'bg,s,65432100', // all chart solid background color
-			'c,lg,90,FDFDF9,0,FFFFFF,1', // chart background color
 		)),
 		// axis colors and styles
 		'chxs' => implode('|', array(
-			'0,30303F,9,0,lt',
-			'1,30303F,9',
+			'0,'.$colors[$skin]['grid'].',9,0,lt',
+			'1,'.$colors[$skin]['grid'].',9',
 		)),
 		// axis
 		'chxt' => 'x,y',
@@ -62,5 +84,5 @@
 	
 	$imgUrl = 'http://chart.apis.google.com/chart?'.urldecode(http_build_query($imgParams));
 	?>
-	<img src="<?php echo $imgUrl ?>" class="chart" alt="<?php echo $title; ?>"/>
+	<img src="<?php echo $imgUrl ?>" class="chart" alt="<?php echo $title; ?>" />
 </div>

@@ -5,8 +5,7 @@ FRANKLIN, Readme File
 # DESCRIPTION
 
 Franklin is a very basic PHP5-Script that collects data from various tests
-that you’ve configured from websites and services for a later display in a
-report.
+that you’ve configured from websites and services for a later display as charts in a report page.
 
 # REQUIREMENTS
 
@@ -16,8 +15,8 @@ report.
 # INSTALLATION
 
 1. 	copy all files into an extra directory in your webspace
-2.	make the directory /data/ writable by cron.php
-3.	edit /config/config.php to your own desires
+2.	make the directory `/data` writable by cron.php
+3.	edit `/config/config.php` to your own desires
 4. 	create a cron job that calls cron.php periodically
 	(for example every 10 minutes)
 5.	open the root directory in your webbrowser to see the reports
@@ -28,6 +27,10 @@ Franklin will be updated from time to time. Check the official [Franklin Homepag
 
 # Changelog
 
+* 2010-06-09
+	* Updated all charts to use google chart API instead of own library
+	* Added light and dark skin that can be changed by hand
+	
 * 2010-05-15
 	* Fixed Google Results Count Test using Google Ajax REST API now
 	* Fixed Alexa Site Rank test

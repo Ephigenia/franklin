@@ -10,7 +10,6 @@ that you’ve configured from websites and services for a later display as chart
 # REQUIREMENTS
 
 * PHP 5.2 or later
-* GD-Lib PHP for dynamic image graphs
 
 # INSTALLATION
 

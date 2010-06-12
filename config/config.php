@@ -26,24 +26,24 @@ $config = array(
 					'config' => array(
 						'name' 	=> 'Feedburner Readers',
 						'uri'	=> 'ephigenia',
-						'interval' => '12 hours' 
-					)
+						'interval' => '12 hours',
+					),
 				),
 				array(
 					'test'	=> 'FeedburnerHits',
 					'config' => array(
 						'name' 	=> 'Feedburner Hits',
 						'uri'	=> 'ephigenia',
-						'interval' => '12 hours'
-					)
+						'interval' => '12 hours',
+					),
 				),
 				array(
 					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours') 
+					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours'),
 				),
 				array(
 					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours') 
+					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours'),
 				),
 			),
 		),
@@ -54,14 +54,13 @@ $config = array(
 			'host'	=> 'www.horrorblog.org',
 			// tests in this group
 			'tests'	=> array(
-
 				array(
 					'test'	=> 'FeedburnerReaders',
 					'config' => array(
 						'name' 	=> 'Feedburner Readers',
 						'uri'	=> 'HorrorblogOrg',
-						'interval' => '12 hours' 
-					)
+						'interval' => '12 hours', 
+					),
 				),
 				array(
 					'test'	=> 'FeedburnerHits',
@@ -69,7 +68,7 @@ $config = array(
 						'name' 	=> 'Feedburner Hits',
 						'uri'	=> 'HorrorblogOrg',
 						'interval' => '12 hours',
-					)
+					),
 				),
 				array(
 					'test' => 'LeserchartsDe',
@@ -84,7 +83,7 @@ $config = array(
 					'config' => array(
 						'username' => 'horrorblogorg',
 						'interval' => '1 day',
-					)
+					),
 				),
 				array(
 					'test' => 'AlexaTrafficRank',
@@ -103,11 +102,11 @@ $config = array(
 				),
 				array(
 					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours') 
+					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours'),
 				),
 				array(
 					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours') 
+					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours'),
 				),
 			),
 		),
@@ -123,31 +122,31 @@ $config = array(
 					'config' => array(
 						'name' 	=> 'Feedburner Readers',
 						'uri'	=> 'Lotterliebe',
-						'interval' => '12 hours' 
-					)
+						'interval' => '12 hours',
+					),
 				),
 				array(
 					'test'	=> 'FeedburnerHits',
 					'config' => array(
 						'name' 	=> 'Feedburner Hits',
 						'uri'	=> 'Lotterliebe',
-						'interval' => '12 hours'
-					)
+						'interval' => '12 hours',
+					),
 				),
 				array(
 					'test' => 'TwitterFollowers',
 					'config' => array(
 						'username' => 'lotterliebe',
 						'interval' => '12 hours',
-					)
+					),
 				),
 				array(
 					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours') 
+					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours'),
 				),
 				array(
 					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours') 
+					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours'),
 				),
 			),
 		),
@@ -162,31 +161,31 @@ $config = array(
 					'config' => array(
 						'name' 	=> 'Feedburner Readers',
 						'uri'	=> 'BerlinerGazette',
-						'interval' => '12 hours' 
-					)
+						'interval' => '12 hours',
+					),
 				),
 				array(
 					'test'	=> 'FeedburnerHits',
 					'config' => array(
 						'name' 	=> 'Feedburner Hits',
 						'uri'	=> 'BerlinerGazette',
-						'interval' => '12 hours'
-					)
+						'interval' => '12 hours',
+					),
 				),
 				array(
 					'test' => 'TwitterFollowers',
 					'config' => array(
 						'username' => 'berlinergazette',
 						'interval' => '12 hours',
-					)
+					),
 				),
 				array(
 					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours') 
+					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours'),
 				),
 				array(
 					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours') 
+					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours'),
 				),
 			),
 		),
@@ -199,29 +198,13 @@ $config = array(
 			'tests'	=> array(
 				array(
 					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours') 
+					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours'),
 				),
 				array(
 					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours') 
+					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours'),
 				),
 			), 
-		),
-		
-		// StudioAM Berlin
-		array(
-			'name'	=> 'StudioAM',
-			'host'	=> 'www.studioam-berlin.com',
-			'tests'	=> array(
-				array(
-					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours') 
-				),
-				array(
-					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours') 
-				),
-			),
 		),
 		
 		// Ikko
@@ -231,11 +214,11 @@ $config = array(
 			'tests' => array(
 				array(
 					'test' => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours')
+					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours'),
 				),
 				array(
 					'test' => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name' => 'indexed pages', 'interval' => '12 hours')
+					'config' => array('search' => 'site:%host%', 'name' => 'indexed pages', 'interval' => '12 hours'),
 				),
 			),
 		),
@@ -247,11 +230,11 @@ $config = array(
 			'tests' => array(
 				array(
 					'test' => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours')
+					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours'),
 				),
 				array(
 					'test' => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name' => 'indexed pages', 'interval' => '12 hours')
+					'config' => array('search' => 'site:%host%', 'name' => 'indexed pages', 'interval' => '12 hours'),
 				),
 			),
 		),
@@ -263,27 +246,11 @@ $config = array(
 			'tests' => array(
 				array(
 					'test' => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours')
+					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours'),
 				),
 				array(
 					'test' => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name' => 'indexed pages', 'interval' => '12 hours')
-				),
-			),
-		),
-		
-		// Supermarktcheck
-		array(
-			'name' => 'Supermarktcheck',
-			'host' => 'www.supermarktcheck.de',
-			'tests' => array(
-				array(
-					'test' => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours')
-				),
-				array(
-					'test' => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name' => 'indexed pages', 'interval' => '12 hours')
+					'config' => array('search' => 'site:%host%', 'name' => 'indexed pages', 'interval' => '12 hours'),
 				),
 			),
 		),
@@ -295,14 +262,14 @@ $config = array(
 			'tests'	=> array(
 				array(
 					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours') 
+					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours'),
 				),
 				array(
 					'test'	 => 'GoogleResultsCount',
-					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours') 
+					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours'),
 				),
 			),
 		),
 		
-	) // groups
+	), // groups
 );

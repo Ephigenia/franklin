@@ -4,25 +4,30 @@ FRANKLIN, Readme File
 
 # DESCRIPTION
 
-Franklin is a very basic PHP5-Script that collects data from various tests
-that you’ve configured from websites and services for a later display as charts in a report page.
+Franklin is a very basic PHP5-script that collects data from various tests that
+you’ve configured from websites and services for a later display as charts in a
+report page.
 
 # REQUIREMENTS
 
 * PHP 5.2 or later
+* PHP Curl module (e.g. "php5-curl" package) 
 
 # INSTALLATION
 
-1. 	copy all files into an extra directory in your webspace
-2.	make the directory `/data` writable by cron.php
-3.	edit `/config/config.php` to your own desires
-4. 	create a cron job that calls cron.php periodically
-	(for example every 10 minutes)
-5.	open the root directory in your webbrowser to see the reports
+1. copy all files into an extra directory in your webspace
+2. make the directory `/data` writable by the user running cron.php (see below)
+3. edit `/config/config.php` to your own desires
+4. create a cron job that calls cron.php periodically (e.g. every 10mins)
+   example: "*/10 * * * * user  php5 -f /path/to/cron.php 2>&1 > /dev/null"
+5. open the Franklin root directory in your webbrowser to see the reports
 
 # UPDATES/FEEDBACK
 
-Franklin will be updated from time to time. Check the official [Franklin Homepage](http://code.marceleichner.de/project/franklin) and the [github page](http://github.com/Ephigenia/franklin) for updates, new tests or contact to the developers.
+Franklin will be updated from time to time. Check the official [Franklin
+Homepage](http://code.marceleichner.de/project/franklin) and the [github
+page](http://github.com/Ephigenia/franklin) for updates, new tests or contact
+to the developers.
 
 # Changelog
 

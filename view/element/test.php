@@ -2,6 +2,9 @@
 	<?php 
 	// get last data from tests as array
 	$data = $Test->last(48);
+	if (empty($data)) {
+		$data = array(0.1);
+	}
 	
 	// get chart title from test’s name
 	$title = $Test->name;

@@ -26,6 +26,10 @@ Franklin will be updated from time to time. Check the official [Franklin Homepag
 
 # Changelog
 
+* 2010-06-15
+	* Fixed bug when no data available (empty charts)
+	* Deleted old charting classes in `lib/chart`
+
 * 2010-06-09
 	* Updated all charts to use google chart API instead of own library
 	* Added light and dark skin that can be changed by hand

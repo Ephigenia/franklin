@@ -4,6 +4,8 @@ FRANKLIN, ToDo-File
 
 General:
 - Make config File as XML or YAML file
+- Devide Back and Frontend
+- create documentation for every test (which config vars etc.)
 
 Tests:
 - Techcrunch Rank

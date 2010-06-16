@@ -18,8 +18,8 @@ report page.
 1. copy all files into an extra directory in your webspace
 2. make the directory `/data` writable by the user running cron.php (see below)
 3. edit `/config/config.php` to your own desires
-4. create a cron job that calls cron.php periodically (e.g. every 10mins)
-   example: "*/10 * * * * user  php5 -f /path/to/cron.php 2>&1 > /dev/null"
+4. create a cron job that calls cron.php periodically (e.g. every 10mins)  
+   example: `*/10 * * * * user  php5 -f /path/to/cron.php 2>&1 > /dev/null`
 5. open the Franklin root directory in your webbrowser to see the reports
 
 # UPDATES/FEEDBACK
@@ -31,6 +31,10 @@ to the developers.
 
 # Changelog
 
+* 2010-06-16
+	* Added Test that records the number of facebook group members
+	* Fixed Twitterfollowers Regexp
+	
 * 2010-06-15
 	* Fixed bug when no data available (empty charts)
 	* Deleted old charting classes in `lib/chart`

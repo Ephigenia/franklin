@@ -1,18 +1,15 @@
 <?php
 
 /**
- * 	Franklin: <http://franklin.sourecforge.net>
- * 	Copyright 2009+, Ephigenia M. Eichner, Kopernikusstr. 8, 10245 Berlin
+ * Franklin: <http://code.marceleichner.de/project/franklin>
+ * Copyright 2009+, Ephigenia M. Eichner, Kopernikusstr. 8, 10245 Berlin
  *
- * 	Licensed under The MIT License
- * 	Redistributions of files must retain the above copyright notice.
- * 	@license		http://www.opensource.org/licenses/mit-license.php The MIT License
- * 	@copyright	copyright 2007+, Ephigenia M. Eichner
- * 	@link			http://code.ephigenia.de/projects/franklin/
- * 	@version		$Rev: 6 $
- * 	@modifiedby		$LastChangedBy: ephigenia $
- * 	@lastmodified	$Date: 2009-10-17 15:42:57 +0200 (Sat, 17 Oct 2009) $
- * 	@filesource		$HeadURL: https://ephigenia@franklin.svn.sourceforge.net/svnroot/franklin/trunc/lib/Franklin.php $
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ * @license		http://www.opensource.org/licenses/mit-license.php The MIT License
+ * @copyright	copyright 2007+, Ephigenia M. Eichner
+ * @link			http://code.ephigenia.de/projects/franklin/
+ * @filesource
  */
 
 class_exists('Object') or require dirname(__FILE__).'/Object.php';
@@ -25,19 +22,17 @@ define('DEBUG_VERBOSE',		2);
 define('LF', chr(10));
 
 /**
- * 	Franklin main application class
+ * Franklin main application class
  * 
- * 	@version $Rev: 6 $
- * 	@lastchange $Date: 2009-10-17 15:42:57 +0200 (Sat, 17 Oct 2009) $ by $Author: ephigenia $
  * @author Ephigenia // Marcel Eichner <love@ephigenia.de>
  * @since 30.04.2009
  * @package Franklin
  */
 class Franklin extends Object
 {	
-	const APPNAME	= 'Franklin';
+	const APPNAME = 'Franklin';
 	
-	const APPVERSION	= '0.2';
+	const APPVERSION = '0.2';
 	
 	public static $CLIMODE = false;
 	

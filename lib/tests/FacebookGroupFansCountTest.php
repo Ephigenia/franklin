@@ -15,19 +15,21 @@
 class_exists('ScrapeTest') or require dirname(__FILE__).'/ScrapeTest.php';
 
 /**
- * A {@link Test} that records the number of followers of a twitter user
+ * A {@link Test} that gets the number of fans of a facebook group.
+ * The group must be public and viable via the open graph protocol api
  * 	
  * @package Franklin
  * @subpackage Franklin.Test
  * @author Ephigenia // Marcel Eichner <love@ephigenia.de>
- * @since 2009-10-13
+ * @since 2010-06-16
  */
-class TwitterFollowersTest extends ScrapeTest
-{	
+class FacebookGroupFansCountTest extends ScrapeTest
+{
 	public function afterConstruct()
 	{
-		$this->url = 'http://www.twitter.com/'.urlencode($this->username); 
-		$this->regexp = '@id="follower_count" class="stats_count numeric">([\d+.,]+)\s*</span>@i';
+		// id is okay too!
+		$this->url = 'https://graph.facebook.com/'.urlencode($this->groupId); 
+		$this->regexp = '@fan_count":\s(\d+)@i';
 		return parent::afterConstruct();
 	}
 }

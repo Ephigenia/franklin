@@ -1,11 +1,11 @@
 <?php
 
 /**
- * 	Example Configuration file for Franklin
+ * Example Configuration file for Franklin
  * 	
- * 	@since 2009-05-19
- * 	@author Marcel Eichner
- * 	@package franklin
+ * @since 2009-05-19
+ * @author Marcel Eichner
+ * @package franklin
  */
 $config = array(
 
@@ -82,6 +82,13 @@ $config = array(
 					'test' => 'TwitterFollowers',
 					'config' => array(
 						'username' => 'horrorblogorg',
+						'interval' => '1 day',
+					),
+				),
+				array(
+					'test' => 'FacebookGroupFansCount',
+					'config' => array(
+						'groupId' => '115046791864216',
 						'interval' => '1 day',
 					),
 				),

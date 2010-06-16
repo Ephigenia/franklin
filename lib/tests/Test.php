@@ -1,18 +1,15 @@
 <?php
 
 /**
- * 	Franklin: <http://franklin.sourecforge.net>
- * 	Copyright 2009+, Ephigenia M. Eichner, Kopernikusstr. 8, 10245 Berlin
+ * Franklin: <http://code.marceleichner.de/project/franklin>
+ * Copyright 2009+, Ephigenia M. Eichner, Kopernikusstr. 8, 10245 Berlin
  *
- * 	Licensed under The MIT License
- * 	Redistributions of files must retain the above copyright notice.
- * 	@license		http://www.opensource.org/licenses/mit-license.php The MIT License
- * 	@copyright	copyright 2007+, Ephigenia M. Eichner
- * 	@link			http://code.ephigenia.de/projects/franklin/
- * 	@version		$Rev: 5 $
- * 	@modifiedby		$LastChangedBy: ephigenia $
- * 	@lastmodified	$Date: 2009-10-13 19:10:58 +0200 (Di, 13 Okt 2009) $
- * 	@filesource		$HeadURL: https://ephigenia@franklin.svn.sourceforge.net/svnroot/franklin/trunc/lib/tests/Test.php $
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ * @license		http://www.opensource.org/licenses/mit-license.php The MIT License
+ * @copyright	copyright 2007+, Ephigenia M. Eichner
+ * @link			http://code.ephigenia.de/projects/franklin/
+ * @filesource
  */
 
 /**

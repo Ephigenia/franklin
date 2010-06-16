@@ -1,18 +1,15 @@
 <?php
 
 /**
- * 	Franklin: <http://franklin.sourecforge.net>
- * 	Copyright 2009+, Ephigenia M. Eichner, Kopernikusstr. 8, 10245 Berlin
+ * Franklin: <http://code.marceleichner.de/project/franklin>
+ * Copyright 2009+, Ephigenia M. Eichner, Kopernikusstr. 8, 10245 Berlin
  *
- * 	Licensed under The MIT License
- * 	Redistributions of files must retain the above copyright notice.
- * 	@license		http://www.opensource.org/licenses/mit-license.php The MIT License
- * 	@copyright	copyright 2007+, Ephigenia M. Eichner
- * 	@link			http://code.ephigenia.de/projects/franklin/
- * 	@version		$Rev: 6 $
- * 	@modifiedby		$LastChangedBy: ephigenia $
- * 	@lastmodified	$Date: 2009-10-17 15:42:57 +0200 (Sat, 17 Oct 2009) $
- * 	@filesource		$HeadURL: https://ephigenia@franklin.svn.sourceforge.net/svnroot/franklin/trunc/lib/Object.php $
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ * @license		http://www.opensource.org/licenses/mit-license.php The MIT License
+ * @copyright	copyright 2007+, Ephigenia M. Eichner
+ * @link			http://code.ephigenia.de/projects/franklin/
+ * @filesource
  */
 
 
@@ -20,26 +17,26 @@
 /**
  * Basic Object Class
  * 	
- * 	Every object in the ephFrame and every object in the application should
- * 	be at least a child class ob Object. This is not to be meant a big mother
- * 	class or god-class - it's just for late time implementations or methods
- * 	that can be used in every child class.
+ * Every object in the ephFrame and every object in the application should
+ * be at least a child class ob Object. This is not to be meant a big mother
+ * class or god-class - it's just for late time implementations or methods
+ * that can be used in every child class.
  * 
- * 	All children inherit all functionality from this class so this class
- * 	should have as less methods as possible to avoid conflicts with the children's
- * 	methods.
+ * All children inherit all functionality from this class so this class
+ * should have as less methods as possible to avoid conflicts with the children's
+ * methods.
  * 
- * 	One maxime of ephFrame framework is that every class should support chaining.
- * 	So for example the {@link DBSelectQuery} or {@link Image} class support it:
- * 	<code>
- * 	$obj->select('values')->where('1 = 1');
- * 	</code>
- * 	Please try to keep that in mind when you develop with ephFrame.
+ * One maxime of ephFrame framework is that every class should support chaining.
+ * So for example the {@link DBSelectQuery} or {@link Image} class support it:
+ * <code>
+ * $obj->select('values')->where('1 = 1');
+ * </code>
+ * Please try to keep that in mind when you develop with ephFrame.
  * 
- * 	@author Marcel Eichner // Ephigenia <love@ephigenia.de>
- * 	@since 06.05.2007
- * 	@package Franklin
- * 	@version 0.201
+ * @author Marcel Eichner // Ephigenia <love@ephigenia.de>
+ * @since 06.05.2007
+ * @package Franklin
+ * @version 0.201
  */
 abstract class Object {
 	
@@ -146,9 +143,8 @@ abstract class Object {
 	public function __toString()
 	{
 		return 'Object (class: '.get_class($this).')';
-	}
-	
-} // END Object class
+	}	
+}
 
 class BasicException extends Exception {}
 

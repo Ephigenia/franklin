@@ -6,7 +6,7 @@
  *
  * !!! Do not set this file as your cronjob !!!
  * 
- * see readme.txt file for installation instructions
+ * see README.md file for installation and setup instructions
  */
 
 require_once dirname(__FILE__).'/lib/Franklin.php';

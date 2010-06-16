@@ -22,6 +22,60 @@ report page.
    example: `*/10 * * * * user  php5 -f /path/to/cron.php 2>&1 > /dev/null`
 5. open the Franklin root directory in your webbrowser to see the reports
 
+# TESTS
+
+* `name` Optional name for a test, used also as chart title
+* `interval` time interval between checks for the current test.  
+  f.e. `+1 day`, `+30 minutes` or shorter `2h`
+
+## Facebook Group Fan Count
+
+Detect the number of fans of a facebook group or page. This uses the open graph
+API and therefore the page must be public (not set to private and no age-
+restriction).
+
+* `groupId` id or name of the facebook group or page, copy the id or name from
+the uri when you’re on the facbeook page
+
+## Feedburner Subscribers
+
+Number of [Feedburner](http://www.feedburner.com)-Feed subscribers.
+Make sure you enabled the Awareness API in the Feedburner configuration.
+
+* `uri` Uri of the Feedburner-Feed, just copy the uri part of the URL
+
+## Feedburner Hits
+
+Number of Hits on a [Feedburner](http://www.feedburner.com)-Feed.
+Make sure you enabled the Awareness API in the Feedburner configuration.
+
+* `uri` Uri of the Feedburner feed, you can simply get it from a feedburner
+  URL
+
+## Google Results Count
+
+Number of results on a google search query. You can use this to get the number
+of indexed pages or backlinks to your website that are known to google. You 
+also can make up custom queries.
+
+* `search` query to search
+  f.e. `site:www.horrorblog.org` or `link:www.horrorblog.org`
+
+## Lesercharts.de Position
+
+Get the position on lesercharts.de depending on the url of the website.
+
+* `search` Name of the entry on lesercharts.de, it’s usually the name in the 
+  first column
+
+## Twitter Followers Count
+
+Detect the number of followers of a twitter user
+
+* `username` name of the twitter user to check, not the real name of the user
+  name is the uri part in the twitter profile url.  
+  f.e. `www.twitter.com/horrorblogorg` -> `username` would be `horrorblogorg`
+
 # UPDATES/FEEDBACK
 
 Franklin will be updated from time to time. Check the official [Franklin
@@ -34,6 +88,7 @@ to the developers.
 * 2010-06-16
 	* Added Test that records the number of facebook group members
 	* Fixed Twitterfollowers Regexp
+	* Added some documentation for some of the most used Tests
 	
 * 2010-06-15
 	* Fixed bug when no data available (empty charts)

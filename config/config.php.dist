@@ -88,6 +88,7 @@ $config = array(
 				array(
 					'test' => 'FacebookGroupFansCount',
 					'config' => array(
+						'name' => 'Facebook Fans',
 						'groupId' => '115046791864216',
 						'interval' => '1 day',
 					),

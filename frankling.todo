@@ -3,9 +3,13 @@ FRANKLIN, ToDo-File
 2009-10-17, Marcel Eichner // Ephigenia <love@ephigenia.de>
 
 General:
-- Make config File as XML or YAML file
 - Devide Back and Frontend
-- create documentation for every test (which config vars etc.)
+✓ create documentation for every test (which config vars etc.)
+
+Configuration File:
+- Check if other configuration file format is cooler? (YAML or XML?)
 
 Tests:
 - Techcrunch Rank
+- Facebook Likes on Website URLS (also via opengraph API)
+- Create Option to ignore zero or very high values (nicer stats)

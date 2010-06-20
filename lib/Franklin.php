@@ -14,6 +14,7 @@
 
 class_exists('Object') or require dirname(__FILE__).'/Object.php';
 class_exists('TestGroup') or require dirname(__FILE__).'/TestGroup.php';
+class_exists('Log') or require dirname(__FILE__).'/Log.php';
 
 define('DEBUG_PRODUCTION',	0);
 define('DEBUG_DEBUG',		1);
@@ -45,7 +46,6 @@ class Franklin extends Object
 		$this->setErrorReporting();
 		self::$CLIMODE = !isset($_SERVER['SERVER_PORT']);
 		$this->loadConfig(dirname(__FILE__).'/../config/config.php');
-		
 	}
 	
 	public function showReport()
@@ -67,6 +67,7 @@ class Franklin extends Object
 				$result = $Test->run();
 				$Test->saveResult();
 				$counters['runs']++;
+				Log::write(DEBUG_DEBUG, $Test->name.' result: '.var_export($Test->result, true));
 			}
 		}
 		printf('%s tests checked, %s done, %s skipped.', $counters['tests'], $counters['runs'], $counters['tests'] - $counters['runs']);
@@ -91,6 +92,7 @@ class Franklin extends Object
 	
 	protected function setErrorReporting()
 	{
+		Log::$level = self::$debug;
 		if (self::$debug > DEBUG_PRODUCTION) {
 			error_reporting(E_ALL + E_STRICT);
 			ini_set('display_errors', 'yes');

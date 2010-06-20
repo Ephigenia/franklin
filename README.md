@@ -61,6 +61,23 @@ also can make up custom queries.
 * `search` query to search
   f.e. `site:www.horrorblog.org` or `link:www.horrorblog.org`
 
+## Google SERP
+
+This test can really help you to track the results of your SEO arrangements by
+telling you on which position (from 1 to 64) your website is on when you search
+for a specific term.
+It uses the Google Search API and can give you result also language and country
+specific by using the needed parameters.
+
+* `search` the term you want to search for, usually a keyword you want to track
+* `language` optional 2-letter language code you want to search in, i.e. `de`
+  or `en`
+* `country` optional additional country code you want to search in, this is
+ automatically the same as language
+* `save` optional save mode parameter that can be one of the 3 options
+  specified in the google search api documentation: `active`, `moderate` and
+  `off`, default is `active`
+
 ## Lesercharts.de Position
 
 Get the position on lesercharts.de depending on the url of the website.
@@ -84,6 +101,14 @@ page](http://github.com/Ephigenia/franklin) for updates, new tests or contact
 to the developers.
 
 # Changelog
+
+* 2010-06-20
+	* Added google SERP (Search Engine Results Page) Test that can test on
+	  which position your site is on when you search for a term in a country
+	  and language, see the example on how to configure it.
+	* Also added a very simple and static Log class that logs the results of 
+	  all tests when in DEBUG_DEBUG or larger, modify your Franling::$debug
+	  if you want to surpress the messages.
 
 * 2010-06-16
 	* Added Test that records the number of facebook group members

@@ -116,6 +116,38 @@ $config = array(
 					'test'	 => 'GoogleResultsCount',
 					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours'),
 				),
+				array(
+					'test'	=> 'GoogleSERP',
+					'config' => array(
+						'language' => 'de',
+						'search' => 'Horror Blog',
+						'interval' => '1 day', 
+					),
+				),
+				array(
+					'test'	=> 'GoogleSERP',
+					'config' => array(
+						'language' => 'de',
+						'search' => 'Horror',
+						'interval' => '1 day', 
+					),
+				),
+				array(
+					'test'	=> 'GoogleSERP',
+					'config' => array(
+						'language' => 'de',
+						'search' => 'Horror Trailer',
+						'interval' => '1 day', 
+					),
+				),
+				array(
+					'test'	=> 'GoogleSERP',
+					'config' => array(
+						'language' => 'de',
+						'search' => 'Horror Film',
+						'interval' => '1 day', 
+					),
+				),
 			),
 		),
 		

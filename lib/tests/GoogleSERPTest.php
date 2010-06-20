@@ -78,7 +78,7 @@ class GoogleSERPTest extends ScrapeTest
 			// find hostname in result set
 			foreach($response->responseData->results as $index => $result) {
 				if (!preg_match('/'.preg_quote($this->TestGroup->host, '/').'.*/', $result->url)) continue;
-				$this->result = $start + $index;
+				$this->result = $start + $index + 1;
 				break 2;
 			}
 		}

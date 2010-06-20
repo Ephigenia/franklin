@@ -26,8 +26,12 @@
 	
 	// rescale data to fit into 0-100
 	$max = max($data);
-	foreach($data as $timestamp => $value) {
-		$scaledData[$timestamp] = 100/$max * $value;
+	if ($max > 0) {
+		foreach($data as $timestamp => $value) {
+			$scaledData[$timestamp] = 100 / $max * $value;
+		}
+	} else {
+		$scaledData = $data;
 	}
 	
 	$skin = 'dark';
@@ -53,7 +57,7 @@
 		'cht' => 'lc',
 		'chd' => 't:'.implode(',', $scaledData),
 		// title
-		'chtt' => $title,		// title
+		'chtt' => urlencode($title),		// title
 		'chts' => $colors[$skin]['text'].',11',	// title color and size
 		// size
 		'chs' => '275x135',

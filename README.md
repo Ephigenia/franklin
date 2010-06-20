@@ -109,6 +109,8 @@ to the developers.
 	* Also added a very simple and static Log class that logs the results of 
 	  all tests when in DEBUG_DEBUG or larger, modify your Franling::$debug
 	  if you want to surpress the messages.
+	* Fixed bug where chart was not rendered when chart title inclueded a
+	  quotation mark, now escaped with urlencode
 
 * 2010-06-16
 	* Added Test that records the number of facebook group members

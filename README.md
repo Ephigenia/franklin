@@ -102,6 +102,10 @@ to the developers.
 
 # Changelog
 
+* 2010-06-21
+	* Fixed bug in Google SERP Test where name of test was set after
+	  constructing class and same file used, so test was ignoring interval
+
 * 2010-06-20
 	* Added google SERP (Search Engine Results Page) Test that can test on
 	  which position your site is on when you search for a term in a country

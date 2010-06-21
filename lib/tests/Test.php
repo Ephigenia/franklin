@@ -80,15 +80,8 @@ abstract class Test
 		if (is_string($this->interval)) {
 			$this->interval = strtotime($this->interval, 0);
 		}
-		$lastTestFilename = $this->filename('lasttest');
-		if (file_exists($lastTestFilename)) {
-			$this->lastTestTimestamp = (int) file_get_contents($lastTestFilename);
-		}
-		if (isset($config['name'])) unset($config['name']);
-		if (isset($config['interval'])) unset($config['interval']);
 		// generate unique id for this test
 		$this->id = substr(md5(implode('', $config)), 0, 10);
-		
 		// call after construct
 		$this->afterConstruct();
 		return $this;
@@ -96,6 +89,10 @@ abstract class Test
 
 	public function afterConstruct()
 	{
+		$lastTestFilename = $this->filename('lasttest');
+		if (file_exists($lastTestFilename)) {
+			$this->lastTestTimestamp = (int) file_get_contents($lastTestFilename);
+		}
 		return true;
 	}
 	

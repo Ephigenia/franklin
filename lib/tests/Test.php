@@ -81,6 +81,8 @@ abstract class Test
 			$this->interval = strtotime($this->interval, 0);
 		}
 		// generate unique id for this test
+		if (isset($config['name'])) unset($config['name']);
+		if (isset($config['interval'])) unset($config['interval']);
 		$this->id = substr(md5(implode('', $config)), 0, 10);
 		// call after construct
 		$this->afterConstruct();

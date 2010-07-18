@@ -9,6 +9,10 @@ General:
 Configuration File:
 - Check if other configuration file format is cooler? (YAML or XML?)
 
+Stats:
+- If only one datapoint available, show only this datapoint not nothing
+- Alter data point values if they are very high, displaying 5000-5100 only the 0-100 steps
+
 Tests:
 - Techcrunch Rank
 - Facebook Likes on Website URLS (also via opengraph API)

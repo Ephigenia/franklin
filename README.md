@@ -2,6 +2,8 @@ FRANKLIN, Readme File
 ---------------------------------------------------------------------------
 2009-06-19, Marcel Eichner // Ephigenia <love@ephigenia.de>
 
+<img src="http://marceleichner.de/static/img/public/ca1920e3/620xauto/resize/franklin_creenshot_safari_iphone.jpg" />
+
 # DESCRIPTION
 
 Franklin is a very basic PHP5-script that collects data from various tests that

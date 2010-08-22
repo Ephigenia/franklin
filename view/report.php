@@ -8,20 +8,18 @@
 		<meta http-equiv="imagetoolbar" content="no" />
 		<meta name="MSSmartTagsPreventParsing" content="false" />
 		<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold">
 		<link rel="stylesheet" type="text/css" href="static/css/dark.css" />
 		<link rel="alternate stylesheet" title="Light Style" href="static/css/light.css">
 		<link rel="alternate stylesheet" title="Dark Style" href="static/css/dark.css">
 	</head>
 	<body>
 		<div id="app">
-			<h1><?php echo Franklin::APPNAME ?> Reports</h1>
-			<div id="report">
 			<?php
-			foreach($TestGroups as $TestGroup) {
-				echo $this->renderElement('testGroup', array('TestGroup' => $TestGroup));
-			}
+				foreach($TestGroups as $TestGroup) {
+					echo $this->element('testGroup', array('TestGroup' => $TestGroup));
+				}
 			?>
-			</div>
 			<div id="footer">
 				<a href="http://code.marceleichner.de/project/franklin/?ref=franklin" rel="external" title="Frankling project home on code.marceleichner.de">Franklin <?php echo Franklin::APPVERSION; ?></a> •
 				<a href="http://www.marceleichner.de/?ref=franklin" rel="external">Marcel Eichner // Ephigenia</a>

@@ -26,7 +26,7 @@ class_exists('ScrapeTest') or require dirname(__FILE__).'/ScrapeTest.php';
  * @since 19.05.2009
  */
 class GoogleResultsCountTest extends ScrapeTest
-{	
+{
 	public function afterConstruct()
 	{
 		$this->url = 'http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q='.urlencode($this->search); 

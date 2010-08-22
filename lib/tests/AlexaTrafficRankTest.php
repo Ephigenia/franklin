@@ -23,7 +23,7 @@ class_exists('ScrapeTest') or require dirname(__FILE__).'/ScrapeTest.php';
  * @since 2009-10-17
  */
 class AlexaTrafficRankTest extends ScrapeTest
-{	
+{
 	public function afterConstruct()
 	{
 		$this->url = 'http://www.alexa.com/search?r=site_site&q='.urlencode($this->TestGroup->host); 

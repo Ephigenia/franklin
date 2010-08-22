@@ -23,7 +23,9 @@ class_exists('ScrapeTest') or require dirname(__FILE__).'/ScrapeTest.php';
  * @since 2009-10-13
  */
 class TwitterFollowersTest extends ScrapeTest
-{	
+{
+	public $display = 'number';
+	
 	public function afterConstruct()
 	{
 		$this->url = 'http://www.twitter.com/'.urlencode($this->username); 

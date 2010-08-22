@@ -104,6 +104,12 @@ to the developers.
 
 # Changelog
 
+* 2010-08-21
+	* Added possibility to add display configiration for tests
+	* Some tests have `number` as their default display (rollover shows 
+	chart)
+	* chart data is shiftet to minimum to see progress zoomed
+
 * 2010-06-21
 	* Fixed bug in Google SERP Test where name of test was set after
 	  constructing class and same file used, so test was ignoring interval

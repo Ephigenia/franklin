@@ -25,6 +25,8 @@ class_exists('ScrapeTest') or require dirname(__FILE__).'/ScrapeTest.php';
  */
 class FacebookGroupFansCountTest extends ScrapeTest
 {
+	public $display = 'number';
+	
 	public function afterConstruct()
 	{
 		// id is okay too!

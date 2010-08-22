@@ -50,7 +50,7 @@ class View extends Object
 		return realpath(dirname(__FILE__).'/../view/').'/';
 	}
 	
-	public function renderElement($elementName, Array $data = array())
+	public function element($elementName, Array $data = array())
 	{
 		class_exists('Element') or require dirname(__FILE__).'/Element.php';
 		$subView = new Element($elementName, array_merge($this->data, $data));

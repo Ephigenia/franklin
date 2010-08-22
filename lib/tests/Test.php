@@ -55,6 +55,11 @@ abstract class Test
 	public $interval = 60;
 	
 	/**
+	 * Type of visualization of this test
+	 */
+	public $display = 'lineChart';
+	
+	/**
 	 * Stores a timestamp when this test was performed the last time
 	 * 	@var integer
 	 */
@@ -81,8 +86,7 @@ abstract class Test
 			$this->interval = strtotime($this->interval, 0);
 		}
 		// generate unique id for this test
-		if (isset($config['name'])) unset($config['name']);
-		if (isset($config['interval'])) unset($config['interval']);
+		unset($config['name'], $config['interval'], $config['display']);
 		$this->id = substr(md5(implode('', $config)), 0, 10);
 		// call after construct
 		$this->afterConstruct();

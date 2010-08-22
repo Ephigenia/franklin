@@ -23,7 +23,8 @@ class_exists('ScrapeTest') or require dirname(__FILE__).'/ScrapeTest.php';
  */
 class FeedburnerReadersTest extends ScrapeTest
 {	
-	public function afterConstruct() {
+	public function afterConstruct()
+	{
 		$this->url = 'https://feedburner.google.com/api/awareness/1.0/GetFeedData?uri='.urlencode($this->uri); 
 		$this->regexp = '@circulation="(\d+)"@i';
 		return parent::afterConstruct();

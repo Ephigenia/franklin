@@ -116,7 +116,6 @@ abstract class Test
 			$filename .= '_'.$this->id;
 		}
 		$filename .= '.txt';
-		$filename = dirname(__FILE__).'/../../data/'.$filename;
 		$filename = strtr($filename, array(
 			' ' => '_',
 			'ä' => 'ae', 'Ä' => 'AE', 'ü' => 'ue', 'Ü' => 'UE', 'ö' => 'oe', 'Ö' => 'oe',
@@ -124,7 +123,8 @@ abstract class Test
 			'(' => '', ')' => '',
 			'™' => ''
 		));
-		return $filename;
+		$filename = preg_replace('@[^A-Za-z0-9.-_]@', '', $filename);
+		return dirname(__FILE__).'/../../data/'.$filename;
 	}
 	
 	public function saveResult()

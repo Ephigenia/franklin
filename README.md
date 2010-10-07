@@ -1,6 +1,6 @@
 FRANKLIN, Readme File
 ---------------------------------------------------------------------------
-2009-06-19, Marcel Eichner // Ephigenia <love@ephigenia.de>
+2009-06-19, [Marcel Eichner // Ephigenia](love@ephigenia.de)
 
 <img src="http://marceleichner.de/static/img/public/ca1920e3/620xauto/resize/franklin_creenshot_safari_iphone.jpg" />
 
@@ -103,6 +103,9 @@ page](http://github.com/Ephigenia/franklin) for updates, new tests or contact
 to the developers.
 
 # Changelog
+
+* 2010-10-07
+	* made sure a filename for the data files only contains valid characters
 
 * 2010-08-21
 	* Added possibility to add display configiration for tests

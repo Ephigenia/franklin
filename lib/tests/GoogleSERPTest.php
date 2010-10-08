@@ -54,7 +54,7 @@ class GoogleSERPTest extends ScrapeTest
 		}
 		if (!empty($this->country)) {
 			if ($this->country === true) {
-				if (!empty($this->language)) $defaultParams['gl'] = $this->language;				
+				if (!empty($this->language)) $defaultParams['gl'] = $this->language;
 			} else {
 				$defaultParams['gl'] = $this->country;
 			}
@@ -66,7 +66,7 @@ class GoogleSERPTest extends ScrapeTest
 		for($p = 0; $p < 7; $p++) {
 			$start = $p * $perPage;
 			// build request url
-			$url = $baseURL.http_build_query($defaultParams).'&start='.$start;
+			$url = $baseURL.http_build_query($defaultParams, '', '&').'&start='.$start;
 			$response = Scraper::scrape($url);
 			if (!is_string($response)) {
 				continue;

@@ -19,7 +19,7 @@ report page.
 
 1. copy all files into an extra directory in your webspace
 2. make the directory `/data` writable by the user running cron.php (see below)
-3. edit `/config/config.php` to your own desires
+3. cp `/config/config.php.dist` to `/config/config.php` and edit it
 4. create a cron job that calls cron.php periodically (e.g. every 10mins)  
    example: `*/10 * * * * user  php5 -f /path/to/cron.php 2>&1 > /dev/null`
 5. open the Franklin root directory in your webbrowser to see the reports

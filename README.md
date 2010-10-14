@@ -95,6 +95,19 @@ Detect the number of followers of a twitter user
   name is the uri part in the twitter profile url.  
   f.e. `www.twitter.com/horrorblogorg` -> `username` would be `horrorblogorg`
 
+## Twitter Search API Results Count
+
+This test uses the [Twitter Search API](http://apiwiki.twitter.com/Twitter-Search-API-Method%3A-search) to search
+the twitter site for a specific query (`q`). You can limit the results by date
+(`since`) or location (`locale`, `geocode`). The test will always record the
+number of results found.
+
+* `q` Query search, parameter, check the Twitter Search API for examples
+* `since` Since parameter to limit search results for since a date, a week
+  or some days are recommended.  
+* `geocode`
+* `locale`
+
 # UPDATES/FEEDBACK
 
 Franklin will be updated from time to time. Check the official [Franklin
@@ -103,6 +116,10 @@ page](http://github.com/Ephigenia/franklin) for updates, new tests or contact
 to the developers.
 
 # Changelog
+
+* 2010-10-14
+	* Added Twitter Search API Results counter for recording number of
+	twitter followers, mentions and other stuff.
 
 * 2010-10-07
 	* made sure a filename for the data files only contains valid characters

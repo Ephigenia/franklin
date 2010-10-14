@@ -13,7 +13,7 @@
  */
 
 class_exists('Test') or require dirname(__FILE__).'/Test.php';
-class_exists('Scrape') or require dirname(__FILE__).'/../network/Scraper.php';
+class_exists('Scraper') or require dirname(__FILE__).'/../network/Scraper.php';
 
 /**
  * A test that searches for values (using a regular expression) in a http

@@ -15,10 +15,17 @@ h2 {
 
 .TestGroup {
 	background-color: #0D0D0D;
+	border: 1px solid #F9BE07;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
 }
 .Tests {
 	padding: 0.75em;
 }
 .number {
 	color: #fff;
+}
+#footer {
+	font-size: 0.75em;
 }

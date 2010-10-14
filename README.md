@@ -108,6 +108,12 @@ number of results found.
 * `geocode`
 * `locale`
 
+## Google Analytics API
+
+This for now rather basic test exports pageViews or visits from google
+analytics data to franklin. Please see the `config.php.dist` file for an
+example.
+
 # UPDATES/FEEDBACK
 
 Franklin will be updated from time to time. Check the official [Franklin

@@ -79,6 +79,35 @@ $config = array(
 					),
 				),
 				array(
+					'test' => 'GoogleAnalyticsAPI',
+					'config' => array(
+						'email' => 'email@host.de',
+						'password' => 'password',
+						'profile_id' => 1234567890, // get this code from GA
+						'metric' => 'visits',
+						'time' => '1 day',
+					),
+				),
+				array(
+					'test' => 'GoogleAnalyticsAPI',
+					'config' => array(
+						'email' => 'email@host.de',
+						'password' => 'password',
+						'profile_id' => 1234567890, // get this code from GA
+						'metric' => 'pageViews',
+						'time' => '1 day',
+					),
+				),
+				array(
+					'test'	=> 'TwitterSearchApiResultsCount',
+					'config' => array(
+						'name' 	=> 'Twitter Mentions (1 day)',
+						'q' => '@horrorblogorg',
+						'interval' => '24 hours',
+						'since' => '-1 days',
+					),
+				),
+				array(
 					'test' => 'TwitterFollowers',
 					'config' => array(
 						'username' => 'horrorblogorg',

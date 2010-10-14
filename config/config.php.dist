@@ -10,6 +10,7 @@
 $config = array(
 
 	'timezone' => 'Europe/Berlin',
+	'theme' => 'dark',
 
 	'groups' => array(
 		

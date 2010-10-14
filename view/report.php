@@ -9,9 +9,8 @@
 		<meta name="MSSmartTagsPreventParsing" content="false" />
 		<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold">
-		<link rel="stylesheet" type="text/css" href="static/css/dark.css" />
-		<link rel="alternate stylesheet" title="Light Style" href="static/css/light.css">
-		<link rel="alternate stylesheet" title="Dark Style" href="static/css/dark.css">
+		<link rel="stylesheet" type="text/css" href="static/css/app.css" />
+		<link rel="stylesheet" type="text/css" href="static/css/theme/<?php echo $theme ?>.css" />
 	</head>
 	<body>
 		<div id="app">

@@ -30,22 +30,7 @@ if ($max > 0) {
 	$scaledData = $data;
 }
 
-$skin = 'dark';
-
-$colors = array(
-	'light' => array(
-		'point' => '50741D',
-		'text' => '30303F',
-		'grid' => '30303F',
-		'line' => '84D626',
-	),
-	'dark' => array(
-		'point' => 'E76C19',
-		'text' => 'fefefe',
-		'grid' => '80BDF6',
-		'line' => '50A0FA',
-	),
-);
+require dirname(__FILE__).'/../../static/css/theme/'.$theme.'.php';
 
 // google charting api image parameters
 $imgParams = array(
@@ -57,15 +42,15 @@ $imgParams = array(
 	// margin
 	'chma' => '',
 	// colors and styles
-	'chm' => 'o,'.$colors[$skin]['point'].',0,-1,5', // point style (type,color,index,series,size)
-	'chco' => $colors[$skin]['line'], // line color
+	'chm' => 'o,'.$colors['point'].',0,-1,5', // point style (type,color,index,series,size)
+	'chco' => $colors['line'], // line color
 	'chf' => implode('|', array(
 		'bg,s,65432100', // all chart solid background color
 	)),
 	// axis colors and styles
 	'chxs' => implode('|', array(
-		'0,'.$colors[$skin]['grid'].',9,0,lt',
-		'1,'.$colors[$skin]['grid'].',9',
+		'0,'.$colors['grid'].',9,0,lt',
+		'1,'.$colors['grid'].',9',
 	)),
 	// axis
 	'chxt' => 'x,y',

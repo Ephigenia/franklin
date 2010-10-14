@@ -13,7 +13,7 @@
  */
 
 class_exists('Test') or require dirname(__FILE__).'/Test.php';
-class_exists('Scrape') or require dirname(__FILE__).'/../network/Scraper.php';
+class_exists('Scraper') or require dirname(__FILE__).'/../network/Scraper.php';
 
 /**	
  * This test uses the [Twitter Search API](http://apiwiki.twitter.com/Twitter-Search-API-Method%3A-search) to search

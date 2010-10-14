@@ -126,6 +126,8 @@ to the developers.
 * 2010-10-14
 	* Added Twitter Search API Results counter for recording number of
 	twitter followers, mentions and other stuff.
+	* Added Google Analytics Data API Test for recording pageViews and
+	visits on a google analytics profile
 
 * 2010-10-07
 	* made sure a filename for the data files only contains valid characters

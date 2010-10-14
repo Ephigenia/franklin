@@ -40,6 +40,8 @@ class Franklin extends Object
 	public static $debug = DEBUG_VERBOSE;
 	
 	protected $TestGroups = array();
+	
+	protected $theme = 'light';
 
 	public function __construct()
 	{
@@ -51,7 +53,7 @@ class Franklin extends Object
 	public function showReport()
 	{
 		class_exists('View') or require dirname(__FILE__).'/View.php';
-		$view = new View('report', array('TestGroups' => $this->TestGroups));
+		$view = new View('report', array('TestGroups' => $this->TestGroups, 'theme' => $this->theme));
 		echo $view->render();
 	}
 	
@@ -78,6 +80,9 @@ class Franklin extends Object
 		require $configFilename;
 		if (isset($config['timezone'])) {
 			date_default_timezone_set($config['timezone']);
+		}
+		if (isset($config['theme'])) {
+			$this->theme = $config['theme'];
 		}
 		foreach($config['groups'] as $groupConfig) {
 			$TestGroup = new TestGroup($groupConfig['name'], $groupConfig['host']);

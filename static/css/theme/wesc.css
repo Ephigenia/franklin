@@ -1,0 +1,24 @@
+body {
+	font: normal normal normal 1em/1.5em "Helvetica Neue",Arial,Helvetica,sans-serif;
+	background-color: #000;
+	color: #000;
+	margin: 1em;
+}
+h1 {
+	padding: 0.25em;
+	margin: 0em;
+	background-color: #F9BE07;
+}
+h2 {
+	color: #fff;
+}
+
+.TestGroup {
+	background-color: #0D0D0D;
+}
+.Tests {
+	padding: 0.75em;
+}
+.number {
+	color: #fff;
+}

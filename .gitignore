@@ -1,2 +1,2 @@
-data/*.txt
-config/config.php
+app/data/*.txt
+app/config/config.php

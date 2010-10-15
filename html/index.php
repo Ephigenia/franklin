@@ -9,6 +9,6 @@
  * see README.md file for installation and setup instructions
  */
 
-require_once dirname(__FILE__).'/lib/Franklin.php';
+require_once dirname(__FILE__).'/app/lib/Franklin.php';
 $app = new Franklin();
 $app->showReport();

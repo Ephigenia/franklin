@@ -1,5 +1,10 @@
-@import url("reset.css");
-
+/**
+ * Frankling Base Styles
+ *
+ * @project frankling
+ * @theme default
+ * @@author Marcel Eichner // Ephigenia <love@ephigenia.de>
+ */
 body {
 	font: normal 14px/1.5em 'Droid Sans', arial, serif;
 	color: #666;

@@ -18,11 +18,12 @@ report page.
 # INSTALLATION
 
 1. copy all files into an extra directory in your webspace
-2. make the directory `/data` writable by the user running cron.php (see below)
-3. cp `/config/config.php.dist` to `/config/config.php` and edit it
+2. make the directory `/app/data` writable by the user running cron.php
+(see below)
+3. cp `/app/config/config.php.dist` to `/app/config/config.php` and edit it
 4. create a cron job that calls cron.php periodically (e.g. every 10mins)  
    example: `*/10 * * * * user  php5 -f /path/to/cron.php 2>&1 > /dev/null`
-5. open the Franklin root directory in your webbrowser to see the reports
+5. open the Franklin html directory in your webbrowser to see the reports
 
 # TESTS
 
@@ -123,7 +124,11 @@ to the developers.
 
 # Changelog
 
-* 2010-10-14
+* 2010-10-15
+	* Devided Back and Frontend, set your webroot to `/html/` directory! Also
+	take care that the data directory change, copy your data files there!
+	* Refactored project structure to have one public html directory
+	* Refactored theming
 	* Added Twitter Search API Results counter for recording number of
 	twitter followers, mentions and other stuff.
 	* Added Google Analytics Data API Test for recording pageViews and

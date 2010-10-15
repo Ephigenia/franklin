@@ -128,7 +128,7 @@ to the developers.
 	* Devided Back and Frontend, set your webroot to `/html/` directory! Also
 	take care that the data directory change, copy your data files there!
 	* Refactored project structure to have one public html directory
-	* Refactored theming
+	* Refactored theming and added 3 themes!
 	* Added Twitter Search API Results counter for recording number of
 	twitter followers, mentions and other stuff.
 	* Added Google Analytics Data API Test for recording pageViews and

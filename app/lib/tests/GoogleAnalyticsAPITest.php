@@ -28,7 +28,7 @@ class GoogleAnalyticsAPITest extends Test
 	
 	public function run()
 	{
-		class_exists('gapi') or require dirname(__FILE__).'/../../vendor/gapi/gapi.class.php';
+		class_exists('gapi') or require dirname(__FILE__).'/../../../vendor/gapi/gapi.class.php';
 		$ga = new gapi($this->email, $this->password);
 		$ga->requestReportData($this->profile_id,
 			array('date'),

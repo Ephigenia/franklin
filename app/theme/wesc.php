@@ -1,33 +1,22 @@
 body {
 	font: normal normal normal 1em/1.5em "Helvetica Neue",Arial,Helvetica,sans-serif;
 	background-color: #000;
-	color: #000;
-	margin: 1em;
-}
-h1 {
-	padding: 0.25em;
-	margin: 0em;
-	background-color: #F9BE07;
-}
-h2 {
 	color: #fff;
 }
-
+a, .number {
+	color: #fff;
+}
 .TestGroup {
 	background-color: #0D0D0D;
 	border: 1px solid #F9BE07;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-khtml-border-radius: 5px;
 }
-.Tests {
-	padding: 0.75em;
+.TestGroup h1 {
+	text-transform: uppercase;
+	color: #000;
+	background: #F9BE07;
 }
-.number {
+h2 {
 	color: #fff;
-}
-#footer {
-	font-size: 0.75em;
 }
 <?php
 

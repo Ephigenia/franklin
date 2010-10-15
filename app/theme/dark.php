@@ -1,16 +1,28 @@
 body {
-	background: #000000;
+	background: #000;
+	color: #fff;
 }
-h1, h1 a, h2, h2 a, h3, h3 a {
-	color: #E9E9E9;
+a {
+	color: #fff;
 }
+.TestGroup {
+	background-color: #0B0B0B;
+	border: 1px solid #262626;
+}
+.TestGroup h1 {
+	background: #262626;
+}
+h2 {
+	color: #efefef;
+}
+
 <?php
 
 require dirname(__FILE__).'/default.php';
 
 class Theme extends DefaultTheme
 {
-	public $point = 'E76C19';
+	public $point = 'F69400';
 	public $text = 'fefefe';
 	public $grid = '80BDF6';
 	public $line = '50A0FA';

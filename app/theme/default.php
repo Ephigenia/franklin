@@ -15,7 +15,3 @@ class DefaultTheme
 	
 	public $line = '6C6C6C';
 }
-
-if (basename($_SERVER['PHP_SELF']) == 'index.php') {
-	class Theme extends DefaultTheme {};
-}

@@ -55,7 +55,7 @@ h2 {
 	margin: 0px 1em 1em 0px;
 	overflow: hidden;
 }
-.TestGroup ul.Tests li.Test .number {
+.number {
 	display: block;
 	font-weight: bold;
 	line-height: 82%;
@@ -63,8 +63,9 @@ h2 {
 li.number .chart {
 	display: none;
 }
-li.number:hover .number {
+li.number:hover div.number {
 	display: none;
+	alpha: 0;
 }
 li.number:hover .chart {
 	display: table;

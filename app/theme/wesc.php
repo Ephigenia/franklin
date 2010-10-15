@@ -29,3 +29,14 @@ h2 {
 #footer {
 	font-size: 0.75em;
 }
+<?php
+
+require dirname(__FILE__).'/default.php';
+
+class Theme extends DefaultTheme
+{
+	public $point = 'F9BE07';
+	public $text = 'efefef';
+	public $grid = 'efefef';
+	public $line = 'efefef';
+}

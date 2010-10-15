@@ -30,7 +30,7 @@ if ($max > 0) {
 	$scaledData = $data;
 }
 
-require dirname(__FILE__).'/../../static/css/theme/'.$theme.'.php';
+$theme = new Theme();
 
 // google charting api image parameters
 $imgParams = array(
@@ -38,19 +38,19 @@ $imgParams = array(
 	'cht' => 'lc',
 	'chd' => 't:'.implode(',', $scaledData),
 	// size
-	'chs' => '275x135',
+	'chs' => $theme->chartSize[0].'x'.$theme->chartSize[1],
 	// margin
 	'chma' => '',
 	// colors and styles
-	'chm' => 'o,'.$colors['point'].',0,-1,5', // point style (type,color,index,series,size)
-	'chco' => $colors['line'], // line color
+	'chm' => 'o,'.$theme->point.',0,-1,5', // point style (type,color,index,series,size)
+	'chco' => $theme->line, // line color
 	'chf' => implode('|', array(
 		'bg,s,65432100', // all chart solid background color
 	)),
 	// axis colors and styles
 	'chxs' => implode('|', array(
-		'0,'.$colors['grid'].',9,0,lt',
-		'1,'.$colors['grid'].',9',
+		'0,'.$theme->grid.',9,0,lt',
+		'1,'.$theme->grid.',9',
 	)),
 	// axis
 	'chxt' => 'x,y',

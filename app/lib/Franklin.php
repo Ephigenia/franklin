@@ -17,8 +17,8 @@ class_exists('TestGroup') or require dirname(__FILE__).'/TestGroup.php';
 class_exists('Log') or require dirname(__FILE__).'/Log.php';
 
 define('DEBUG_PRODUCTION',	0);
-define('DEBUG_DEBUG',		1);
-define('DEBUG_VERBOSE',		2);
+define('DEBUG_DEBUG', 1);
+define('DEBUG_VERBOSE',	2);
 
 define('LF', chr(10));
 
@@ -41,7 +41,7 @@ class Franklin extends Object
 	
 	protected $TestGroups = array();
 	
-	protected $theme = 'light';
+	protected $themeFilename = 'light';
 
 	public function __construct()
 	{
@@ -53,7 +53,7 @@ class Franklin extends Object
 	public function showReport()
 	{
 		class_exists('View') or require dirname(__FILE__).'/View.php';
-		$view = new View('report', array('TestGroups' => $this->TestGroups, 'theme' => $this->theme));
+		$view = new View('report', array('TestGroups' => $this->TestGroups, 'themeFilename' => $this->themeFilename));
 		echo $view->render();
 	}
 	
@@ -82,7 +82,13 @@ class Franklin extends Object
 			date_default_timezone_set($config['timezone']);
 		}
 		if (isset($config['theme'])) {
-			$this->theme = str_replace('@[^A-Za-z0-9-_]+@', '', $config['theme']);
+			$theme = str_replace('@[^A-Za-z0-9-_]+@', '', $config['theme']);
+			$themeFile = dirname(__FILE__).'/../theme/'.$theme.'.php';
+			if (file_exists($themeFile)) {
+				$this->themeFilename = $themeFile;
+			} else {
+
+			}
 		}
 		foreach($config['groups'] as $groupConfig) {
 			$TestGroup = new TestGroup($groupConfig['name'], $groupConfig['host']);

@@ -5,6 +5,7 @@ FRANKLIN, ToDo-File
 General:
 ✓ Devide Back and Frontend
 ✓ create documentation for every test (which config vars etc.)
+- Make Theme switchable from the frontend
 
 Configuration File:
 - Check if other configuration file format is cooler? (YAML or XML?)

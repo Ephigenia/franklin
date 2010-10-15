@@ -1,0 +1,77 @@
+/**
+ * Frankling Base Styles
+ *
+ * @project frankling
+ * @theme default
+ * @@author Marcel Eichner // Ephigenia <love@ephigenia.de>
+ */
+body {
+	font: normal 14px/1.5em 'Droid Sans', arial, serif;
+	color: #666;
+	margin: 1em;
+	padding: 0em;
+}
+ul, li, h1, h2 {
+	margin: 0px;
+	padding: 0px;
+}
+a {
+	color: #000;
+}
+
+h2 {
+	font-size: 1em;
+	line-height: 1.5em;
+	margin: 0em 0em 0.5em 0em;
+	border-bottom: 1px solid rgba(128,128,128,0.4);
+}
+
+.TestGroup {
+	border: 1px solid #000;
+	margin: 0em 0em 1em 0em;
+	padding: 0em;
+	background-color: #EDEDED;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+}
+.TestGroup h1 {
+	color: #fff;
+	text-shadow: rgba(120,120,120,0.4) 1px 1px 2px;
+	font-weight: bold;
+	font-size: 2em;
+	line-height: 1.25em;
+	padding: 0.125em 0.25em;
+	margin: 0em;
+	background-color: #000;
+}
+.TestGroup ul.Tests {
+	margin: 1em 1em 0em 1em;
+}
+.TestGroup ul.Tests li.Test {
+	display: inline-block;
+	width: 275px;
+	height: 160px;
+	margin: 0px 1em 1em 0px;
+	overflow: hidden;
+}
+.TestGroup ul.Tests li.Test .number {
+	display: block;
+	font-weight: bold;
+	line-height: 82%;
+}
+li.number .chart {
+	display: none;
+}
+li.number:hover .number {
+	display: none;
+}
+li.number:hover .chart {
+	display: table;
+}
+
+#footer {
+	margin-top: 2em;
+	border-top: 1px solid #666;
+	padding-top: 0.25em;
+}

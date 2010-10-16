@@ -124,7 +124,7 @@ to the developers.
 
 # Changelog
 
-* 2010-10-15
+* 2010-10-16
 	* Devided Back and Frontend, set your webroot to `/html/` directory! Also
 	take care that the data directory change, copy your data files there!
 	* Refactored project structure to have one public html directory
@@ -133,6 +133,8 @@ to the developers.
 	twitter followers, mentions and other stuff.
 	* Added Google Analytics Data API Test for recording pageViews and
 	visits on a google analytics profile
+	* Fixed Feedburner Tests by accessing data that is 2 days old instead of
+	1 day old which was just 0 all the time
 
 * 2010-10-07
 	* made sure a filename for the data files only contains valid characters

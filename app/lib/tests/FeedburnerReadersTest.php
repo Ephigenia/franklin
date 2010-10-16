@@ -25,7 +25,13 @@ class FeedburnerReadersTest extends ScrapeTest
 {	
 	public function afterConstruct()
 	{
-		$this->url = 'https://feedburner.google.com/api/awareness/1.0/GetFeedData?uri='.urlencode($this->uri); 
+		$params = array(
+			'uri' => $this->uri,
+			// we have to access data that is 2 days old, 1 day old is sometimes and often just 0!!
+			'dates' => date('Y-m-d', strtotime('-2 days')).','.date('Y-m-d', strtotime('-2 days')),
+		);
+		$this->url = 'https://feedburner.google.com/api/awareness/1.0/GetFeedData?'.http_build_query($params, '', '&');
+		die(var_dump($this->url));
 		$this->regexp = '@circulation="(\d+)"@i';
 		return parent::afterConstruct();
 	}

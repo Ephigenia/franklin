@@ -31,7 +31,6 @@ class FeedburnerReadersTest extends ScrapeTest
 			'dates' => date('Y-m-d', strtotime('-2 days')).','.date('Y-m-d', strtotime('-2 days')),
 		);
 		$this->url = 'https://feedburner.google.com/api/awareness/1.0/GetFeedData?'.http_build_query($params, '', '&');
-		die(var_dump($this->url));
 		$this->regexp = '@circulation="(\d+)"@i';
 		return parent::afterConstruct();
 	}

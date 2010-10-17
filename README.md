@@ -124,6 +124,10 @@ to the developers.
 
 # Changelog
 
+* 2010-10-17
+	* added night and fancy_dark theme
+	* removed grid color from themes cause it wasn’t used
+	
 * 2010-10-16
 	* Devided Back and Frontend, set your webroot to `/html/` directory! Also
 	take care that the data directory change, copy your data files there!

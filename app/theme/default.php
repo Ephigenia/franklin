@@ -11,7 +11,5 @@ class DefaultTheme
 	
 	public $text = '30303F';
 	
-	public $grid = '30303F';
-	
 	public $line = '6C6C6C';
 }

@@ -36,14 +36,12 @@ h2 {
 	-khtml-border-radius: 5px;
 }
 .TestGroup h1 {
-	color: #fff;
 	text-shadow: rgba(120,120,120,0.4) 1px 1px 2px;
 	font-weight: bold;
 	font-size: 2em;
 	line-height: 1.25em;
 	padding: 0.125em 0.25em;
 	margin: 0em;
-	background-color: #000;
 }
 .TestGroup ul.Tests {
 	margin: 1em 1em 0em 1em;

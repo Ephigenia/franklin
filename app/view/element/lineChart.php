@@ -45,12 +45,12 @@ $imgParams = array(
 	'chm' => 'o,'.$theme->point.',0,-1,5', // point style (type,color,index,series,size)
 	'chco' => $theme->line, // line color
 	'chf' => implode('|', array(
-		'bg,s,65432100', // all chart solid background color
+		'bg,s,65432100', // all chart solid background color transparent
 	)),
 	// axis colors and styles
 	'chxs' => implode('|', array(
-		'0,'.$theme->grid.',9,0,lt',
-		'1,'.$theme->grid.',9',
+		'0,'.$theme->text.',9,0,lt',
+		'1,'.$theme->text.',9',
 	)),
 	// axis
 	'chxt' => 'x,y',

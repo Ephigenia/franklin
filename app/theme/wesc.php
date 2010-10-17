@@ -16,6 +16,7 @@ a, .number {
 	background: #F9BE07;
 }
 h2 {
+	font-size: 0.8em;
 	color: #fff;
 }
 <?php
@@ -26,6 +27,5 @@ class Theme extends DefaultTheme
 {
 	public $point = 'F9BE07';
 	public $text = 'efefef';
-	public $grid = 'efefef';
 	public $line = 'efefef';
 }

@@ -7,6 +7,9 @@ h1, h2, a, .number {
 .TestGroup {
 	border: 1px solid #20345D;
 	background-color: #fff;
+	-moz-box-shadow: 0px 0px 10px #000;
+	-webkit-box-shadow: 0px 0px 5px #000;
+	box-shadow: 0px 0px 5px #7A7A7A;
 }
 .TestGroup h1 {
 	color: #fff;
@@ -23,8 +26,6 @@ class Theme extends DefaultTheme
 	public $point = '20345D';
 	
 	public $text = '30303F';
-	
-	public $grid = '30303F';
 	
 	public $line = '6C6C6C';
 }

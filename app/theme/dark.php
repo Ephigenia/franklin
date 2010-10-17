@@ -24,6 +24,5 @@ class Theme extends DefaultTheme
 {
 	public $point = 'F69400';
 	public $text = 'fefefe';
-	public $grid = '80BDF6';
 	public $line = '50A0FA';
 }

@@ -117,10 +117,12 @@ example.
 
 ## Vimeo Video
 
-This test uses the Vimeo Simple API and retrieves stats about a vimeo video.
+This test uses the [Vimeo Simple API](http://vimeo.com/api/docs/simple-api)
+to record various values for a single video.
 
-* `videoID` Vimeo Video ID
-* `property` Reads 'stats_number_of_plays', 'stats_number_of_likes' or 'stats_number_of_comments'
+* `videoID` Vimeo Video ID, get this from the embed code or link to the video
+* `property` Property that should be recorded. `stats_number_of_plays`, 
+  `stats_number_of_likes` or `stats_number_of_comments`
 
 # UPDATES/FEEDBACK
 
@@ -131,6 +133,10 @@ to the developers.
 
 # Changelog
 
+* 2010-10-19
+	* Added Test using Vimeo Api that can record number of plays, likes and
+	comments of a video
+	
 * 2010-10-17
 	* added night and fancy_dark theme
 	* removed grid color from themes cause it wasn’t used

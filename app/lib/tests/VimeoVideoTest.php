@@ -15,21 +15,19 @@
 class_exists('ScrapeTest') or require dirname(__FILE__).'/ScrapeTest.php';
 
 /**
- * A {@link Test}A that records properties (likes, plays, comments) from Vimeo
+ * A {@link Test} A that records properties (likes, plays, comments) from Vimeo
  *
  * @package Franklin
  * @subpackage Franklin.Test
- * @author Ephigenia // Martin Fleck <m.fleck@extrajetzt.de>
+ * @author Martin Fleck <m.fleck@extrajetzt.de>
  * @since 2010-10-19
  */
 class VimeoVideoTest extends ScrapeTest
 {
-
 	public function afterConstruct()
 	{
-		$this->url = 'http://vimeo.com/api/v2/video/' . $this->videoID . '.xml';
-		$this->regexp = '@<' . $this->property . '>(.*)</' . $this->property . '>@';
+		$this->url = 'http://vimeo.com/api/v2/video/'.$this->videoID.'.xml';
+		$this->regexp = '@<'.preg_quote($this->property, '@').'>(.*)</'.preg_quote($this->property, '@').'>@';
 		return parent::afterConstruct();
 	}
-
 }

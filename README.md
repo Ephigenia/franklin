@@ -13,7 +13,7 @@ report page.
 # REQUIREMENTS
 
 * PHP 5.2 or later
-* PHP Curl module (e.g. "php5-curl" package) 
+* PHP Curl module (e.g. "php5-curl" package)
 
 # INSTALLATION
 
@@ -21,14 +21,14 @@ report page.
 2. make the directory `/app/data` writable by the user running cron.php
 (see below)
 3. cp `/app/config/config.php.dist` to `/app/config/config.php` and edit it
-4. create a cron job that calls cron.php periodically (e.g. every 10mins)  
+4. create a cron job that calls cron.php periodically (e.g. every 10mins)
    example: `*/10 * * * * user  php5 -f /path/to/cron.php 2>&1 > /dev/null`
 5. open the Franklin html directory in your webbrowser to see the reports
 
 # TESTS
 
 * `name` Optional name for a test, used also as chart title
-* `interval` time interval between checks for the current test.  
+* `interval` time interval between checks for the current test.
   f.e. `+1 day`, `+30 minutes` or shorter `2h`
 
 ## Facebook Group Fan Count
@@ -58,7 +58,7 @@ Make sure you enabled the Awareness API in the Feedburner configuration.
 ## Google Results Count
 
 Number of results on a google search query. You can use this to get the number
-of indexed pages or backlinks to your website that are known to google. You 
+of indexed pages or backlinks to your website that are known to google. You
 also can make up custom queries.
 
 * `search` query to search
@@ -85,7 +85,7 @@ specific by using the needed parameters.
 
 Get the position on lesercharts.de depending on the url of the website.
 
-* `search` Name of the entry on lesercharts.de, it’s usually the name in the 
+* `search` Name of the entry on lesercharts.de, it’s usually the name in the
   first column
 
 ## Twitter Followers Count
@@ -93,7 +93,7 @@ Get the position on lesercharts.de depending on the url of the website.
 Detect the number of followers of a twitter user
 
 * `username` name of the twitter user to check, not the real name of the user
-  name is the uri part in the twitter profile url.  
+  name is the uri part in the twitter profile url.
   f.e. `www.twitter.com/horrorblogorg` -> `username` would be `horrorblogorg`
 
 ## Twitter Search API Results Count
@@ -105,7 +105,7 @@ number of results found.
 
 * `q` Query search, parameter, check the Twitter Search API for examples
 * `since` Since parameter to limit search results for since a date, a week
-  or some days are recommended.  
+  or some days are recommended.
 * `geocode`
 * `locale`
 
@@ -114,6 +114,13 @@ number of results found.
 This for now rather basic test exports pageViews or visits from google
 analytics data to franklin. Please see the `config.php.dist` file for an
 example.
+
+## Vimeo Video
+
+This test uses the Vimeo Simple API and retrieves stats about a vimeo video.
+
+* `videoID` Vimeo Video ID
+* `property` Reads 'stats_number_of_plays', 'stats_number_of_likes' or 'stats_number_of_comments'
 
 # UPDATES/FEEDBACK
 
@@ -127,7 +134,7 @@ to the developers.
 * 2010-10-17
 	* added night and fancy_dark theme
 	* removed grid color from themes cause it wasn’t used
-	
+
 * 2010-10-16
 	* Devided Back and Frontend, set your webroot to `/html/` directory! Also
 	take care that the data directory change, copy your data files there!
@@ -145,7 +152,7 @@ to the developers.
 
 * 2010-08-21
 	* Added possibility to add display configiration for tests
-	* Some tests have `number` as their default display (rollover shows 
+	* Some tests have `number` as their default display (rollover shows
 	chart)
 	* chart data is shiftet to minimum to see progress zoomed
 
@@ -157,7 +164,7 @@ to the developers.
 	* Added google SERP (Search Engine Results Page) Test that can test on
 	  which position your site is on when you search for a term in a country
 	  and language, see the example on how to configure it.
-	* Also added a very simple and static Log class that logs the results of 
+	* Also added a very simple and static Log class that logs the results of
 	  all tests when in DEBUG_DEBUG or larger, modify your Franling::$debug
 	  if you want to surpress the messages.
 	* Fixed bug where chart was not rendered when chart title inclueded a
@@ -167,7 +174,7 @@ to the developers.
 	* Added Test that records the number of facebook group members
 	* Fixed Twitterfollowers Regexp
 	* Added some documentation for some of the most used Tests
-	
+
 * 2010-06-15
 	* Fixed bug when no data available (empty charts)
 	* Deleted old charting classes in `lib/chart`
@@ -175,7 +182,7 @@ to the developers.
 * 2010-06-09
 	* Updated all charts to use google chart API instead of own library
 	* Added light and dark skin that can be changed by hand
-	
+
 * 2010-05-15
 	* Fixed Google Results Count Test using Google Ajax REST API now
 	* Fixed Alexa Site Rank test

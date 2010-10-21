@@ -6,9 +6,9 @@ FRANKLIN, Readme File
 
 # DESCRIPTION
 
-Franklin is a very basic PHP5-script that collects data from various tests that
-you’ve configured from websites and services for a later display as charts in a
-report page.
+Franklin is a very basic PHP5-script that collects data from various tests
+that you’ve configured from websites and services for a later display as
+charts in a report page. See a [live demo](http://franklin.marceleichner.de/).
 
 # REQUIREMENTS
 
@@ -21,21 +21,21 @@ report page.
 2. make the directory `/app/data` writable by the user running cron.php
 (see below)
 3. cp `/app/config/config.php.dist` to `/app/config/config.php` and edit it
-4. create a cron job that calls cron.php periodically (e.g. every 10mins)
+4. create a cron job that calls cron.php periodically (e.g. every 10mins)  
    example: `*/10 * * * * user  php5 -f /path/to/cron.php 2>&1 > /dev/null`
 5. open the Franklin html directory in your webbrowser to see the reports
 
 # TESTS
 
 * `name` Optional name for a test, used also as chart title
-* `interval` time interval between checks for the current test.
+* `interval` time interval between checks for the current test.  
   f.e. `+1 day`, `+30 minutes` or shorter `2h`
 
 ## Facebook Group Fan Count
 
-Detect the number of fans of a facebook group or page. This uses the open graph
-API and therefore the page must be public (not set to private and no age-
-restriction).
+Detect the number of fans of a facebook group or page. This uses the open
+graph API and therefore the page must be public (not set to private and no
+age-restriction).
 
 * `groupId` id or name of the facebook group or page, copy the id or name from
 the uri when you’re on the facbeook page
@@ -61,7 +61,7 @@ Number of results on a google search query. You can use this to get the number
 of indexed pages or backlinks to your website that are known to google. You
 also can make up custom queries.
 
-* `search` query to search
+* `search` query to search  
   f.e. `site:www.horrorblog.org` or `link:www.horrorblog.org`
 
 ## Google SERP
@@ -74,9 +74,9 @@ specific by using the needed parameters.
 
 * `search` the term you want to search for, usually a keyword you want to track
 * `language` optional 2-letter language code you want to search in, i.e. `de`
-  or `en`
+or `en`
 * `country` optional additional country code you want to search in, this is
- automatically the same as language
+automatically the same as language
 * `save` optional save mode parameter that can be one of the 3 options
   specified in the google search api documentation: `active`, `moderate` and
   `off`, default is `active`
@@ -93,7 +93,7 @@ Get the position on lesercharts.de depending on the url of the website.
 Detect the number of followers of a twitter user
 
 * `username` name of the twitter user to check, not the real name of the user
-  name is the uri part in the twitter profile url.
+  name is the uri part in the twitter profile url.  
   f.e. `www.twitter.com/horrorblogorg` -> `username` would be `horrorblogorg`
 
 ## Twitter Search API Results Count

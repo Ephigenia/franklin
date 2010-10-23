@@ -56,7 +56,6 @@ class ScrapeTest extends Test
 				$this->result = (float) $this->result;
 			}
 		}
-		die(var_dump($this->result));
 		return $this->result;
 	}
 }

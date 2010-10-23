@@ -15,21 +15,21 @@
 class_exists('ScrapeTest') or require dirname(__FILE__).'/ScrapeTest.php';
 
 /**
- * A {@link Test} that records the number of followers of a twitter user
+ * Test for scraping the score from wikio.de
  * 	
  * @package Franklin
  * @subpackage Franklin.Test
  * @author Ephigenia // Marcel Eichner <love@ephigenia.de>
- * @since 2009-10-13
+ * @since 2010-10-23
  */
-class TwitterFollowersTest extends ScrapeTest
+class WikioScoreTest extends ScrapeTest
 {
 	public $display = 'number';
 	
 	public function afterConstruct()
 	{
-		$this->url = 'http://www.twitter.com/'.urlencode($this->username); 
-		$this->regexp = '@id="follower_count" class="stats_count numeric">([\d+.,]+)\s*</span>@i';
+		$this->url = 'http://www.wikio.de/sources/'.$this->uri;
+		$this->regexp = '@wikio-score:[^\d]+([0-9.]+)@is';
 		return parent::afterConstruct();
 	}
 }

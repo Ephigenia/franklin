@@ -124,6 +124,15 @@ to record various values for a single video.
 * `property` Property that should be recorded. `stats_number_of_plays`, 
   `stats_number_of_likes` or `stats_number_of_comments`
 
+## Wikio Score
+
+Wikio is a german website that gives scores to websites based on visitors, 
+comments and activity. It scrapes the content of the detail page and records
+the numeric score. You just need to get the right uri part of the url.
+
+* `uri`, for `http://www.wikio.de/sources/www.horrorblog.org-aeK1` it would be
+  `www.horrorblog.org-aeK1`
+
 # UPDATES/FEEDBACK
 
 Franklin will be updated from time to time. Check the official [Franklin
@@ -132,6 +141,10 @@ page](http://github.com/Ephigenia/franklin) for updates, new tests or contact
 to the developers.
 
 # Changelog
+
+* 2010-10-23
+	* Added Wikio Score test that records the score from wikio.de for a
+	specific id
 
 * 2010-10-19
 	* Added Test using Vimeo Api that can record number of plays, likes and

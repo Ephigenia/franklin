@@ -35,6 +35,8 @@ class Franklin extends Object
 	
 	const APPVERSION = '0.21';
 	
+	const DEFAULTTHEME = 'light';
+	
 	public static $CLIMODE = false;
 	
 	public static $debug = DEBUG_VERBOSE;
@@ -87,9 +89,12 @@ class Franklin extends Object
 			if (file_exists($themeFile)) {
 				$this->themeFilename = $themeFile;
 			} else {
-
+				$this->themeFilename = dirname(__FILE__).'/../theme/'.self::DEFAULTTHEME.'.php';
 			}
+		} else {
+				$this->themeFilename = dirname(__FILE__).'/../theme/'.self::DEFAULTTHEME.'.php';
 		}
+		
 		foreach($config['groups'] as $groupConfig) {
 			$TestGroup = new TestGroup($groupConfig['name'], $groupConfig['host']);
 			// add tests to group

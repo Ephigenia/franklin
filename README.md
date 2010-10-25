@@ -142,6 +142,9 @@ to the developers.
 
 # Changelog
 
+* 2010-10-25
+	* Enforcing default theme "light" when no or broken theme is set
+
 * 2010-10-23
 	* Added Wikio Score test that records the score from wikio.de for a
 	specific id

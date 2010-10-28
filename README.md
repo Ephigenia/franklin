@@ -22,7 +22,7 @@ charts in a report page. See a [live demo](http://franklin.marceleichner.de/).
 (see below)
 3. cp `/app/config/config.php.dist` to `/app/config/config.php` and edit it
 4. create a cron job that calls cron.php periodically (e.g. every 10mins)  
-   example: `*/10 * * * * user  php5 -f /path/to/cron.php 2>&1 > /dev/null`
+   example: `*/10 * * * * user  php5 -f /abs/app/cron.php 2>&1 > /dev/null`
 5. open the Franklin html directory in your webbrowser to see the reports
 
 # TESTS
@@ -124,6 +124,13 @@ to record various values for a single video.
 * `property` Property that should be recorded. `stats_number_of_plays`,
   `stats_number_of_likes` or `stats_number_of_comments`
 
+## Youtube Video Views
+
+Simple test that records the number of views of a video on
+ [Youtube](http://www.youtube.com).
+
+* `videoID` id of the video on youtube, get this from the url of the video
+
 ## Wikio Score
 
 Wikio is a german website that gives scores to websites based on visitors, 
@@ -141,6 +148,10 @@ page](http://github.com/Ephigenia/franklin) for updates, new tests or contact
 to the developers.
 
 # Changelog
+
+* 2010-10-28
+	* Added Youtube Video Views Test that records the number of views of a
+	youtube video
 
 * 2010-10-25
 	* Enforcing default theme "light" when no or broken theme is set

@@ -14,6 +14,8 @@ Stats:
 - If only one datapoint available, show only this datapoint not nothing
 ✓ Alter data point values if they are very high, displaying 5000-5100 only the 0-100 steps
 - Make config that can update a test more often but saves only the max value per day. Make possible to update a value in the stats in shorter intervals than a day. (i.e. Mite Time Tracking, Visitors/day)
+- Make combination of tests possible
+- Make flexible layout and graph sizes possible through configuration or layout file
 
 Tests:
 - Techcrunch Rank

@@ -23,3 +23,4 @@ Tests:
 - Create Option to ignore zero or very high values (nicer stats)
 - GitHub Repo information (http://develop.github.com/p/repo.html)
 - Mite Time Tracking Report
+- Twitter Tweets Counter: http://urls.api.twitter.com/1/urls/count.json?url=www.horrorblog.org

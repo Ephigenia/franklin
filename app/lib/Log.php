@@ -12,15 +12,29 @@
  * @filesource
  */
 
-class_exists('Object') or require dirname(__FILE__).'/Object.php';
+
+
+define('DEBUG_PRODUCTION',	0);
+define('DEBUG_DEBUG', 1);
+define('DEBUG_VERBOSE',	2);
+
+define('LF', chr(10));
+
+// SET ERROR Reporting
+if (Log::$debug > DEBUG_PRODUCTION) {
+	error_reporting(E_ALL + E_STRICT);
+	ini_set('display_errors', 'yes');
+	ini_set('display_startup_errors', 'yes');
+} else {
+	error_reporting(0);
+}
 
 /**
- * Simple Log Class
  * @package Franklin
  * @author Marcel Eichner // Ephigenia <love@ephigenia.de>
  * @since 2010-06-20
  */
-class Log extends Object
+class Log
 {
 	public static $level = 0;
 	

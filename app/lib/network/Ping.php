@@ -53,5 +53,4 @@ class Ping
 		}	
 		return $this->ping;
 	}
-	
-} // END Ping class
+}

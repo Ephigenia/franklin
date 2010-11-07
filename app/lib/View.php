@@ -12,56 +12,48 @@
  * @filesource
  */
 
-class_exists('Object') or require dirname(__FILE__).'/Object.php';
-
 /**
  * @package Franklin
  * @author Ephigenia // Marcel Eichner <love@ephigenia.de>
  * @since 19.05.2009
  */
-class View extends Object
-{	
-	/**
-	 * Filename
-	 * 	@var string
-	 */
-	protected $name;
-	
-	/**
-	 * view data
-	 * 	@var array(string)
-	 */
+class View
+{
 	protected $data = array();
 	
-	protected $filename; 
+	protected $filename;
 	
-	public function __construct($name, Array $data = array())
+	public function __construct($filename, Array $data = array())
 	{
-		$this->filename = $this->detectViewDir().$name.'.php';
-		if (!file_exists($this->filename) || !is_file($this->filename)) {
-			throw new ViewFileNotFoundException($this->filename);
-		}
+		$this->filename($filename);
 		$this->data = $data;
 		return $this;
 	}
 	
-	protected function detectViewDir()
+	protected function exists()
 	{
-		return realpath(dirname(__FILE__).'/../view/').'/';
+		return is_file($this->filename);
 	}
 	
-	public function element($elementName, Array $data = array())
+	public function filename($filename)
 	{
-		class_exists('Element') or require dirname(__FILE__).'/Element.php';
-		$subView = new Element($elementName, array_merge($this->data, $data));
-		return $subView->render();
+		$this->filename = sprintf(realpath(__DIR__.'/../view/').'/%s.php', $filename);
+		if (!$this->exists()) {
+			throw new ViewFileNotFoundException($this->filename);
+		}
+	}
+	
+	protected function element($name, Array $data = array())
+	{
+		class_exists('Element') or require __DIR__.'/Element.php';
+		return new Element($name, array_merge_recursive($this->data, $data));
 	}
 	
 	/**
 	 * Renders the view by using the $data variables in it and returns the result
 	 * 	@return string
 	 */
-	public function render()
+	public function __toString()
 	{
 		foreach($this->data as $key => $value) {
 			${$key} = $value;
@@ -72,5 +64,20 @@ class View extends Object
 	}
 }
 
-class ViewException extends BasicException {}
-class ViewFileNotFoundException extends ViewException {}
+/**
+ * @package Franklin
+ * @subpackage Exceptions
+ */
+class ViewException extends Exception {}
+
+/**
+ * @package Franklin
+ * @subpackage Exceptions
+ */
+class ViewFileNotFoundException extends Exception
+{
+	public function __construct($filename)
+	{
+		return parent::__construct(sprintf('View file "%s" could not be found', $filename));
+	}
+}

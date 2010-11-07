@@ -12,8 +12,6 @@
  * @filesource
  */
 
-class_exists('Object') or require dirname(__FILE__).'/../Object.php';
-
 /**
  * 	CURL Wrapper Class
  * 
@@ -33,7 +31,7 @@ class_exists('Object') or require dirname(__FILE__).'/../Object.php';
  * 	@author Marcel Eichner // Ephigenia <love@ephigenia.de>
  * 	@since 11.11.2008
  */
-class CURL extends Object
+class CURL
 {	
 	private $handle;
 	
@@ -115,34 +113,14 @@ class CURL extends Object
 	 */
 	public function __construct($url = null, Array $options = array())
 	{
-		if ($url !== null) {
-			$this->handle = curl_init($url);
-			$this->url = $url;
+		if (function_exists('curl_init')) {
+			throw new CURLNotAvailableException();
 		}
-		if (!empty($options)) {
-			$this->fromArray($options);
-		}
-		return $this;
-	}
-	
-	/**
-	 * @param array(string)
-	 */
-	public function fromArray(Array $options = array())
-	{
-		foreach($options as $key => $value) {
-			$this->{$key} = $value;
+		$this->url = $url;
+		foreach($options as $k => $v) {
+			$this->$k = $v;
 		}
 		return $this;
-	}
-	
-	/**
-	 * Tests if CURL is available in this php version
-	 * 	@return boolean
-	 */
-	public static function available()
-	{
-		return function_exists('curl_init');
 	}
 	
 	/**
@@ -201,17 +179,23 @@ class CURL extends Object
 		return curl_exec($this->handle);
 	}
 	
-	public function __destroy() {
+	public function __destroy()
+	{
 		curl_close($this->handle);
-	}
-	
-} // END CURL class
+	}	
+}
 
 /**
  * 	@package Franklin
  * 	@subpackage Franklin.Exception
  */
-class CURLException extends BasicException {}
+class CURLException extends Exception {}
+
+/**
+ * 	@package Franklin
+ * 	@subpackage Franklin.Exception
+ */
+class CURLNotAvailableException extends CURLException {}
 
 /**
  * 	@package Franklin

@@ -12,17 +12,18 @@
  * @filesource
  */
 
-class_exists('View') or require dirname(__FILE__).'/View.php';
+class_exists('View') or require __DIR__.'/View.php';
 
 /**
+ * 
  * @package Franklin
  * @author Ephigenia // Marcel Eichner <love@ephigenia.de>
  * @since 19.05.2009
  */
 class Element extends View
 {
-	protected function detectViewDir()
+	public function __construct($filename, Array $data = array())
 	{
-		return realpath(dirname(__FILE__).'/../view/element/').'/';
-	}	
+		return parent::__construct('element/'.$filename, $data);
+	}
 }

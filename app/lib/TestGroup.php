@@ -21,7 +21,7 @@
  * @author Ephigenia // Marcel Eichner <love@ephigenia.de>
  * @since 19.05.2009
  */
-class TestGroup extends Object implements Countable, Iterator
+class TestGroup implements Countable, Iterator
 {
 	/**
 	 * name of testing group
@@ -107,13 +107,13 @@ class TestGroup extends Object implements Countable, Iterator
 
 /**
  * @package Franklin
- * @subpackage Franklin.exceptions
+ * @subpackage Franklin.exception
  */
-class TestGroupException extends BasicException {}
+class TestGroupException extends Exception {}
 
 /**
  * @package Franklin
- * @subpackage Franklin.exceptions
+ * @subpackage Franklin.exception
  */
 class TestFileNotFoundException extends TestGroupException
 {
@@ -125,7 +125,7 @@ class TestFileNotFoundException extends TestGroupException
 
 /**
  * @package Franklin
- * @subpackage Franklin.exceptions
+ * @subpackage Franklin.exception
  */
 class TestClassNotLoadedException extends TestGroupException
 {

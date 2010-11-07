@@ -8,19 +8,12 @@
  * Redistributions of files must retain the above copyright notice.
  * @license		http://www.opensource.org/licenses/mit-license.php The MIT License
  * @copyright	copyright 2007+, Ephigenia M. Eichner
- * @link			http://code.ephigenia.de/projects/franklin/
+ * @link		http://code.ephigenia.de/projects/franklin/
  * @filesource
  */
 
-class_exists('Object') or require dirname(__FILE__).'/Object.php';
-class_exists('TestGroup') or require dirname(__FILE__).'/TestGroup.php';
-class_exists('Log') or require dirname(__FILE__).'/Log.php';
-
-define('DEBUG_PRODUCTION',	0);
-define('DEBUG_DEBUG', 1);
-define('DEBUG_VERBOSE',	2);
-
-define('LF', chr(10));
+class_exists('TestGroup') or require __DIR__.'/TestGroup.php';
+class_exists('Log') or require __DIR__.'/Log.php';
 
 /**
  * Franklin main application class
@@ -29,34 +22,26 @@ define('LF', chr(10));
  * @since 30.04.2009
  * @package Franklin
  */
-class Franklin extends Object
-{	
-	const APPNAME = 'Franklin';
-	
-	const APPVERSION = '0.21';
+class Franklin
+{
+	const VERSION = '0.25';
 	
 	const DEFAULTTHEME = 'light';
-	
-	public static $CLIMODE = false;
-	
-	public static $debug = DEBUG_VERBOSE;
 	
 	protected $TestGroups = array();
 	
 	protected $themeFilename = 'light';
 
-	public function __construct()
+	public function __construct($configFilename)
 	{
-		$this->setErrorReporting();
-		self::$CLIMODE = !isset($_SERVER['SERVER_PORT']);
-		$this->loadConfig(dirname(__FILE__).'/../config/config.php');
+		$this->loadConfig($configFilename);
 	}
 	
 	public function showReport()
 	{
 		class_exists('View') or require dirname(__FILE__).'/View.php';
 		$view = new View('report', array('TestGroups' => $this->TestGroups, 'themeFilename' => $this->themeFilename));
-		echo $view->render();
+		echo $view;
 	}
 	
 	public function runTests()
@@ -94,7 +79,6 @@ class Franklin extends Object
 		} else {
 				$this->themeFilename = dirname(__FILE__).'/../theme/'.self::DEFAULTTHEME.'.php';
 		}
-		
 		foreach($config['groups'] as $groupConfig) {
 			$TestGroup = new TestGroup($groupConfig['name'], $groupConfig['host']);
 			// add tests to group
@@ -105,20 +89,6 @@ class Franklin extends Object
 		}
 		return true;
 	}
-	
-	protected function setErrorReporting()
-	{
-		Log::$level = self::$debug;
-		if (self::$debug > DEBUG_PRODUCTION) {
-			error_reporting(E_ALL + E_STRICT);
-			ini_set('display_errors', 'yes');
-			ini_set('display_startup_errors', 'yes');
-		} else {
-			error_reporting(0);
-		}
-		return true;
-	}
 }
 
-class FranklinException extends BasicException {}
-class FranklinConfigFileNotFoundException extends FranklinException {}
+class FranklinConfigFileNotFoundException extends Exception {}

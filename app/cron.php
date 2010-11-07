@@ -7,6 +7,4 @@
  * see readme.txt file for installation instructions
  */
 
-require_once dirname(__FILE__).'/lib/Franklin.php';
-$app = new Franklin();
-$app->runTests();
+require_once __DIR__.'bootstrap.php';

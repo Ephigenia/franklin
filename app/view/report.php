@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<!--[if IE 8]><meta http-equiv="X-UA-Compatible" content="IE=7" /><![endif]-->
-	<title><?php echo Franklin::APPNAME ?> v.<?php echo Franklin::APPVERSION ?> - Report</title>
+	<title>Franklin v.<?php echo Franklin::VERSION ?> - Report</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta name="MSSmartTagsPreventParsing" content="false" />
@@ -24,7 +24,7 @@
 		}
 		?>
 		<div id="footer">
-			<a href="http://code.marceleichner.de/project/franklin/?ref=franklin" rel="external" title="Frankling project home on code.marceleichner.de"><?php echo Franklin::APPNAME ?> v.<?php echo Franklin::APPVERSION ?></a> •
+			<a href="http://code.marceleichner.de/project/franklin/?ref=franklin" rel="external" title="Frankling project home on code.marceleichner.de">Franklin v.<?php echo Franklin::VERSION ?></a> •
 			<a href="http://www.marceleichner.de/?ref=franklin" rel="external">Marcel Eichner // Ephigenia</a>
 		</div>
 	</div>

@@ -13,8 +13,8 @@
  */
 
 /**
- * 	@subpackage Frankin.Network
- * 	@package Franklin
+ * @subpackage Frankin.Network
+ * @package Franklin
  * @author Ephigenia // Marcel Eichner <love@ephigenia.de>
  * @since 19.05.2009
  */
@@ -57,6 +57,5 @@ class HTTPResponse
 			$this->content = $rawContent;
 		}
 		return true;
-	}
-	
-} // END HTTPResponse class
+	}	
+}

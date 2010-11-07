@@ -10,9 +10,9 @@
 	<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold">
 	<link rel="stylesheet" type="text/css" href="app.css" />
-	<?php if (!empty($themeFilename)) { ?>
+	<?php if (!empty($theme)) { ?>
 	<style type="text/css" media="screen">
-		<?php require $themeFilename; ?>
+		<?php require __DIR__.'/../theme/'.$theme.'.php'; ?>
 	</style>
 	<?php } ?>
 </head>

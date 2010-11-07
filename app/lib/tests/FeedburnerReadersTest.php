@@ -25,6 +25,7 @@ class FeedburnerReadersTest extends ScrapeTest
 {	
 	public function afterConstruct()
 	{
+		die(var_dump($this->config));
 		$params = array(
 			'uri' => $this->uri,
 			// we have to access data that is 2 days old, 1 day old is sometimes and often just 0!!

@@ -12,12 +12,11 @@
  * @filesource
  */
 
-class_exists('TestGroup') or require __DIR__.'/TestGroup.php';
-class_exists('Log') or require __DIR__.'/Log.php';
+
+require __DIR__.'/ConfigFile.php';
+require __DIR__.'/TestGroup.php';
 
 /**
- * Franklin main application class
- * 
  * @author Ephigenia // Marcel Eichner <love@ephigenia.de>
  * @since 30.04.2009
  * @package Franklin
@@ -26,21 +25,30 @@ class Franklin
 {
 	const VERSION = '0.25';
 	
-	const DEFAULTTHEME = 'light';
-	
-	protected $TestGroups = array();
-	
-	protected $themeFilename = 'light';
+	protected $testGroups = array();
 
-	public function __construct($configFilename)
+	public function __construct(Config $Config)
 	{
-		$this->loadConfig($configFilename);
+		$this->config = $Config;
+		if ($this->config->timezone) {
+			date_default_timezone_set($this->config->timezone);
+		}
+		foreach($this->config->groups as $config) {
+			$TestGroup = new TestGroup($config['name'], new Config($config));
+			foreach($config['tests'] as $testConfig) {
+				$TestGroup->add($TestGroup->createTest($testConfig['test'], new Config($testConfig)));
+			}
+			$this->testGroups[] = $TestGroup;
+		}
 	}
 	
-	public function showReport()
+	public function report()
 	{
 		class_exists('View') or require dirname(__FILE__).'/View.php';
-		$view = new View('report', array('TestGroups' => $this->TestGroups, 'themeFilename' => $this->themeFilename));
+		$view = new View('report', array(
+			'TestGroups' => $this->testGroups,
+			'theme' => $this->config->theme,
+		));
 		echo $view;
 	}
 	
@@ -61,34 +69,4 @@ class Franklin
 		}
 		printf('%s tests checked, %s done, %s skipped.', $counters['tests'], $counters['runs'], $counters['tests'] - $counters['runs']);
 	}
-	
-	protected function loadConfig($configFilename)
-	{
-		require $configFilename;
-		if (isset($config['timezone'])) {
-			date_default_timezone_set($config['timezone']);
-		}
-		if (isset($config['theme'])) {
-			$theme = str_replace('@[^A-Za-z0-9-_]+@', '', $config['theme']);
-			$themeFile = dirname(__FILE__).'/../theme/'.$theme.'.php';
-			if (file_exists($themeFile)) {
-				$this->themeFilename = $themeFile;
-			} else {
-				$this->themeFilename = dirname(__FILE__).'/../theme/'.self::DEFAULTTHEME.'.php';
-			}
-		} else {
-				$this->themeFilename = dirname(__FILE__).'/../theme/'.self::DEFAULTTHEME.'.php';
-		}
-		foreach($config['groups'] as $groupConfig) {
-			$TestGroup = new TestGroup($groupConfig['name'], $groupConfig['host']);
-			// add tests to group
-			foreach($groupConfig['tests'] as $testConfig) {
-				$TestGroup->addTest($TestGroup->createTest($testConfig));
-			}
-			$this->TestGroups[] = $TestGroup;
-		}
-		return true;
-	}
 }
-
-class FranklinConfigFileNotFoundException extends Exception {}

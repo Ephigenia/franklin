@@ -28,22 +28,14 @@ class_exists('Scraper') or require dirname(__FILE__).'/../network/Scraper.php';
  */
 class ScrapeTest extends Test
 {
-	/**
-	 * Target URL
-	 * @var string
-	 */
-	public $url;
-	
-	/**
-	 * Regular Expression that is used to extract the desired result from
-	 * the source. Include the delimeters.
-	 * @var string
-	 */
-	public $regexp;
+	public $config = array(
+		'url' => null,
+		'regexp' => null
+	);
 	
 	public function run()
 	{
-		$response = Scraper::scrape($this->url);
+		$response = Scraper::scrape($this->config->url);
 		if (preg_match_all($this->regexp, $response, $found)) {
 			if (isset($found['match'])) {
 				$this->result = $found['match'][0];

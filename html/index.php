@@ -9,4 +9,8 @@
  * see README.md file for installation and setup instructions
  */
 
-require_once __DIR__.'/../app/lib/bootstrap.php';
+require __DIR__.'/../app/bootstrap.php';
+$Franklin = new Franklin(
+	new ConfigFile(__DIR__.'/../app/config/config.php')
+);
+$Franklin->report();

@@ -7,4 +7,6 @@
  * see readme.txt file for installation instructions
  */
 
-require_once __DIR__.'bootstrap.php';
+require __DIR__.'bootstrap.php';
+$Franklin = new Franklin(__DIR__.'/config/config.php');
+$Franklin->cron();

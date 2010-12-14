@@ -31,7 +31,7 @@ class FacebookGroupFansCountTest extends ScrapeTest
 	{
 		// id is okay too!
 		$this->url = 'https://graph.facebook.com/'.urlencode($this->groupId); 
-		$this->regexp = '@fan_count":\s(\d+)@i';
+		$this->regexp = '@likes":\s(\d+)@i';
 		return parent::afterConstruct();
 	}
 }

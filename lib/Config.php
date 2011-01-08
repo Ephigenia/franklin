@@ -1,8 +1,8 @@
 <?php
 
-class Config
+class Config extends ArrayObject
 {
-	protected $data = array(
+	protected $defaults = array(
 		'timezone' => 'Europe/Berlin',
 		'theme' => 'amber',
 		'groups' => array(),
@@ -10,22 +10,9 @@ class Config
 	
 	public function __construct(Array $config = array())
 	{
-		$this->merge($config);
-	}
-	
-	public function merge(Array $data = array())
-	{
-		$this->data = array_merge($this->data, $data);
-		return $this;
-	}
-	
-	public function __get($var)
-	{
-		return $this->data[$var];
-	}
-	
-	public function __toString()
-	{
-		return var_export($this->data, true);
+		return parent::__construct(
+			$config + $this->defaults,
+			ArrayObject::ARRAY_AS_PROPS
+		);
 	}
 }

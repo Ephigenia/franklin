@@ -1,0 +1,1 @@
+element content <?php echo $var ?>

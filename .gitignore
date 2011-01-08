@@ -1,2 +1,4 @@
-app/data/*.txt
-app/config/config.php
+data/*.txt
+config/config.php
+doc/report/*
+doc/wiki/*

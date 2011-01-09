@@ -1,37 +1,22 @@
 <?php
 
-require __DIR__.'/ConfigFile.php';
-require __DIR__.'/TestGroup.php';
+namespace Franklin;
 
 class Franklin
 {
-	const VERSION = '0.25';
+	const VERSION = '0.3';
 	
-	protected $testGroups = array();
-
-	public function __construct(Config $Config)
+	public function __construct()
 	{
-		$this->config = $Config;
-		if ($this->config->timezone) {
-			date_default_timezone_set($this->config->timezone);
-		}
-		foreach($this->config->groups as $config) {
-			$TestGroup = new TestGroup($config['name'], new Config($config));
-			foreach($config['tests'] as $testConfig) {
-				$TestGroup->add($TestGroup->createTest($testConfig['test'], new Config($testConfig)));
-			}
-			$this->testGroups[] = $TestGroup;
-		}
+		
 	}
 	
 	public function report()
 	{
-		class_exists('View') or require dirname(__FILE__).'/View.php';
-		$view = new View('report', array(
-			'TestGroups' => $this->testGroups,
-			'theme' => $this->config->theme,
+		\Franklin\view\View::$root = dirname(__DIR__).'/view';
+		return new \Franklin\view\View('report.html', array(
+			
 		));
-		echo $view;
 	}
 	
 	public function runTests()

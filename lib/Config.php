@@ -1,6 +1,8 @@
 <?php
 
-class Franklin_Config extends ArrayObject
+namespace Franklin;
+
+class Config extends \ArrayObject
 {
 	protected $defaults = array(
 		'timezone' => 'Europe/Berlin',
@@ -12,7 +14,7 @@ class Franklin_Config extends ArrayObject
 	{
 		return parent::__construct(
 			(array) $config + $this->defaults,
-			ArrayObject::ARRAY_AS_PROPS
+			\ArrayObject::ARRAY_AS_PROPS
 		);
 	}
 }

@@ -12,7 +12,7 @@ charts in a report page. See a [live demo](http://franklin.marceleichner.de/).
 
 # REQUIREMENTS
 
-* PHP 5.2 or later
+* PHP 5.3 or later
 * PHP Curl module (e.g. "php5-curl" package)
 
 # INSTALLATION

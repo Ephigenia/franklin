@@ -1,5 +1,7 @@
 <?php
 
+namespace Franklin\util;
+
 class DebugLevel
 {
 	const SILENT = 0;

@@ -1,6 +1,8 @@
 <?php
 
-class_exists('DebugLevel') or require __DIR__.'/DebugLevel.php';
+namespace Franklin\util;
+
+use Franklin\util\DebugLevel;
 
 class Log
 {

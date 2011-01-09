@@ -1,8 +1,8 @@
 <?php
 
+namespace Franklin\test;
+
 /**
- * Abstract blueprint-like classs for Tests
- * 
  * @author Ephigenia // Marcel Eichner <love@ephigenia.de>
  * @since 30.04.2009
  * @package Franklin
@@ -14,18 +14,11 @@ abstract class Test
 	
 	public $result;
 	
-	public function __construct(Config $config)
-	{
-		$this->config($config);
-	}
+	public $config = array();
 	
-	public function config(Array $config)
+	public function __construct(Array $config = array())
 	{
-		$this->name = __CLASS__;
-		foreach($config as $k => $v) {
-			$this->{$k} = $v;
-		}
-		return $this;
+		$this->config += $config;
 	}
 	
 	public function run()

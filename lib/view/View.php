@@ -1,8 +1,10 @@
 <?php
 
-class Franklin_View
+namespace Franklin\view;
+
+class View
 {
-	public static $root;
+	public static $root = 'view';
 	
 	protected $template;
 	
@@ -16,27 +18,34 @@ class Franklin_View
 	
 	public function element($name, Array $data = array())
 	{
-		class_exists('Element') or require __DIR__.'/Element.php';
-		return new Franklin_Element($name, $data +  $this->data);
+		return new \Franklin\view\Element($name, $data +  $this->data);
 	}
 	
 	protected function filename()
 	{
-		return Franklin_View::$root.'/'.$this->template.'.php';
+		return View::$root.'/'.$this->template.'.php';
 	}
 	
-	public function __toString()
+	public function render()
 	{
+		if (!is_file($this->filename())) {
+			throw new ViewTemplateFileNotFoundException($this->filename());
+		}
 		extract($this->data, EXTR_OVERWRITE);
 		ob_start();
 		require $this->filename();
 		return ob_get_clean();
 	}
+	
+	public function __toString()
+	{
+		return $this->render();
+	}
 }
 
-class Franklin_ViewException extends Exception {}
+class ViewException extends \Exception {}
 
-class Franklin_ViewTemplateFileNotFoundException extends ViewException
+class ViewTemplateFileNotFoundException extends ViewException
 {
 	public function __construct($filename)
 	{

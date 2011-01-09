@@ -1,15 +1,17 @@
 <?php
 
-class ViewTest extends PHPUnit_Framework_TestCase
+use \Franklin\view\View;
+
+class ViewTest extends \PHPUnit_Framework_TestCase
 {
 	public function setUp()
 	{
-		Franklin_View::$root = __DIR__.'/fixtures/view';
+		View::$root = __DIR__.'/fixtures/view';
 	}
 	
 	public function test__toString()
 	{
-		$view = new Franklin_View('template', array('var' => 'value'));
+		$view = new View('template', array('var' => 'value'));
 		$this->assertEquals(
 			(string) $view,
 			'test view content value'
@@ -18,9 +20,9 @@ class ViewTest extends PHPUnit_Framework_TestCase
 	
 	public function testElement()
 	{
-		$view = new Franklin_View('template_w_element', array('var' => 'value'));
+		$view = new View('template_w_element', array('var' => 'value'));
 		$this->assertEquals(
-			(string) $view,
+			$view->render(),
 			'test view content element content newvalue'
 		);
 	}

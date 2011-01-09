@@ -1,6 +1,6 @@
 <?php
 
-class Config extends ArrayObject
+class Franklin_Config extends ArrayObject
 {
 	protected $defaults = array(
 		'timezone' => 'Europe/Berlin',

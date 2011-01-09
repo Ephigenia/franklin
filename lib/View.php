@@ -1,6 +1,6 @@
 <?php
 
-class View
+class Franklin_View
 {
 	public static $root;
 	
@@ -17,12 +17,12 @@ class View
 	public function element($name, Array $data = array())
 	{
 		class_exists('Element') or require __DIR__.'/Element.php';
-		return new Element($name, $data +  $this->data);
+		return new Franklin_Element($name, $data +  $this->data);
 	}
 	
 	protected function filename()
 	{
-		return View::$root.'/'.$this->template.'.php';
+		return Franklin_View::$root.'/'.$this->template.'.php';
 	}
 	
 	public function __toString()
@@ -34,9 +34,9 @@ class View
 	}
 }
 
-class ViewException extends Exception {}
+class Franklin_ViewException extends Exception {}
 
-class ViewTemplateFileNotFoundException extends ViewException
+class Franklin_ViewTemplateFileNotFoundException extends ViewException
 {
 	public function __construct($filename)
 	{

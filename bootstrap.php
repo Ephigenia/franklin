@@ -1,3 +1,3 @@
 <?php
 
-define('FRANKLIN_ROOT', __DIR__);
+require __DIR__.'/lib/Library.php';

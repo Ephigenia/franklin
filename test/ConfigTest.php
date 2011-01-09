@@ -1,11 +1,10 @@
 <?php
 
-class ConfigTest extends PHPUnit_Framework_TestCase
+class Franklin_ConfigTest extends PHPUnit_Framework_TestCase
 {
 	public function setUp()
 	{
-		class_exists('Config') or require FRANKLIN_ROOT.'/lib/Config.php';
-		$this->fixture = new Config();
+		$this->fixture = new Franklin_Config();
 	}
 	
 	public function testOffsetGet()
@@ -16,7 +15,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase
 	
 	public function test__construct()
 	{
-		$config = new Config(array('timezone' => 'USA/Chicago'));
+		$config = new Franklin_Config(array('timezone' => 'USA/Chicago'));
 		$this->assertEquals($config->timezone, 'USA/Chicago');
 	}
 }

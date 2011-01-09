@@ -24,10 +24,8 @@ class Ping
 {	
 	public $host;
 	
-	public $timeout = 2000;
-	
-	public $port = 80;
-	
+	public $timeout = 1000;
+
 	/**
 	 * Ping response time in miliseconds
 	 * 	@var integer
@@ -37,9 +35,7 @@ class Ping
 	public function __construct($hostname, $timeout = null)
 	{
 		$this->hostname = parse_url($hostname, PHP_URL_HOST);
-		if ($timeout !== null) {
-			$this->timeout = $timeout;
-		}
+		$this->timeout = $timeout ?: $this->timeout;
 	}
 	
 	public function run()

@@ -11,7 +11,7 @@ class Config extends ArrayObject
 	public function __construct(Array $config = array())
 	{
 		return parent::__construct(
-			$config + $this->defaults,
+			(array) $config + $this->defaults,
 			ArrayObject::ARRAY_AS_PROPS
 		);
 	}

@@ -124,12 +124,15 @@ to record various values for a single video.
 * `property` Property that should be recorded. `stats_number_of_plays`,
   `stats_number_of_likes` or `stats_number_of_comments`
 
-## Youtube Video Views
+## Youtube Video
 
-Simple test that records the number of views of a video on
- [Youtube](http://www.youtube.com).
+simple [Youtube](http://www.youtube.com). api scraping test to record views,
+likes and ratings on a single youtube video. you just need to know the id of
+your video.
 
 * `videoID` id of the video on youtube, get this from the url of the video
+* `property` name of the property that should be recorded, value values are 
+  `viewCount`, `rating`, `likeCount`, `ratingCount` or `favoriteCount`
 
 ## Wikio Score
 
@@ -149,6 +152,10 @@ to the developers.
 
 # Changelog
 
+* 2011-02-13
+	* Changed youtube video test to use the youtube data api (jsonc), which
+	  now can also record the fav-counts and ratings on a video
+	
 * 2010-10-28
 	* Added Youtube Video Views Test that records the number of views of a
 	youtube video

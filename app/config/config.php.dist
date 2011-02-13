@@ -178,6 +178,15 @@ $config = array(
 						'interval' => '1 day', 
 					),
 				),
+				array(
+					'test' => 'YoutubeVideo',
+					'config' => array(
+						'name' => 'Youtube: Urban Explorer',
+						'interval' => '24 hours',
+						'videoID' => 'h7qUeZLv4d0',
+						'property' => 'viewCount',
+					),
+				),
 			),
 		),
 		

@@ -9,15 +9,16 @@ class FanCountTest extends \PHPUnit_Framework_TestCase
 {
 	public function setUp()
 	{
-		$r = new \Franklin\test\Config();
-		$this->fixture = new FanCount(new Config(array(
+		$config = new Config(array(
 			'id' => '115046791864216',
-		)));
+		));
+		$this->fixture = new FanCount($config);
 	}
 	
 	public function testRun()
 	{
-		echo $this->fixture;
-		var_dump($this->fixture);
+		$result = $this->fixture->run();
+		$this->assertTrue(is_float($result));
+		$this->assertTrue($result > 0);
 	}
 }

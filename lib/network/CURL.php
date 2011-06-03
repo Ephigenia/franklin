@@ -22,90 +22,77 @@ namespace Franklin\network;
  * 	@since 11.11.2008
  */
 class CURL
-{	
-	private $handle;
-	
-	const METHOD_POST = 0;
-	const METHOD_GET = 1;
-	
-	public $options = array(
-		'method' => self::METHOD_POST,
-		'data' => array(),
-		'cookie' => array(),
-		'port' => 80,
-		'referer' => false,
-		'url' => false,
-		'CURLOPT_TIMEOUT' => 10,
-		'user-agent' => 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_5; de-de) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1',
+{
+	public $defaults = array(
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_TIMEOUT => 1,
+		CURLOPT_COOKIE => false,
+		CURLOPT_PORT => 80,
+		CURLOPT_REFERER => false,
+		CURLOPT_USERAGENT => false,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_HEADER => false,
+		CURLOPT_COOKIESESSION => true,
 	);
 	
-	/**
-	 * Curl wrapper constructor
-	 * 	@
-	 */
 	public function __construct(Array $options = array())
 	{
-		if (function_exists('curl_init')) {
+		if (!function_exists('curl_init')) {
 			throw new CURLNotAvailableException();
 		}
+		$this->defaults = $options + $this->defaults;
 		return $this;
 	}
 	
-	/**
-	 * Starts the HTTP Request and returns or prints the result
-	 * 
-	 * 	@param boolean $buffered
-	 * 	@param boolean $header return/print response headers as well
-	 * 	@return boolean|string
-	 */
-	public function exec($buffered = true, $headers = false)
+	public function get($url, Array $data = array(), Array $options = array())
 	{
-		if (!empty($this->data)) {
-			if ($this->method === self::METHOD_POST) {
-				curl_setopt($this->handle, CURLOPT_POST, true);
-				curl_setopt($this->handle, CURLOPT_POSTFIELDS, http_build_query($this->data));
-			} else {
-				$this->url .= '?'.http_build_query($this->data);
-				curl_setopt($this->handle, CURLOPT_HTTPGET, true);
-			}
-		}
-		curl_setopt($this->handle, CURLOPT_FOLLOWLOCATION, (bool) $this->followLocation);
-		if (isset($this->timeout)) {
-			curl_setopt($this->handle, CURLOPT_TIMEOUT, (int) $this->timeout);
-		}
-		if (!empty($this->cookie)) {
-			curl_setopt($this->handle, CURLOPT_COOKIE, http_build_cookie($this->cookie));
-		}
-		if ($this->port !== 80) {
-			curl_setopt($this->handle, CURLOPT_PORT, (int) $this->port);
-		}
-		if (!empty($this->referer)) {
-			curl_setopt($this->handle, CURLOPT_REFERER, $this->referer);
-		}
-		if (!empty($this->userAgent)) {
-			curl_setopt($this->handle, CURLOPT_USERAGENT, $this->userAgent);
-		}
-		if (!empty($this->auth)) {
-			curl_setopt($this->handle, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-			curl_setopt($this->handle, CURLOPT_USERPWD, implode(':', $this->auth));
-		}
-		if (count($this->headers) > 0) {
-			curl_setopt($this->handle, CURLOPT_HTTPHEADER, $this->headers);
-		}
-		if ($buffered) {
-			curl_setopt($this->handle, CURLOPT_RETURNTRANSFER, $buffered);
-		}
-		if ($headers) {
-			curl_setopt($this->handle, CURLOPT_HEADER, true);
-		}
-		// check if url set
-		if (empty($this->url)) {
+		if (empty($url)) {
 			throw new CURLEmptyURLException();
 		}
-		curl_setopt($this->handle, CURLOPT_URL, $this->url);
-		curl_setopt($this->handle, CURLOPT_COOKIESESSION, true);
-		return curl_exec($this->handle);
-	}	
+		if (!empty($data)) {
+			$url .= '?'.http_build_query($data);
+		}
+		$handle = $this->createHandle($options += array(
+			CURLOPT_URL => $url,
+			CURLOPT_HTTPGET => true,
+		));
+		return $this->exec($handle);
+	}
+	
+	public function post($url, Array $data = array(), $options = array())
+	{
+		if (empty($url)) {
+			throw new CURLEmptyURLException();
+		}
+		$handle = $this->createHandle($options += array(
+			CURLOPT_URL => $url,
+			CURLOPT_POST => true,
+			CURLOPT_POSTFIELDS => $data,
+		));
+		return $this->exec($handle);
+	}
+	
+	protected function exec($handle)
+	{
+		$result = curl_exec($handle);
+		if (curl_errno($handle)) {
+			throw new CURLException(curl_errno($handle).': '.curl_error($handle));
+		}
+		return $result;
+	}
+	
+	protected function createHandle(Array $options = array())
+	{
+		if (isset($options[CURLOPT_COOKIE]) && is_array($options[CURLOPT_COOKIE])) {
+			$options[CURLOPT_COOKIE] = http_build_cookie($options[CURLOPT_COOKIE]);
+		}
+		if (isset($options[CURLOPT_POSTFIELDS]) && is_array($options[CURLOPT_POSTFIELDS])) {
+			$options[CURLOPT_POSTFIELDS] = http_build_query($options[CURLOPT_POSTFIELDS]);
+		}
+		$handle = curl_init();
+		curl_setopt_array($handle, $options + $this->defaults);
+		return $handle;
+	}
 }
 
 /**

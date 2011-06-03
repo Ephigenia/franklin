@@ -17,24 +17,8 @@ class Config extends \ArrayObject
 	{
 		parent::__construct(array(), \ArrayObject::ARRAY_AS_PROPS);
 		foreach(($config + $this->defaults) as $key => $value) {
-			$this[$k] = $v;
+			$this[$key] = $value;
 		}
 		return $this;
-	}
-	
-	public function offsetSet($key, $value)
-	{
-		if (method_exists($this, 'set'.ucFirst($key))) {
-			return $this->{'set'.ucFirst($key)}($value);
-		}
-		return parent::offsetSet($key, $value);
-	}
-	
-	public function offsetGet($key)
-	{
-		if (method_exists($this, 'get'.ucFirst($key))) {
-			return $this->{'get'.ucFirst($key)}($value);
-		}
-		return parent::offsetGet($key, $value);
 	}
 }

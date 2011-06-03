@@ -2,27 +2,11 @@
 
 namespace Franklin\test;
 
-/**
- * @author Ephigenia // Marcel Eichner <love@ephigenia.de>
- * @since 30.04.2009
- * @package Franklin
- * @subpackage Franklin.tests
- */
-abstract class Test
+interface Test
 {
-	public $TestGroup;
+	public function __construct(\Franklin\test\Config $config);
 	
-	public $result;
+	public function configure(\Franklin\test\Config $config);
 	
-	public $config = array();
-	
-	public function __construct(Array $config = array())
-	{
-		$this->config += $config;
-	}
-	
-	public function run()
-	{
-		return $this->result;
-	}
+	public function run();
 }

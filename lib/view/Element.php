@@ -1,11 +1,11 @@
 <?php
 
-namespace Franklin\View;
+namespace Franklin/view;
 
 class Element extends View
 {
 	protected function filename()
 	{
-		return View::$root.'/element/'.$this->template.'.php';
+		return self::$baseDir.'element'.DIRECTORY_SEPARATOR.$this->filename.'.'.$this->extension;
 	}
 }

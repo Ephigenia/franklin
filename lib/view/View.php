@@ -2,44 +2,40 @@
 
 namespace Franklin\view;
 
-class View
+class View extends \ArrayObject
 {
-	public static $root = 'view';
+	public static $baseDir;
 	
-	protected $template;
+	protected $extension = 'php';
 	
-	protected $data = array();
+	protected $filename;
 	
-	public function __construct($filename, Array $data)
+	public function __construct($filename, Array $data = array())
 	{
-		$this->template = $filename;
-		$this->data = $data + $this->data;
+		$this->filename = $filename;
+		parent::__construct((array) $data, \ArrayObject::ARRAY_AS_PROPS);
+		return $this;
 	}
 	
 	public function element($name, Array $data = array())
 	{
-		return new \Franklin\view\Element($name, $data +  $this->data);
+		return new Franklin\view\Element($name, $data + (array) $this);
 	}
 	
 	protected function filename()
 	{
-		return View::$root.'/'.$this->template.'.php';
-	}
-	
-	public function render()
-	{
-		if (!is_file($this->filename())) {
-			throw new ViewTemplateFileNotFoundException($this->filename());
-		}
-		extract($this->data, EXTR_OVERWRITE);
-		ob_start();
-		require $this->filename();
-		return ob_get_clean();
+		return self::$baseDir.$this->filename.'.'.$this->extension;
 	}
 	
 	public function __toString()
 	{
-		return $this->render();
+		if (!is_file($this->filename())) {
+			throw new ViewTemplateFileNotFoundException($this->filename());
+		}
+		extract((array) $this, EXTR_OVERWRITE);
+		ob_start();
+		require $this->filename();
+		return ob_get_clean();
 	}
 }
 

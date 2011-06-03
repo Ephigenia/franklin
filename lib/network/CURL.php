@@ -28,87 +28,25 @@ class CURL
 	const METHOD_POST = 0;
 	const METHOD_GET = 1;
 	
-	/**
-	 * Request sending method
-	 * 	@var integer
-	 */
-	public $method = self::METHOD_POST;
-	
-	/**
-	 * Array of key=>value pairs that should be send during the resut
-	 * 	@var array(string)
-	 */
-	public $data = array();
-	
-	/**
-	 * Cookie data that should be send
-	 * 	@var array(string)
-	 */
-	public $cookie = array();
-	
-	/**
-	 * Port used during request
-	 * 	@var integer
-	 */
-	public $port = 80;
-	
-	/**
-	 * Referer that should be send 
-	 * 	@var string
-	 */
-	public $referer;
-	
-	/**
-	 * URL of the request
-	 * 	@var string
-	 */
-	public $url;
-	
-	/**
-	 * Timeout for sended requests in seconds
-	 * 	@var integer
-	 */
-	public $timeout = 10;
-	
-	/**
-	 * 	Follow redirect and forward responses automatically
-	 * 	@param boolean
-	 */
-	public $followLocation = true;
-	
-	/**
-	 * User-Agent String that should be send, leave blank for none
-	 * 	@var string
-	 */
-	public $userAgent = 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_5; de-de) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1';
-	
-	/**
-	 * HTTP-AUTH informations like this:
-	 * 	<code>
-	 * 	$curl->auth = array('username' => 'password');
-	 * 	</code>
-	 * 	@var array(string)
-	 */
-	public $auth = array();
-	
-	/**
-	 * 	Array of custom header data that should be send
-	 * 	@var array(string)
-	 */
-	public $headers = array();
+	public $options = array(
+		'method' => self::METHOD_POST,
+		'data' => array(),
+		'cookie' => array(),
+		'port' => 80,
+		'referer' => false,
+		'url' => false,
+		'CURLOPT_TIMEOUT' => 10,
+		'user-agent' => 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_5; de-de) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1',
+	);
 	
 	/**
 	 * Curl wrapper constructor
 	 * 	@
 	 */
-	public function __construct($url = null, Array $options = array())
+	public function __construct(Array $options = array())
 	{
 		if (function_exists('curl_init')) {
 			throw new CURLNotAvailableException();
-		}
-		$this->url = $url;
-		foreach($options as $k => $v) {
-			$this->$k = $v;
 		}
 		return $this;
 	}
@@ -167,11 +105,6 @@ class CURL
 		curl_setopt($this->handle, CURLOPT_URL, $this->url);
 		curl_setopt($this->handle, CURLOPT_COOKIESESSION, true);
 		return curl_exec($this->handle);
-	}
-	
-	public function __destroy()
-	{
-		curl_close($this->handle);
 	}	
 }
 

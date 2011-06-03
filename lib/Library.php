@@ -30,7 +30,6 @@ class Library
 }
 
 spl_autoload_register('\\'.__NAMESPACE__.'\Library::load');
-Library::add('Franklin', realpath(__DIR__));
 
 class LibraryException extends \Exception {}
 class LibraryPathNotFoundException extends LibraryException

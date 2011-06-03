@@ -1,1 +1,0 @@
-test view content <?php echo $this->element('element', array('var' => 'newvalue')); ?>

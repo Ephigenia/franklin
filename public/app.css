@@ -74,7 +74,7 @@ li.number:hover .chart {
 	display: inline;
 }
 
-#footer {
+footer {
 	margin-top: 2em;
 	border-top: 1px solid #666;
 	padding-top: 0.25em;

@@ -1,6 +1,8 @@
 <?php
 
-use \Franklin\Config;
+use
+	\Franklin\Config
+	;
 
 class ConfigTest extends \PHPUnit_Framework_TestCase
 {

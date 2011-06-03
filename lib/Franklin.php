@@ -3,9 +3,7 @@
 namespace Franklin;
 
 class Franklin
-{
-	const VERSION = '0.3';
-	
+{	
 	public function __construct()
 	{
 		
@@ -13,10 +11,8 @@ class Franklin
 	
 	public function report()
 	{
-		\Franklin\view\View::$root = dirname(__DIR__).'/view';
-		return new \Franklin\view\View('report.html', array(
-			
-		));
+		\Franklin\view\View::$baseDir = FRANKLIN_ROOT.'/view/';
+		return new \Franklin\view\View('report.html');
 	}
 	
 	public function runTests()

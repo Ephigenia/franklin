@@ -2,11 +2,21 @@
 
 namespace Franklin\test;
 
-interface Test
+use 
+	Franklin\test\config\Config
+	;
+	
+class Test
 {
-	public function __construct(\Franklin\test\Config $config);
+	public $config;
 	
-	public function configure(\Franklin\test\Config $config);
+	public function __construct(Config $config)
+	{
+		$this->config = $config;
+	}
 	
-	public function run();
+	public function run()
+	{
+		return true;
+	}
 }

@@ -1,17 +1,18 @@
 <?php
 
 use
-	\Franklin\test\Facebook\FanCount,
-	\Franklin\test\Facebook\Config
+	\Franklin\test\Facebook\FanCount\FanCount,
+	\Franklin\test\Facebook\FanCount\FanCountConfig
 ;
 
 class FanCountTest extends \PHPUnit_Framework_TestCase
 {
 	public function setUp()
 	{
-		$config = new Config(array(
+		$config = new FanCountConfig(array(
 			'id' => '115046791864216',
 		));
+		die(var_dump($config));
 		$this->fixture = new FanCount($config);
 	}
 	

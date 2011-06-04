@@ -17,6 +17,7 @@ class Test
 	
 	public function run()
 	{
+		$this->config->validate();
 		return true;
 	}
 }

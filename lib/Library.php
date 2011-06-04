@@ -25,6 +25,9 @@ class Library
 				break;
 			}
 		}
+		if (!file_exists($path)) {
+			throw new \Exception(sprintf('unable to load "%s"', func_get_arg(0)));
+		}
 		require $path;
 	}
 }

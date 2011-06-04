@@ -2,19 +2,19 @@
 
 namespace Franklin\test\Scrape;
 
-use
-	Franklin\network\CURL,
-	Franklin\test\AbstractTest
+use 
+	Franklin\test\Test,
+	Franklin\network\CURL
 	;
 
-class Scrape extends AbstractTest
+class Scrape extends Test
 {
 	public function run()
 	{
 		$curl = new CURL();
 		$response = $curl->get($this->config->url);
 		if (preg_match_all($this->config->regexp, $response, $found)) {
-			if ($found['match']) {
+			if (isset($found['match'])) {
 				$result = $found['match'][0];
 			} else {
 				$result = $found[1][0];

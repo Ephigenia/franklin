@@ -19,6 +19,16 @@ class Definition extends \ArrayObject
 	
 	public function append(Mixed $definition)
 	{
-		parent::offsetSet($definition->name, $definition);
+		$args = func_get_args();
+		if (is_array($args[0])) {
+			$args = $args[0];
+		}
+		foreach($args as $definition) {
+			if (!($definition instanceof Mixed)) {
+				throw new \InvalidArgumentException('Defintions must extend from Mixed type');
+			}
+			parent::offsetSet($definition->name, $definition);
+		}
+		return $this;
 	}
 }

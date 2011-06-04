@@ -25,11 +25,11 @@ class CURL
 {
 	public $defaults = array(
 		CURLOPT_FOLLOWLOCATION => true,
-		CURLOPT_TIMEOUT => 1,
+		CURLOPT_TIMEOUT => 5,
 		CURLOPT_COOKIE => false,
 		CURLOPT_PORT => 80,
 		CURLOPT_REFERER => false,
-		CURLOPT_USERAGENT => false,
+		CURLOPT_USERAGENT => 'franklin website metric recorder',
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_HEADER => false,
 		CURLOPT_COOKIESESSION => true,

@@ -1,6 +1,6 @@
 <?php
 
-namespace Franklin\test\Facebook\PakeLikes\test;
+namespace Franklin\test\Scrape\test;
 
 use
 	Franklin\test\Scrape\Scrape,

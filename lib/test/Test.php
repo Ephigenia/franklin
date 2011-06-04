@@ -13,11 +13,23 @@ class Test
 	public function __construct(Config $config)
 	{
 		$this->config = $config;
+		$this->init();
+	}
+	
+	public function init()
+	{
+		return true;
+	}
+	
+	public function beforeRun()
+	{
+		$this->config->validate();
+		return true;
 	}
 	
 	public function run()
 	{
-		$this->config->validate();
+		$this->beforeRun();
 		return true;
 	}
 }

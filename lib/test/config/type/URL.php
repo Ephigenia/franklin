@@ -2,7 +2,7 @@
 
 namespace Franklin\test\config\type;
 
-class URL extends Mixed
+class URL extends String
 {
 	public function buildRegexp(Array $protocols = array())
 	{
@@ -47,6 +47,9 @@ class URL extends Mixed
 	
 	public function validate($value)
 	{
+		if (!$this->required && empty($value)) {
+			return true;
+		}
 		return (bool) preg_match($this->buildRegexp(array('http', 'https')), $value);
 	}
 }

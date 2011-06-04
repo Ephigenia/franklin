@@ -8,6 +8,9 @@ class Enum extends Mixed
 	
 	public function validate($value)
 	{
+		if (!$this->required && empty($value)) {
+			return true;
+		}
 		return array_key_exists($value, (array) $this->options);
 	}
 }

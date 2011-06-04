@@ -1,12 +1,12 @@
 <?php
 
-namespace Franklin\test\Twitter\Followers;
+namespace Franklin\test\Twitter\Following;
 
 use
 	Franklin\test\Scrape\Scrape
 	;
 
-class Followers extends Scrape
+class Following extends Scrape
 {
 	public $name = 'Twitter Followers Count';
 	

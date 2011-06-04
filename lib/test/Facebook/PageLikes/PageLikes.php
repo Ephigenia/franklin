@@ -15,6 +15,7 @@ class PageLikes extends Test
 	
 	public function run()
 	{
+		$this->beforeRun();
 		$this->config->validate();
 		$CURL = new CURL();
 		$response = $CURL->get('http://graph.facebook.com/'.$this->config->id);

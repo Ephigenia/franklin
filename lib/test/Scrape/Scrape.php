@@ -11,6 +11,7 @@ class Scrape extends Test
 {
 	public function run()
 	{
+		$this->beforeRun();
 		$curl = new CURL();
 		$response = $curl->get($this->config->url);
 		if (preg_match_all($this->config->regexp, $response, $found)) {

@@ -1,5 +1,7 @@
 <?php
 
+namespace Franklin\Test\test\Facebook;
+
 use
 	\Franklin\test\Facebook\FanCount\FanCount,
 	\Franklin\test\Facebook\FanCount\FanCountConfig

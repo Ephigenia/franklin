@@ -6,6 +6,6 @@ class Float extends Mixed
 {
 	public function validate($value)
 	{
-		return preg_match('@^\d+(.\d+)?$@', $value);
+		return (!is_bool($value) && (bool) preg_match('@^-?\d+(.\d+)?$@', $value));
 	}
 }

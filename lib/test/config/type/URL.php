@@ -47,6 +47,6 @@ class URL extends Mixed
 	
 	public function validate($value)
 	{
-		return preg_match($this->buildRegexp(array('http', 'https')), $value);
+		return (bool) preg_match($this->buildRegexp(array('http', 'https')), $value);
 	}
 }

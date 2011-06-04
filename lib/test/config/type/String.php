@@ -6,6 +6,6 @@ class String extends Mixed
 {
 	public function validate($value)
 	{
-		return preg_match('@^[\w\d]+$@', $value);
+		return (!is_bool($value) && (bool) preg_match('@^[\w\d\s]+$@', $value));
 	}
 }

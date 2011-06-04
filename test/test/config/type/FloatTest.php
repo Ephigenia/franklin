@@ -3,23 +3,27 @@
 namespace Franklin\test\config\type;
 
 use
-	Franklin\test\config\type\String
-	;
+	Franklin\test\config\type\Float;
 
 /**
  * @group Types
  */
-class StringTest extends \PHPUnit_Framework_TestCase 
+class FloatTest extends \PHPUnit_Framework_TestCase 
 {
 	public function setUp()
 	{
-		$this->fixture = new String('string');
+		$this->fixture = new Float('float');
 	}
 	
 	public function invalidValues()
 	{
 		return array(
+			array(true),
 			array(false),
+			array('- 123.2'),
+			array('asd'),
+			array('-12l.2'),
+			array('a.1'),
 		);
 	}
 	
@@ -34,9 +38,9 @@ class StringTest extends \PHPUnit_Framework_TestCase
 	public function validValues()
 	{
 		return array(
-			array('string'),
-			array('string with spaces'),
-			array('string with numbers and sp8ces'),
+			array(123.2),
+			array('12.2'),
+			array('-12.2')
 		);
 	}
 	

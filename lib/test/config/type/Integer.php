@@ -6,6 +6,6 @@ class Integer extends Mixed
 {
 	public function validate($value)
 	{
-		return preg_match('@^\d+$@', $value);
+		return (!is_bool($value) && (bool) preg_match('@^-?\d+$@', $value));
 	}
 }

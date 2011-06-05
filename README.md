@@ -149,6 +149,13 @@ to the developers.
 
 # Changelog
 
+* 2011-06-05
+	* Added Bing Results Count and IndexedPages Test
+	* Added Compete Rank/Visists/Unique visits test
+	* Added Yahoo Indexed Pages and Backlink Counter
+	* Added Google Pagerank test that works again with php 5.2+
+	* Refactored all other tests to new structure in the library and
+	  added tests for every tests (PHPUnit)
 * 2010-10-28
 	* Added Youtube Video Views Test that records the number of views of a
 	youtube video

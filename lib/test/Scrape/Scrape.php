@@ -20,6 +20,7 @@ class Scrape extends Test
 			} else {
 				$result = $found[1][0];
 			}
+			$result = preg_replace('@[.,-\s]+@', '', $result);
 			if (preg_match('@^-?\s?\d+$@', $result)) {
 				$result = (float) $result;
 			}

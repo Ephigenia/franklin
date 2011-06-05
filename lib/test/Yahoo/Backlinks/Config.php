@@ -1,12 +1,12 @@
 <?php
 
-namespace Franklin\test\Google\InboundLinks;
+namespace Franklin\test\Yahoo\Backlinks;
 
 use
 	Franklin\test\config\type\String
 	;
 
-class Config extends \Franklin\test\Google\Results\Config
+class Config extends \Franklin\test\config\Config
 {
 	public function init()
 	{
@@ -19,8 +19,10 @@ class Config extends \Franklin\test\Google\Results\Config
 	public function offsetGet($offset)
 	{
 		switch ($offset) {
-			case 'q':
-				return 'link:'.urlencode($this->host);
+			case 'url':
+				return 'http://siteexplorer.search.yahoo.com/de/siteexplorer/search?p='.$this->host.'&bwm=p&bwms=p&fr=sfp&fr2=seo-rd-se';
+			case 'regexp':
+				return '@Backlinks\s\(([\d.]+)@';
 		}
 		return parent::offsetGet($offset);
 	}

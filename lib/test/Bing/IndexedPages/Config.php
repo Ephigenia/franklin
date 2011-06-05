@@ -1,12 +1,12 @@
 <?php
 
-namespace Franklin\test\Google\IndexedPages;
+namespace Franklin\test\Bing\IndexedPages;
 
 use
 	Franklin\test\config\type\String
 	;
 
-class Config extends \Franklin\test\Google\Results\Config
+class Config extends \Franklin\test\Bing\Results\Config
 {
 	public function init()
 	{

@@ -1,24 +1,24 @@
 <?php
 
-namespace Franklin\test\Google\InboundLinks\test;
+namespace Franklin\test\Google\Backlinks\test;
 
 use
-	Franklin\test\Google\InboundLinks\InboundLinks,
-	Franklin\test\Google\InboundLinks\Config
+	Franklin\test\Google\Backlinks\Backlinks,
+	Franklin\test\Google\Backlinks\Config
 	;
 
 /**
  * @group Tests
  * @group Google
  */
-class InboundLinksTest extends \PHPUnit_Framework_TestCase
+class BacklinksTest extends \PHPUnit_Framework_TestCase
 {
 	public function setUp()
 	{
 		$config = new Config(array(
 			'host' => 'www.horrorblog.org',
 		));
-		$this->fixture = new InboundLinks($config);
+		$this->fixture = new Backlinks($config);
 	}
 	
 	public function testRun()

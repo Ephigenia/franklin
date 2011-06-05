@@ -1,12 +1,12 @@
 <?php
 
-namespace Franklin\test\Google\InboundLinks;
+namespace Franklin\test\Google\Backlinks;
 
 use
 	Franklin\test\Google\Results\Results
 	;
 	
-class InboundLinks extends Results
+class Backlinks extends Results
 {
 	public $name = 'Google Inbound Links';
 	

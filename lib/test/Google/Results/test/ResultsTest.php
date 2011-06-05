@@ -11,7 +11,7 @@ use
  * @group Tests
  * @group Google
  */
-class FollowingTest extends \PHPUnit_Framework_TestCase
+class ResultsTest extends \PHPUnit_Framework_TestCase
 {
 	public function setUp()
 	{

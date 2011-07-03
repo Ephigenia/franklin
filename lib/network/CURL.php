@@ -44,13 +44,18 @@ class CURL
 		return $this;
 	}
 	
-	public function get($url, Array $data = array(), Array $options = array())
+	public function get($url, $data = array(), Array $options = array())
 	{
 		if (empty($url)) {
 			throw new CURLEmptyURLException();
 		}
 		if (!empty($data)) {
-			$url .= '?'.http_build_query($data);
+			$url .= '?';
+			if (is_array($data)) {
+				$url .= http_build_query($data);
+			} else {
+				$url .= $data;
+			}
 		}
 		$handle = $this->createHandle($options += array(
 			CURLOPT_URL => $url,
@@ -59,7 +64,7 @@ class CURL
 		return $this->exec($handle);
 	}
 	
-	public function post($url, Array $data = array(), $options = array())
+	public function post($url, $data = array(), $options = array())
 	{
 		if (empty($url)) {
 			throw new CURLEmptyURLException();

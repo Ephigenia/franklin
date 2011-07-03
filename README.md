@@ -149,6 +149,10 @@ to the developers.
 
 # Changelog
 
+* 2011-07-03
+	* Added GooglePlus Count test that can get the number of googleplus shares
+	  on a single URL
+
 * 2011-06-05
 	* Added Bing Results Count and IndexedPages Test
 	* Added Compete Rank/Visists/Unique visits test

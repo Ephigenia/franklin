@@ -18,8 +18,8 @@ class FloatTest extends \PHPUnit_Framework_TestCase
 	public function invalidValues()
 	{
 		return array(
-			array(true),
 			array(false),
+			array(true),
 			array('- 123.2'),
 			array('asd'),
 			array('-12l.2'),

@@ -17,7 +17,7 @@ class MetricTest extends \PHPUnit_Framework_TestCase
 	public function setUp()
 	{
 		$config = new Config(array(
-			'username' => 'HorrorblogOrg',
+			'uri' => 'HorrorblogOrg',
 		));
 		$this->fixture = new Metric($config);
 	}
@@ -28,9 +28,9 @@ class MetricTest extends \PHPUnit_Framework_TestCase
 		$this->assertGreaterThan(0, $result);
 	}
 	
-	public function testCirculation()
+	public function testReaders()
 	{
-		$this->fixture->type = Types::CIRCULATION;
-		$this->assertGreaterThan(0, $result);
+		$this->fixture->type = Types::READERS;
+		$this->assertGreaterThan(0, $this->fixture->run());
 	}
 }

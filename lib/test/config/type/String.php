@@ -6,9 +6,12 @@ class String extends Mixed
 {
 	public function validate($value)
 	{
+		if (is_bool($value)) {
+			return false;
+		}
 		if (!$this->required && empty($value)) {
 			return true;
 		}
-		return (!is_bool($value) && (bool) preg_match('@^.+$@', $value));
+		return (bool) preg_match('@^.+$@', $value);
 	}
 }

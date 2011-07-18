@@ -17,8 +17,8 @@ class Config extends \Franklin\test\config\Config
 			new String('regexp', true, null, 'Valid regexp expression that should be used to get the result'),
 			new Integer('timeout', false, 5, 'timeout till scraper stops requesting the website'),
 			new Integer('port', false, 80, 'port on which the request should be send'),
-			new String('referer', false, false, 'optional referer to send when requesting'),
-			new String('user-agent', false, false, 'optional user agent string to send when requesting')
+			new String('referer', false, null, 'optional referer to send when requesting'),
+			new String('user-agent', false, null, 'optional user agent string to send when requesting')
 		);
 		return true;
 	}

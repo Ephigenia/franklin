@@ -10,7 +10,7 @@ class Mixed
 	
 	public $description;
 	
-	public $required;
+	public $required = true;
 	
 	public function __construct($name, $required = null, $default = null, $description = null)
 	{

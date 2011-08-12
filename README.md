@@ -115,6 +115,15 @@ This for now rather basic test exports pageViews or visits from google
 analytics data to franklin. Please see the `config.php.dist` file for an
 example.
 
+## Sistrix Sichtbarkeitsindex
+
+Sistrix is a SEO Service Provider from Germany that provides a toolset for
+SEO and SEM People. The also have their own factor of how visible a website
+is for search engines - the Sichtbarkeitsindex. This can be monitored with
+this test.
+
+* `host` hostname that should be checked, no `http://` or other protocols
+
 ## Vimeo Video
 
 This test uses the [Vimeo Simple API](http://vimeo.com/api/docs/simple-api)
@@ -148,6 +157,10 @@ page](http://github.com/Ephigenia/franklin) for updates, new tests or contact
 to the developers.
 
 # Changelog
+
+* 2011-08-12
+	* Added Sistrix Sichtbarkeitsindex Test that records the current
+	  "Sichtbarkeitsindex" defined by sistrix.
 
 * 2011-07-03
 	* Added GooglePlus Count test that can get the number of googleplus shares

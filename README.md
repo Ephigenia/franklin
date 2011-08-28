@@ -176,7 +176,7 @@ to the developers.
 	* removed grid color from themes cause it wasn’t used
 
 * 2010-10-16
-	* Devided Back and Frontend, set your webroot to `/html/` directory! Also
+	* Divided Back and Frontend, set your webroot to `/html/` directory! Also
 	take care that the data directory change, copy your data files there!
 	* Refactored project structure to have one public html directory
 	* Refactored theming and added 3 themes!
@@ -230,7 +230,7 @@ to the developers.
 * 2010-03-06
 	* Added Test fro lesercharts.de
 	* Fixed Alexa Traffic Rank for country
-	* Cron now reports how many tests checked and runned
+	* Cron now reports how many tests checked and ran   
 
 * 2009-10-17
 	* Added Test for Twitter Follower Counting

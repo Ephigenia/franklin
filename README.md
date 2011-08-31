@@ -158,6 +158,10 @@ to the developers.
 
 # Changelog
 
+* 2011-08-31
+	* Added Klout Score test that scrapes the klout score for a specific
+	  twitter username
+
 * 2011-08-12
 	* Added Sistrix Sichtbarkeitsindex Test that records the current
 	  "Sichtbarkeitsindex" defined by sistrix.

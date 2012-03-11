@@ -17,7 +17,7 @@ class PlusOneTest extends \PHPUnit_Framework_TestCase
 	public function setUp()
 	{
 		$config = new Config(array(
-			'url' => 'http://www.horrorblog.org',
+			'url' => 'http://www.spiegel.de',
 		));
 		$this->fixture = new PlusOne($config);
 	}

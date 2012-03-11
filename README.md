@@ -31,6 +31,13 @@ charts in a report page. See a [live demo](http://franklin.marceleichner.de/).
 * `interval` time interval between checks for the current test.  
   f.e. `+1 day`, `+30 minutes` or shorter `2h`
 
+## Ebuzzing / Wikio Score
+
+Ebuzzing (formally Wikio) is a website that gives scores to websites based on visitors, comments and activity. It scrapes the content of the detail page and records the numeric score. You just need to get the right uri part of the url.
+
+* `uri`, for `http://labs.ebuzzing.de/top-blogs/source/ignant.de-PqY8` it would be
+  `ignant.de-PqY8`
+
 ## Facebook Group Fan Count
 
 Detect the number of fans of a facebook group or page. This uses the open
@@ -115,6 +122,11 @@ This for now rather basic test exports pageViews or visits from google
 analytics data to franklin. Please see the `config.php.dist` file for an
 example.
 
+## Google Plus Like Count
+
+This test records the number of +1 for a specific host. Note that this one
+requires SSL extension for PHP.
+
 ## Sistrix Sichtbarkeitsindex
 
 Sistrix is a SEO Service Provider from Germany that provides a toolset for
@@ -129,25 +141,24 @@ this test.
 This test uses the [Vimeo Simple API](http://vimeo.com/api/docs/simple-api)
 to record various values for a single video.
 
-* `videoID` Vimeo Video ID, get this from the embed code or link to the video
-* `property` Property that should be recorded. `stats_number_of_plays`,
-  `stats_number_of_likes` or `stats_number_of_comments`
+* `id` Vimeo Video ID, get this from the embed code or link to the video
+* `key` Property that should be recorded. `plays`,
+  `likes` or `comments`
+
+## Vimeo User
+
+This test can record various numbers of any user account on vimeo. Like the Vimeo Video test it also uses the [Vimeo Simple API](http://vimeo.com/api/docs/simple-api) provided by vimeo. All you need is the username and the key of the value that you want to record.
+
+* `username`
+* `key` Property which should be recorded: `videos_uploaded`, `videos_appears_in`, `videos_liked`, `contacts`, `albums` or `channels`
 
 ## Youtube Video Views
 
 Simple test that records the number of views of a video on
  [Youtube](http://www.youtube.com).
 
-* `videoID` id of the video on youtube, get this from the url of the video
-
-## Wikio Score
-
-Wikio is a german website that gives scores to websites based on visitors, 
-comments and activity. It scrapes the content of the detail page and records
-the numeric score. You just need to get the right uri part of the url.
-
-* `uri`, for `http://www.wikio.de/sources/www.horrorblog.org-aeK1` it would be
-  `www.horrorblog.org-aeK1`
+* `id` id of the video on youtube, get this from the url of the video
+* `key` either `rating`, `likeCount`, `ratingCount`, `viewCount`, `favoriteCount` or `commentCount`
 
 # UPDATES/FEEDBACK
 
@@ -157,6 +168,14 @@ page](http://github.com/Ephigenia/franklin) for updates, new tests or contact
 to the developers.
 
 # Changelog
+
+* 2012-03-11
+	* Removed Yahoo Backlinks and IndexedPages Tests because yahoo site
+	  explorer was merged with bing webmaster tools.
+	* Fixed all tests that were using "horrorblog.org" as tests were values
+	  would be empty.
+	* Wikio rename to EBuzzing
+	* Added Vimeo Video Info and User Info Test
 
 * 2011-08-31
 	* Added Klout Score test that scrapes the klout score for a specific

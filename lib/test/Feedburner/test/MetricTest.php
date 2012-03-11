@@ -17,7 +17,7 @@ class MetricTest extends \PHPUnit_Framework_TestCase
 	public function setUp()
 	{
 		$config = new Config(array(
-			'uri' => 'HorrorblogOrg',
+			'uri' => 'BurnThisRSS2',
 		));
 		$this->fixture = new Metric($config);
 	}

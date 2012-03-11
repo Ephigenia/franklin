@@ -1,22 +1,22 @@
 <?php
 
-namespace Franklin\test\Wikio\Score\test;
+namespace Franklin\test\Ebuzzing\Score\test;
 
 use
-	Franklin\test\Wikio\Score\Score,
-	Franklin\test\Wikio\Score\Config
+	Franklin\test\Ebuzzing\Score\Score,
+	Franklin\test\Ebuzzing\Score\Config
 	;
 
 /**
  * @group Tests
- * @group Wikio
+ * @group Ebuzzing
  */
 class ScoreTest extends \PHPUnit_Framework_TestCase
 {
 	public function setUp()
 	{
 		$config = new Config(array(
-			'id' => 'www.horrorblog.org-aeK1',
+			'id' => 'netzpolitik.org-7HE9',
 		));
 		$this->fixture = new Score($config);
 	}
@@ -24,6 +24,6 @@ class ScoreTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
-		$this->assertGreaterThan(1, $result);
+		$this->assertGreaterThan(5, $result);
 	}
 }

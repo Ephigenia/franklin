@@ -17,7 +17,7 @@ class URLLikesTest extends \PHPUnit_Framework_TestCase
 	public function setUp()
 	{
 		$config = new Config(array(
-			'url' => 'http://www.horrorblog.org',
+			'url' => 'http://www.spiegel.de',
 			'type' => Types::TOTAL,
 		));
 		$this->fixture = new URLLikes($config);

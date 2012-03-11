@@ -3,7 +3,7 @@
 namespace Franklin\test\Google\PlusOne;
 
 use
-	Franklin\test\Scrape\Scrape,
+	Franklin\test\Test,
 	Franklin\network\CURL
 	;
 
@@ -11,7 +11,7 @@ use
  * http://code.google.com/intl/de-AT/apis/+1button/
  * http://openminds.lucido-media.de/php-google-plus-one-count-api
  */
-class PlusOne extends Scrape
+class PlusOne extends Test
 {
 	public $name = 'Google PlusOne Share Counts';
 	
@@ -25,6 +25,7 @@ class PlusOne extends Scrape
 			),
 			CURLOPT_RETURNTRANSFER => 3,
 			CURLOPT_SSL_VERIFYPEER => false,
+			CURLOPT_SSL_VERIFYHOST => false,
 		));
 		$result = $CURL->post('https://clients6.google.com/rpc', '[{"method":"pos.plusones.get","id":"p","params":{"nolog":true,"id":"'.$this->config->url.'","source":"widget","userId":"@viewer","groupId":"@self"},"jsonrpc":"2.0","key":"p","apiVersion":"v1"}]');
 		if ($result) {

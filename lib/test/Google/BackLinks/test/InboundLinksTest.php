@@ -16,7 +16,7 @@ class BacklinksTest extends \PHPUnit_Framework_TestCase
 	public function setUp()
 	{
 		$config = new Config(array(
-			'host' => 'www.horrorblog.org',
+			'host' => 'www.spiegel.de',
 		));
 		$this->fixture = new Backlinks($config);
 	}

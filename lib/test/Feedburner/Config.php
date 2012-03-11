@@ -26,7 +26,7 @@ class Config extends \Franklin\test\config\Config
 	{
 		switch ($offset) {
 			case 'url':
-				return 'http://feedburner.google.com/api/awareness/1.0/GetFeedData?uri='.$this->uri.'&dates='.date('Y-m-d', strtotime('-1 day'));
+				return 'http://feedburner.google.com/api/awareness/1.0/GetFeedData?uri='.$this->uri.'&dates='.date('Y-m-d', strtotime('-2 day'));
 			case 'regexp':
 				switch ($this->type) {
 					case Types::READERS:

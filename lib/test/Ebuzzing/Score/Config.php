@@ -1,6 +1,6 @@
 <?php
 
-namespace Franklin\test\Wikio\Score;
+namespace Franklin\test\Ebuzzing\Score;
 
 use
 	Franklin\test\config\type\String
@@ -11,7 +11,7 @@ class Config extends \Franklin\test\config\Config
 	public function init()
 	{
 		$this->definition->append(
-			new String('id', true, null, 'hostname of website that should be tracked on wikio.de')
+			new String('id', true, null, 'hostname of website that should be tracked on ebuzzing')
 		);
 		return true;
 	}
@@ -20,9 +20,9 @@ class Config extends \Franklin\test\config\Config
 	{
 		switch ($offset) {
 			case 'url':
-				return 'http://www.wikio.de/sources/'.$this->id;
+				return 'http://labs.ebuzzing.de/top-blogs/source/'.$this->id;
 			case 'regexp':
-				return '@wikio-score:[^\d]+([0-9.]+)@is';
+				return '&wikioScore">.*>([\d\.]+)&is';
 		}
 		return parent::offsetGet($offset);
 	}

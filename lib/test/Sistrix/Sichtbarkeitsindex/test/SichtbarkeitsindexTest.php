@@ -16,7 +16,7 @@ class SichtbarkeitsindexTest extends \PHPUnit_Framework_TestCase
 	public function setUp()
 	{
 		$config = new Config(array(
-			'host' => 'horrorblog.org',
+			'host' => 'spiegel.de',
 		));
 		$this->fixture = new Sichtbarkeitsindex($config);
 	}

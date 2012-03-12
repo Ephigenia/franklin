@@ -136,6 +136,20 @@ this test.
 
 * `host` hostname that should be checked, no `http://` or other protocols
 
+## Soundcloud TrackInfo
+
+Aquires information about a single track from soundcloud. Record Number of Favorite, Play and Download.
+
+* `id` id of the track, you can find the numeric id in the embed code or you just take the name of the track from the track’s url
+* `key` name of the value to record, either: `playback`, `favoritings` or `download`
+
+## Soundcloud UserInfo
+
+Aquires information about a specific soundcloud user. Record the number of tracks uploaded by a user or number of followers.
+
+* `id` username or id, taken from URL
+* `key` name of the vlaue to recrod, either: `track`, `playlist`, `followers`, `followings` or `public_favorites`
+
 ## Vimeo Video
 
 This test uses the [Vimeo Simple API](http://vimeo.com/api/docs/simple-api)
@@ -168,6 +182,11 @@ page](http://github.com/Ephigenia/franklin) for updates, new tests or contact
 to the developers.
 
 # Changelog
+
+* 2012-03-12
+	* Added Soundcloud TrackInfo test that acquires information about a single
+	  track on soundcloud and Soundcloud Artist Info which does the same thing
+	  for artists on soundcloud.
 
 * 2012-03-11
 	* Removed Yahoo Backlinks and IndexedPages Tests because yahoo site

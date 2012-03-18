@@ -27,7 +27,6 @@ class CURL
 		CURLOPT_FOLLOWLOCATION => true,
 		CURLOPT_TIMEOUT => 5,
 		CURLOPT_COOKIE => false,
-		CURLOPT_PORT => 80,
 		CURLOPT_REFERER => false,
 		CURLOPT_USERAGENT => 'franklin website metric recorder',
 		CURLOPT_RETURNTRANSFER => true,
@@ -40,7 +39,7 @@ class CURL
 		if (!function_exists('curl_init')) {
 			throw new CURLNotAvailableException();
 		}
-		$this->defaults = $options + $this->defaults;
+		$this->defaults = $this->defaults + $options;
 		return $this;
 	}
 	
@@ -96,6 +95,8 @@ class CURL
 		}
 		$handle = curl_init();
 		curl_setopt_array($handle, $options + $this->defaults);
+		curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, false);
 		return $handle;
 	}
 }

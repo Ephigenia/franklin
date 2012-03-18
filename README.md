@@ -13,7 +13,7 @@ charts in a report page. See a [live demo](http://franklin.marceleichner.de/).
 # REQUIREMENTS
 
 * PHP 5.3 or later
-* PHP Curl module (e.g. "php5-curl" package)
+* PHP CURL module (e.g. "php5-curl" package), Some tests need SSL
 
 # INSTALLATION
 
@@ -38,14 +38,27 @@ Ebuzzing (formally Wikio) is a website that gives scores to websites based on vi
 * `uri`, for `http://labs.ebuzzing.de/top-blogs/source/ignant.de-PqY8` it would be
   `ignant.de-PqY8`
 
-## Facebook Group Fan Count
+## Facebook Page Likes (Fan Count)
 
-Detect the number of fans of a facebook group or page. This uses the open
+Detect the number of fans of a facebook page. This uses the open
 graph API and therefore the page must be public (not set to private and no
 age-restriction).
 
-* `groupId` id or name of the facebook group or page, copy the id or name from
+* `id` id or name of the facebook group or page, copy the id or name from
 the uri when you’re on the facbeook page
+
+## Facebook Page Talking About Count
+
+The Same like the Page Likes count test but tracking the "people talking about" number that facebook introduced 2010.
+
+* `id` id or name of the facebook group or page, copy the id or name from
+the uri when you’re on the facbeook page
+
+## Facebook URL Like Count
+
+This test can track the number of likes posted on a specific URL.
+
+* `url` The URLs who’s number of likes should be tracked
 
 ## Feedburner Subscribers
 
@@ -61,6 +74,21 @@ Make sure you enabled the Awareness API in the Feedburner configuration.
 
 * `uri` Uri of the Feedburner feed, you can simply get it from a feedburner
   URL
+
+## GitHub UserInfo
+
+This test can track data of a github user. You can use this to track the number of followers, following users or public repositories of a single github user. The username can also be a organsiation’s name. This test uses SSL.
+
+* `username` github username or organisation name
+* `key` json key: `followers`, `following`, `public_repos`
+
+## GitHub RepoInfo
+
+This test records information like te number of forks, open issues, watchers or size of a github repository. The `sloc` key also tracks the total number of code lines in the repository.
+
+* `username` github username or organisation
+* `repository` name of the repository
+* `key` json key: `open_issues`, `watchers`, `forks`, `size`, `sloc`
 
 ## Google Results Count
 
@@ -87,6 +115,17 @@ automatically the same as language
 * `save` optional save mode parameter that can be one of the 3 options
   specified in the google search api documentation: `active`, `moderate` and
   `off`, default is `active`
+
+## Google Analytics API
+
+This for now rather basic test exports pageViews or visits from google
+analytics data to franklin. Please see the `config.php.dist` file for an
+example.
+
+## Google Plus Like Count
+
+This test records the number of +1 for a specific host. Note that this one
+requires SSL extension for PHP.
 
 ## Lesercharts.de Position
 
@@ -115,17 +154,6 @@ number of results found.
   or some days are recommended.
 * `geocode`
 * `locale`
-
-## Google Analytics API
-
-This for now rather basic test exports pageViews or visits from google
-analytics data to franklin. Please see the `config.php.dist` file for an
-example.
-
-## Google Plus Like Count
-
-This test records the number of +1 for a specific host. Note that this one
-requires SSL extension for PHP.
 
 ## Sistrix Sichtbarkeitsindex
 
@@ -182,6 +210,13 @@ page](http://github.com/Ephigenia/franklin) for updates, new tests or contact
 to the developers.
 
 # Changelog
+
+* 2012-03-18
+	* Added GitHub UserInfo and RepoInfo that can check information from a
+	github user or organisation and GitHub RepoInfo that gets information about
+	a repository.
+	* Added Facebook Talking About test that tracks the newly added "people
+	talking about" of a facebook page
 
 * 2012-03-12
 	* Added Soundcloud TrackInfo test that acquires information about a single

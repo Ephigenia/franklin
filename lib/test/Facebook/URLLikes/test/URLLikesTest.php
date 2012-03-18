@@ -26,7 +26,6 @@ class URLLikesTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
-		$this->assertTrue(is_float($result));
-		$this->assertTrue($result > 0);
+		$this->assertGreaterThan(100, $result);
 	}
 }

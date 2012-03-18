@@ -25,12 +25,11 @@ class PlusOne extends Test
 			),
 			CURLOPT_RETURNTRANSFER => 3,
 			CURLOPT_SSL_VERIFYPEER => false,
-			CURLOPT_SSL_VERIFYHOST => false,
 		));
-		$result = $CURL->post('https://clients6.google.com/rpc', '[{"method":"pos.plusones.get","id":"p","params":{"nolog":true,"id":"'.$this->config->url.'","source":"widget","userId":"@viewer","groupId":"@self"},"jsonrpc":"2.0","key":"p","apiVersion":"v1"}]');
-		if ($result) {
-			$json = json_decode($result, true);
-			return intval($json[0]['result']['metadata']['globalCounts']['count']);
+		$postData = '[{"method":"pos.plusones.get","id":"p","params":{"nolog":true,"id":"'.$this->config->url.'","source":"widget","userId":"@viewer","groupId":"@self"},"jsonrpc":"2.0","key":"p","apiVersion":"v1"}]';
+		$result = $CURL->post('https://clients6.google.com/rpc', $postData);
+		if ($result && $data = json_decode($result, true)) {
+			return (int) $data[0]['result']['metadata']['globalCounts']['count'];
 		}
 		return 0;
 	}

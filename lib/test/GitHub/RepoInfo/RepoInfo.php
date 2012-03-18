@@ -17,13 +17,13 @@ class RepoInfo extends Test
 	{
 		$endpoint = 'https://api.github.com/repos/';
 		$url = $endpoint.$this->config->username.'/'.$this->config->repository;
-		if (strncasecmp($this->config->key, 'sloc', 4)) {
+		if (strtolower($this->config->key) == 'sloc') {
 			$url .= '/languages';
 		}
 		$CURL = new CURL();
 		$result = $CURL->get($url);
 		if ($result && $data = json_decode($result, true)) {
-			if (strncasecmp($this->config->key, 'sloc', 4)) {
+			if (strtolower($this->config->key) == 'sloc') {
 				return array_sum($data);
 			} else {
 				return (int) $data[$this->config->key];

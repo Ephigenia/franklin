@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__.'/config/bootstrap.php';
+require __DIR__.'/../config/bootstrap.php';
 $Franklin = new \Franklin\Franklin();
 $Franklin->loadConfig(FRANKLIN_ROOT.'/config/config.php');
-$Franklin->report();
+echo $Franklin->report();

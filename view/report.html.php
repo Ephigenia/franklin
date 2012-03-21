@@ -23,12 +23,12 @@
 </head>
 <body>
 	<?php
-	// foreach($TestGroups as $TestGroup) {
-	// 	echo $this->element('testGroup', array('TestGroup' => $TestGroup));
-	// }
+	foreach($groups as $Group) {
+		echo $this->element('group', array('Group' => $Group));
+	}
 	?>
 	<footer>
-		<a href="http://code.marceleichner.de/project/franklin/?ref=franklin" rel="external" title="Frankling project home on code.marceleichner.de">Franklin v.<?= file_get_contents(FRANKLIN_ROOT.'/VERSION'); ?></a> •
+		<a href="https://github.com/Ephigenia/franklin" rel="external" title="Franklin project page @ github">Franklin v.<?= file_get_contents(FRANKLIN_ROOT.'/VERSION'); ?></a> •
 		<a href="http://www.marceleichner.de/?ref=franklin" rel="external">Marcel Eichner // Ephigenia</a>
 	</footer>
 </body>

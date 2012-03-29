@@ -11,7 +11,7 @@
 			<directory>./test</directory>
 		</testsuite>
 		<testsuite name="tests">
-			<directory>./lib/test/</directory>
+			<directory>./lib/franklin/test/</directory>
 		</testsuite>
 	</testsuites>
 	<php>

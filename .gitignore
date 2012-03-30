@@ -2,3 +2,4 @@ data/*.txt
 config/config.php
 doc/report/*
 doc/wiki/*
+data/*

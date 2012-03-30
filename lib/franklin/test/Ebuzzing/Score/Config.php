@@ -22,7 +22,7 @@ class Config extends \Franklin\test\config\Config
 			case 'url':
 				return 'http://labs.ebuzzing.de/top-blogs/source/'.$this->id;
 			case 'regexp':
-				return '&wikioScore">.*>([\d\.]+)&is';
+				return '&class="info">([0-9\.]+)&i';
 		}
 		return parent::offsetGet($offset);
 	}

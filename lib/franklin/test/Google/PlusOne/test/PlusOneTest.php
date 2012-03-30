@@ -25,7 +25,6 @@ class PlusOneTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
-		var_dump('result: '.$result);
 		$this->assertTrue($result > 1000);
 	}
 }

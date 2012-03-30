@@ -19,7 +19,6 @@ class VideoInfo extends Test
 		$CURL = new CURL();
 		$result = $CURL->get($url);
 		if ($result && $data = json_decode($result, true)) {
-			var_dump($json);
 			return (float) $data['data']['items'][0][$this->config->key];
 		}
 		return 0;

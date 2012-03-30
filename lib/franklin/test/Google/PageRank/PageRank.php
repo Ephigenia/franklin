@@ -15,7 +15,7 @@ class PageRank extends Test
 	public function run()
 	{
 		$this->beforeRun();
-		require FRANKLIN_ROOT.'/vendor/GooglePageRankChecker/GooglePageRankChecker.php';
+		require FRANKLIN_ROOT.'/lib/GooglePageRankChecker/GooglePageRankChecker.php';
 		return \GooglePageRankChecker::getRank($this->config->host);
 	}
 }

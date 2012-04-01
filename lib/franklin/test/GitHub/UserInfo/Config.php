@@ -13,7 +13,7 @@ class Config extends \Franklin\test\config\Config
 	{
 		$this->definition->append(
 			new String('username', true, null, 'github username'),
-			new String('key', true, 'followers', 'key that should be recorded (followers, following, public_repos)')
+			new String('key', true, 'followers', 'key that should be recorded (followers, following, public_repo, public_gist)')
 		);
 		return true;
 	}

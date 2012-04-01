@@ -15,11 +15,11 @@ class UserInfo extends Test
 	
 	public function run()
 	{
-		$url = 'https://api.github.com/users/'.$this->config->username;
+		$url = 'https://github.com/api/v2/json/user/show/'.$this->config->username;
 		$CURL = new CURL();
 		$result = $CURL->get($url);
 		if ($result && $data = json_decode($result, true)) {
-			return (int) $data[$this->config->key];
+			return (int) $data['user'][$this->config->key.'_count'];
 		}
 		return 0;
 	}

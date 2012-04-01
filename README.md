@@ -80,7 +80,7 @@ Make sure you enabled the Awareness API in the Feedburner configuration.
 This test can track data of a github user. You can use this to track the number of followers, following users or public repositories of a single github user. The username can also be a organsiation’s name. This test uses SSL.
 
 * `username` github username or organisation name
-* `key` json key: `followers`, `following`, `public_repos`
+* `key` json key: `followers`, `following`, `public_repo`, `public_gist`
 
 ## GitHub RepoInfo
 
@@ -202,6 +202,18 @@ Simple test that records the number of views of a video on
 * `id` id of the video on youtube, get this from the url of the video
 * `key` either `rating`, `likeCount`, `ratingCount`, `viewCount`, `favoriteCount` or `commentCount`
 
+## XML XPath
+
+This test uses a `xpath`-Expression to find values from a previously loaded xml file. It’s possible to store node values as well as attribute values.
+
+* `url` URL to the XML file, can contain query parameters
+* `xpath` valid XPath-expression to find the value.
+
+If you are not familiar with xpath expressions you should check some examples on [w3schools](http://www.w3schools.com/xpath/xpath_syntax.asp). Here are some examples:
+
+	/users/public-gist-count	node value from <public-gist-count>
+	/users/@logins				attribute "logins" of the <users> node
+
 # UPDATES/FEEDBACK
 
 Franklin will be updated from time to time. Check the official [Franklin
@@ -209,7 +221,15 @@ Homepage](http://code.marceleichner.de/project/franklin) and the [github
 page](http://github.com/Ephigenia/franklin) for updates, new tests or contact
 to the developers.
 
+# Donate 
+
+You can donate for this project and support the developers behind it. Every tiny amount of money does help! http://pledgie.com/campaigns/11258
+
 # Changelog
+
+* 2012-04-01
+	* Added generic XML Test that loads xml files (also from remote) and 
+	stores values from nodes or attributes by their xpath
 
 * 2012-03-18
 	* Added GitHub UserInfo and RepoInfo that can check information from a

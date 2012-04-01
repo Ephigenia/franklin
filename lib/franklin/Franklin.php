@@ -41,7 +41,7 @@ class Franklin
 			.'-'.md5(serialize($Test->config))
 			.'.csv'
 		;
-		$Storage = new \Franklin\storage\FlatFile($filename);
+		$Storage = new \Franklin\storage\CSV($filename);
 		return $Storage;
 	}
 	

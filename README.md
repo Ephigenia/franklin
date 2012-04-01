@@ -230,6 +230,7 @@ You can donate for this project and support the developers behind it. Every tiny
 * 2012-04-01
 	* Added generic XML Test that loads xml files (also from remote) and 
 	stores values from nodes or attributes by their xpath
+	* renamed FlatFile storage to CSV because it’s a CSV Storage actually
 
 * 2012-03-18
 	* Added GitHub UserInfo and RepoInfo that can check information from a

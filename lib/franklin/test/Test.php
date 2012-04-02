@@ -19,6 +19,13 @@ abstract class Test
 		$this->init();
 	}
 	
+	public function uniqueId()
+	{
+		$name = preg_replace('@[^a-z0-9_-]@i', '-', get_class($this));
+		$hash = md5(serialize($this->config));
+		return $name.'-'.$hash;
+	}
+	
 	public function __toString()
 	{
 		return $this->name;

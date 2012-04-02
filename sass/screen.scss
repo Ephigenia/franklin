@@ -1,0 +1,42 @@
+@import "compass/reset";
+@import "compass";
+
+
+$grid-columns: 16;
+$grid-column-width: 30px;
+$grid-gutter: 20px;
+
+$text-font: 'Droid Sans', arial, serif;
+$text-color: black;
+$base-font-size: 18px;
+$base-line-heigh: 30px;
+
+@import "mixin/grid";
+@include establish-grid();
+@include establish-baseline();
+
+@import "partial/footer";
+@import "partial/table";
+
+body {
+	font-family: $text-font;
+	padding: 20px;
+}
+#{headings()} {
+	font-weight: bold;
+}
+h1 {
+	@include adjust-font-size-to($base-font-size * 2);
+}
+h2 {
+	@include adjust-font-size-to($base-font-size * 1.5);
+}
+
+div.group {
+	ul.tests {
+		@include row();
+		li.test {
+			@include column(8);
+		}
+	}
+}

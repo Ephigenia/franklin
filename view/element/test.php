@@ -1,14 +1,7 @@
-<?php
-// get chart title from test’s name
-$title = $Test->name;
-// append interval time to test’s title
-if ($Test->interval > 3600) {
-	$title .= ' (every '.round($Test->interval / 3600).'h)';
-} else {
-	$title .= ' (every '.round($Test->interval / 60).'m)';
-}
-?>
-<li class="Test <?php echo $Test->display; ?>">
-	<h2><?php echo $title ?></h2>
-	<?php echo $this->element($Test->display, array('Test' => $Test)); ?>
+<li class="test">
+	<h2>
+		<input type="checkbox" name="ids[]" value="<?php echo $Test->uniqueId(); ?>" id="compare-checkbox-<?php echo $Test->uniqueId(); ?>" />
+		<a href="?action=test&amp;id=<?php echo $Test->uniqueId(); ?>" title="details"><?php echo $Test->name ?></a>
+	</h2>
+	<?php echo $this->element('lineChart', array('Test' => $Test)); ?>
 </li>

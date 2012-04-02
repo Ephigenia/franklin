@@ -9,7 +9,7 @@ use
 
 class UserInfo extends Test
 {
-	public $name = 'Viemo User Information';
+	public $name = 'Vimeo User Information';
 	
 	public $description = 'Information about a user';
 	

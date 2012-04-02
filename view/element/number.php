@@ -1,6 +1,6 @@
 <?php
-$data = $Test->last(2);
-$data = (float) reset($data);
+$data = $this->franklin->storage($Test)->getLatestValues(2);
+$data = $data[0][1];
 if(strlen($data) <= 3) {
 	$fontSize = 160;
 } else {
@@ -8,4 +8,3 @@ if(strlen($data) <= 3) {
 }
 ?>
 <div class="number" style="font-size: <?php echo $fontSize; ?>px;"><?php echo $data ?></div>
-<?php echo $this->element('lineChart', array('Test' => $Test))?>

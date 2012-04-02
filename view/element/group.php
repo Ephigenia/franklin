@@ -1,7 +1,10 @@
-<article class="group">
-	<h1><?= $Group ?></h1>
-	<?php foreach ($Group as $Test) {
-		$storage = $this->franklin->storage($Test);
-		echo $Test;
-	}?>
-</article>
+<div class="group">
+	<h1><?php echo $Group ?></h1>
+	<ul class="tests">
+	<?php
+	foreach ($Group as $Test) {
+		echo $this->element('test', array('Test' => $Test));
+	}
+	?>
+	</ul>
+</div>

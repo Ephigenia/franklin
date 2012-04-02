@@ -11,11 +11,47 @@ class Franklin
 	public function report()
 	{
 		\Franklin\view\View::$baseDir = FRANKLIN_ROOT.'/view/';
-		$view = new \Franklin\view\View('report.html');
+		$action = 'report';
+		if (isset($_GET['action'])) {
+			$action = $_GET['action'];
+		}
+		switch($action) {
+			case 'report':
+			default:
+				$view = new \Franklin\view\View('report.html');
+				break;
+			case 'test':
+				$view = new \Franklin\view\View('test.html');
+				$view['Test'] = $this->findTestById($_GET['id']);
+				break;
+			case 'compare':
+				$view = new \Franklin\view\View('compare.html');
+				foreach($_GET['ids'] as $id) {
+					if (!($test = $this->findTestById($_GET['id']))) continue;
+					$tests[] = $test;
+				}
+				$view['Tests'] = $tests;
+				break;
+		}
+		$view['action'] = $action;
 		$view['groups'] = $this->groups;
 		$view['config'] = $this->config;
 		$view['franklin'] = $this;
-		return $view;
+		$layout = new \Franklin\view\View('layout/default.html');
+		$layout['content'] = $view;
+		return $layout;
+	}
+	
+	public function findTestById($id)
+	{
+		foreach($this->groups as $Group) {
+			foreach($Group as $Test) {
+				if ($Test->uniqueId() == $id) {
+					return $Test;
+				}
+			}
+		}
+		return false;
 	}
 	
 	public function cron()
@@ -36,10 +72,7 @@ class Franklin
 	public function storage(\Franklin\test\Test $Test)
 	{
 		$filename =
-			FRANKLIN_ROOT.'/data/'
-			.preg_replace('@[^a-z0-9_-]@i', '-', get_class($Test))
-			.'-'.md5(serialize($Test->config))
-			.'.csv'
+			FRANKLIN_ROOT.'/data/'.$Test->uniqueId().'.csv';
 		;
 		$Storage = new \Franklin\storage\CSV($filename);
 		return $Storage;

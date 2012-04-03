@@ -46,6 +46,7 @@ div.group {
 		@include row();
 		li.test {
 			h2 {
+				text-align: center;
 				@include adjust-font-size-to($base-font-size * 1);
 			}
 			@include column(4);

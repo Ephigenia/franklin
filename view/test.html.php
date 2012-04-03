@@ -2,7 +2,11 @@
 $data = $this->franklin->storage($Test)->getLatestValues(30);
 ?>
 
-<h1><?php echo $Test->name ?></h1>
+<h1><?php
+	echo $Test->group;
+	echo '/';
+	echo $Test->name;
+?></h1>
 <div style="width: auto; height: 500px;">
 	<?php echo $this->element('lineChart', array('Test' => $Test)); ?>
 </div>

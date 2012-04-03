@@ -410,6 +410,7 @@ div.group ul.tests li.test {
 }
 /* line 48, ../../sass/screen.scss */
 div.group ul.tests li.test h2 {
+  text-align: center;
   font-size: 1em;
   line-height: 1.333em;
 }

@@ -56,7 +56,13 @@ class Franklin
 	
 	public function cron()
 	{
-		$this->runAllTests();
+		$argv = $_SERVER['argv'];
+		foreach($argv as $value) {
+			if (preg_match('@--([^=]+)=(.+)@', $value, $found)) {
+				$options[$found[1]] = $found[2];
+			}
+		}
+		$this->runTests($options);
 	}
 	
 	public function loadConfig($filename)
@@ -78,20 +84,26 @@ class Franklin
 		return $Storage;
 	}
 	
-	public function runAllTests()
+	protected function runTests(Array $filter = array())
 	{
 		$startTimestamp = time();
 		$counters = array(
 			'tests' => 0,
 			'runs' => 0,
 		);
-		foreach($this->groups as $TestGroup) foreach($TestGroup as $Test) {
-			$counters['tests']++;
-			if (empty($Test->lastTestTimestamp) || $Test->lastTestTimestamp + $Test->interval < time()) {
-				$result = $Test->run();
-				$this->storage($Test)->store(new \DateTime(), $result);
-				$counters['runs']++;
-				printf('Test %s: %f'.PHP_EOL, $Test->name, $result);
+		foreach($this->groups as $TestGroup) {
+			if (isset($filter['group']) && (string) $TestGroup !== $filter['group']) {
+				continue;
+			}
+			printf('Processing group: %s'.PHP_EOL, $TestGroup);
+			foreach($TestGroup as $Test) {			
+				$counters['tests']++;
+				if (empty($Test->lastTestTimestamp) || $Test->lastTestTimestamp + $Test->interval < time()) {
+					$result = $Test->run();
+					$this->storage($Test)->store(new \DateTime(), $result);
+					$counters['runs']++;
+					printf('%s: %f'.PHP_EOL, $Test->name, $result);
+				}
 			}
 		}
 		printf('%s tests checked, %s done, %s skipped in %d seconds', $counters['tests'], $counters['runs'], $counters['tests'] - $counters['runs'], time() - $startTimestamp);

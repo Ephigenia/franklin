@@ -1,11 +1,11 @@
 <?php
 
-namespace Franklin\test\Feedburner\test;
+namespace Franklin\test\Feedburner\Metric\test;
 
 use
-	Franklin\test\Feedburner\Metric,
-	Franklin\test\Feedburner\Config,
-	Franklin\test\Feedburner\Types
+	Franklin\test\Feedburner\Metric\Metric,
+	Franklin\test\Feedburner\Metric\Config,
+	Franklin\test\Feedburner\Metric\Types
 	;
 
 /**
@@ -25,12 +25,12 @@ class MetricTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
-		$this->assertGreaterThan(0, $result);
+		$this->assertGreaterThan(5, $result);
 	}
 	
 	public function testReaders()
 	{
 		$this->fixture->type = Types::READERS;
-		$this->assertGreaterThan(0, $this->fixture->run());
+		$this->assertGreaterThan(5, $this->fixture->run());
 	}
 }

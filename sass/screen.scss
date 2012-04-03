@@ -6,8 +6,8 @@ $grid-columns: 16;
 $grid-column-width: 30px;
 $grid-gutter: 20px;
 
-$text-font: 'Droid Sans', arial, serif;
-$text-color: black;
+$text-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$text-color: #333;
 $base-font-size: 18px;
 $base-line-heigh: 30px;
 
@@ -21,15 +21,17 @@ $base-line-heigh: 30px;
 body {
 	font-family: $text-font;
 	padding: 20px;
+	color: $text-color;
 }
 #{headings()} {
+	color: $text-color;
 	font-weight: bold;
 }
 h1 {
-	@include adjust-font-size-to($base-font-size * 2);
+	@include adjust-font-size-to($base-font-size * 3);
 }
 h2 {
-	@include adjust-font-size-to($base-font-size * 1.5);
+	@include adjust-font-size-to($base-font-size * 2);
 }
 
 div.group {

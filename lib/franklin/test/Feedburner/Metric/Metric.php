@@ -1,6 +1,6 @@
 <?php
 
-namespace Franklin\test\Feedburner;
+namespace Franklin\test\Feedburner\Metric;
 
 use
 	Franklin\test\Scrape\Scrape

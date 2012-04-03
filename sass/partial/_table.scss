@@ -1,0 +1,32 @@
+$table-border-color: #ddd !default;
+$table-striped-background-color: #F9F9F9;
+
+table.table {
+	th {
+		font-weight: bold;
+	}
+	td {
+		border-top: 1px solid $table-border-color;
+	}
+	th, td {
+		padding: 0.25em 0.5em;
+	}
+	tr:hover td {
+		background-color: $table-striped-background-color;
+	}
+}
+
+
+table.bordered {
+	border: 1px solid $table-border-color;
+	border-left: 0;
+	th, td {
+		border-left: 1px solid $table-border-color;
+	}
+}
+
+table.striped {
+	tr:nth-child(odd) > td {
+		background-color: $table-striped-background-color;
+	}
+}

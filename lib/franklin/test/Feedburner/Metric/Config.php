@@ -1,11 +1,11 @@
 <?php
 
-namespace Franklin\test\Feedburner;
+namespace Franklin\test\Feedburner\Metric;
 
 use
 	Franklin\test\config\type\String,
 	Franklin\test\config\type\Enum,
-	Franklin\test\Feedburner\Types
+	Franklin\test\Feedburner\Metric\Types
 	;
 
 class Config extends \Franklin\test\config\Config

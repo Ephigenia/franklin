@@ -298,43 +298,80 @@ html > body {
 
 /* line 1, ../../sass/partial/_footer.scss */
 #app > footer {
+  overflow: hidden;
+  *zoom: 1;
+  margin-top: 1.333em;
   font-size: 75%;
 }
-/* line 4, ../../sass/partial/_footer.scss */
+/* line 5, ../../sass/partial/_footer.scss */
 #app > footer, #app > footer a {
-  color: black;
+  color: #333333;
+}
+
+/* line 5, ../../sass/partial/_table.scss */
+table.table th {
+  font-weight: bold;
+}
+/* line 8, ../../sass/partial/_table.scss */
+table.table td {
+  border-top: 1px solid #dddddd;
+}
+/* line 11, ../../sass/partial/_table.scss */
+table.table th, table.table td {
+  padding: 0.25em 0.5em;
+}
+/* line 14, ../../sass/partial/_table.scss */
+table.table tr:hover td {
+  background-color: #f9f9f9;
+}
+
+/* line 20, ../../sass/partial/_table.scss */
+table.bordered {
+  border: 1px solid #dddddd;
+  border-left: 0;
+}
+/* line 23, ../../sass/partial/_table.scss */
+table.bordered th, table.bordered td {
+  border-left: 1px solid #dddddd;
+}
+
+/* line 29, ../../sass/partial/_table.scss */
+table.striped tr:nth-child(odd) > td {
+  background-color: #f9f9f9;
 }
 
 /* line 21, ../../sass/screen.scss */
 body {
-  font-family: "Droid Sans", arial, serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 20px;
+  color: #333333;
 }
 
-/* line 25, ../../sass/screen.scss */
+/* line 26, ../../sass/screen.scss */
 h1, h2, h3, h4, h5, h6 {
+  color: #333333;
   font-weight: bold;
 }
 
-/* line 28, ../../sass/screen.scss */
+/* line 30, ../../sass/screen.scss */
 h1 {
+  font-size: 3em;
+  line-height: 1.333em;
+}
+
+/* line 33, ../../sass/screen.scss */
+h2 {
   font-size: 2em;
   line-height: 1.333em;
 }
 
-/* line 31, ../../sass/screen.scss */
-h2 {
-  font-size: 1.5em;
-  line-height: 1.778em;
-}
-
-/* line 36, ../../sass/screen.scss */
+/* line 38, ../../sass/screen.scss */
 div.group ul.tests {
   overflow: hidden;
   *zoom: 1;
   margin-left: -20px;
 }
-/* line 38, ../../sass/screen.scss */
+/* line 40, ../../sass/screen.scss */
 div.group ul.tests li.test {
   float: left;
   margin-left: 20px;

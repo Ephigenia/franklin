@@ -12,7 +12,6 @@
 	<link rel="apple-touch-icon" href="favicon-iphone.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="favicon-iphone.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="favicon-iphone4.png">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold">
 	<link rel="stylesheet" type="text/css" href="css/screen.css" />
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript" charset="utf-8">

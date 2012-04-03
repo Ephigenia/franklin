@@ -16,7 +16,7 @@ class UserInfoTest extends \PHPUnit_Framework_TestCase
 	public function setUp()
 	{
 		$config = new Config(array(
-			'id' => 3207,
+			'username' => 'killthenoise',
 			'key' => 'track',
 		));
 		$this->fixture = new UserInfo($config);
@@ -49,6 +49,6 @@ class UserInfoTest extends \PHPUnit_Framework_TestCase
 	public function testPublicFavorites()
 	{
 		$this->fixture->config->key = 'public_favorites';
-		$this->assertGreaterThan(5, $this->fixture->run());
+		$this->assertGreaterThan(3, $this->fixture->run());
 	}
 }

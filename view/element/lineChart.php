@@ -15,49 +15,17 @@ foreach($data as $index => $line) {
 			chartData[i][0] = new Date(chartData[i][0]);
 		}
 		var data = new google.visualization.DataTable();
-		data.addColumn('datetime', 'Day');
+		data.addColumn('date', 'Date');
 		data.addColumn('number', 'Value');
 		data.addRows(chartData);
 		var options = {
+			strictFirstColumnType: false,
 			titlePosition: 'none',
-			lineWidth: 1,
+			lineWidth: 2,
 			pointSize: 3,
 			legend: {
 				position: 'none'
-			},
-			backgroundColor: 'black',
-			colors: ['#FAE400'],
-			chartArea: {
-				left: 40,
-				top: 10,
-				width: '85%',
-				height: '78%'
-			},
-			hAxis: {
-				baselineColor: '#292927',
-				textStyle: {
-					color: '#FAE400',
-				},
-				titleTextStyle: {
-					color: '#FAE400'
-				},
-				gridlines: {
-					color: '#292927'
-				},
-			},
-			vAxis: {
-				baselineColor: '#292927',
-				textStyle: {
-					color: '#FAE400',
-				},
-				titleTextStyle: {
-					color: '#FAE400'
-				},
-				gridlines: {
-					color: '#292927'
-				},
 			}
-			
 		};
 		var chart = new google.visualization.LineChart(document.getElementById('chart-<?php echo $Test->uniqueId(); ?>'));
 		chart.draw(data, options);

@@ -6,7 +6,7 @@ $data = $this->franklin->storage($Test)->getLatestValues(30);
 <div style="width: auto; height: 500px;">
 	<?php echo $this->element('lineChart', array('Test' => $Test)); ?>
 </div>
-<table>
+<table class="table striped bordered">
 	<thead>
 		<tr>
 			<th>Date</th>

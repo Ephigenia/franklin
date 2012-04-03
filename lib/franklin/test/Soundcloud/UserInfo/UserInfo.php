@@ -15,7 +15,7 @@ class UserInfo extends Test
 	
 	public function run()
 	{
-		$url = 'http://api.soundcloud.com/users/'.$this->config->id.'.json';
+		$url = 'http://api.soundcloud.com/users/'.$this->config->username.'.json';
 		$CURL = new CURL();
 		$result = $CURL->get($url, array('consumer_key' => 'aecdbad067b1f60f765db9a16af53cc4'));
 		if ($result) {

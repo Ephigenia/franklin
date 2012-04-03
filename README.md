@@ -213,6 +213,16 @@ If you are not familiar with xpath expressions you should check some examples on
 
 	/users/public-gist-count	node value from <public-gist-count>
 	/users/@logins				attribute "logins" of the <users> node
+	
+# Command Line Options
+
+The cron job (`cron.php`) script accepts some command line options.
+
+	`php cron.php --group="[name]"`
+	
+	--group=[name]
+		this will only run the tests of the group specified. Note to
+		enclose the name in quotes if it contains spaces.
 
 # UPDATES/FEEDBACK
 
@@ -227,7 +237,10 @@ You can donate for this project and support the developers behind it. Every tiny
 
 # Changelog
 
-* 2012-04-01
+* 2012-04-03
+	* Added graph rendering and detail pages for graphs
+	* Added some more examples to the config file
+	* Fixed Feedburner Metric Test
 	* Added generic XML Test that loads xml files (also from remote) and 
 	stores values from nodes or attributes by their xpath
 	* renamed FlatFile storage to CSV because it’s a CSV Storage actually

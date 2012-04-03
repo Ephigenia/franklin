@@ -1,0 +1,15 @@
+$link-color: $highlight-color !default;
+$link-hover-color: lighten($link-color, 10) !default;
+$link-visited-color: darken($link-color, 5) !default;
+$link-active-color: $link-hover-color !default;
+$link-focus-color: $link-hover-color !default;
+
+a {
+	@include link-colors($link-color, $link-hover-color, $link-active-color, $link-visited-color, $link-focus-color);
+	outline: none;
+	&:hover, &:active {
+		-moz-outline-style: none;
+		-webkit-tap-highlight-color: #FF5E99;
+		outline: none;
+	}
+}

@@ -44,7 +44,10 @@
 </head>
 <body>
 	<div id="app">
-		<?php echo $content ?>
+		<?php echo $this->element('main-navigation', array('groups' => $groups)); ?>
+		<div id="content" role="main">
+			<?php echo $content ?>
+		</div>
 		<footer>
 			<a href="https://github.com/Ephigenia/franklin" rel="external" title="Franklin project page @ github">Franklin v.<?= file_get_contents(FRANKLIN_ROOT.'/VERSION'); ?></a> •
 			<a href="http://www.marceleichner.de/?ref=franklin" rel="external">Marcel Eichner // Ephigenia</a>

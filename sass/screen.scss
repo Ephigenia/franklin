@@ -2,25 +2,28 @@
 @import "compass";
 
 
-$grid-columns: 16;
-$grid-column-width: 30px;
+$grid-columns: 12;
+$grid-column-width: 60px;
 $grid-gutter: 20px;
 
 $text-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $text-color: #333;
 $base-font-size: 18px;
 $base-line-heigh: 30px;
+$highlight-color: #0080FF;
 
 @import "mixin/grid";
+@import "mixin/color";
 @include establish-grid();
 @include establish-baseline();
 
+@import "partial/links";
 @import "partial/footer";
 @import "partial/table";
+@import "partial/main-navigation";
 
 body {
 	font-family: $text-font;
-	padding: 20px;
 	color: $text-color;
 }
 #{headings()} {
@@ -31,14 +34,21 @@ h1 {
 	@include adjust-font-size-to($base-font-size * 3);
 }
 h2 {
-	@include adjust-font-size-to($base-font-size * 2);
+	@include adjust-font-size-to($base-font-size * 1.5);
+}
+
+#content {
+	padding: 0.75em;
 }
 
 div.group {
 	ul.tests {
 		@include row();
 		li.test {
-			@include column(8);
+			h2 {
+				@include adjust-font-size-to($base-font-size * 1);
+			}
+			@include column(4);
 		}
 	}
 }

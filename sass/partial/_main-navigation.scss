@@ -1,0 +1,49 @@
+$main-navigation-base-color: #F1F1F1 !default;
+$main-navigation-background: $main-navigation-base-color !default;
+$main-navigation-border-color:  inversed($main-navigation-base-color, 10) !default;
+$main-navigation-text-color: inversed($main-navigation-base-color, 40) !default;
+$main-navigation-brand-color: inversed($main-navigation-base-color, 20) !default;
+$main-navigation-height: 2.5em;
+
+.navbar-fixed {
+	z-index: 10000;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+#content {
+	margin-top: $main-navigation-height;
+}
+.navbar {
+	height: $main-navigation-height;
+	line-height: $main-navigation-height;
+	border-bottom: 1px solid $main-navigation-border-color;
+	@include background($main-navigation-background);
+	a {
+		padding: 0 0.75em;
+		text-decoration: none;
+		color: $main-navigation-text-color;
+	}
+	a.brand {
+		float: right;
+		font-size: 175%;
+		font-weight: bold;
+		color: $main-navigation-brand-color;
+		@include text-shadow(
+			inversed($main-navigation-brand-color, 20) 0px 1px 0px
+		);
+	}
+	ul.nav {
+		li, a {
+			display: inline-block;
+		}
+		a {
+			height: $main-navigation-height;
+			line-height: $main-navigation-height;
+			display: inline-block;
+			&.current, &:hover {
+				text-decoration: underline;
+			}	
+		}
+	}
+}

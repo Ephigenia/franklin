@@ -39,6 +39,7 @@ class Franklin
 		$view['franklin'] = $this;
 		$layout = new \Franklin\view\View('layout/default.html');
 		$layout['content'] = $view;
+		$layout['groups'] = $this->groups;
 		return $layout;
 	}
 	

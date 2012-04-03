@@ -44,7 +44,7 @@
 </head>
 <body>
 	<div id="app">
-		<?php echo $this->element('main-navigation', array('groups' => $groups)); ?>
+		<?php echo $this->element('main-navigation', (array) $content); ?>
 		<div id="content" role="main">
 			<?php echo $content ?>
 		</div>

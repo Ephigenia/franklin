@@ -15,6 +15,8 @@ class Franklin
 		if (isset($_GET['action'])) {
 			$action = $_GET['action'];
 		}
+		$layout = new \Franklin\view\View('layout/default.html');
+		$layout['groups'] = $this->groups;
 		switch($action) {
 			case 'report':
 			default:
@@ -23,6 +25,7 @@ class Franklin
 			case 'test':
 				$view = new \Franklin\view\View('test.html');
 				$view['Test'] = $this->findTestById($_GET['id']);
+				$layout['Test'] = $view['Test'];
 				break;
 			case 'compare':
 				$view = new \Franklin\view\View('compare.html');
@@ -37,9 +40,7 @@ class Franklin
 		$view['groups'] = $this->groups;
 		$view['config'] = $this->config;
 		$view['franklin'] = $this;
-		$layout = new \Franklin\view\View('layout/default.html');
 		$layout['content'] = $view;
-		$layout['groups'] = $this->groups;
 		return $layout;
 	}
 	

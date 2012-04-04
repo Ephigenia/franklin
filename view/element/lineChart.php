@@ -1,11 +1,18 @@
 <?php
+
 $data = $this->franklin->storage($Test)->getLatestValues(30);
+if (empty($data)) {
+	echo 'no-data';
+	return true;
+}
 foreach($data as $index => $line) {
 	$data[$index] = array(
 		$line[0]->format('c'),
 		$line[1],
 	);
 }
+
+$chartId = 'chart-'.$Test->uniqueId();
 
 ?>
 <script type="text/javascript">
@@ -27,8 +34,8 @@ foreach($data as $index => $line) {
 				position: 'none'
 			}
 		};
-		var chart = new google.visualization.LineChart(document.getElementById('chart-<?php echo $Test->uniqueId(); ?>'));
+		var chart = new google.visualization.LineChart(document.getElementById('<?php echo $chartId; ?>'));
 		chart.draw(data, options);
 	});
 </script>
-<div class="chart line-chart" id="chart-<?php echo $Test->uniqueId(); ?>" style="width: 100%; height: 100%;"></div>
+<div class="chart line-chart" id="<?php echo $chartId; ?>" style="width: 100%; height: 100%;"></div>

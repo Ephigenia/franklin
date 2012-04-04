@@ -19,8 +19,12 @@ class CSV extends \SPLFileInfo implements Storage
 	 */
 	public function getLatestValues($limit = 30)
 	{
+		$lastNLines = $this->getLastNLines($limit);
+		if (empty($lastNLines)) {
+			return false;
+		}
 		$values = array();
-		foreach($this->getLastNLines($limit) as $data) {
+		foreach($lastNLines as $data) {
 			$values[] = array(
 				new \DateTime($data[0]),
 				(float) $data[1]
@@ -31,6 +35,9 @@ class CSV extends \SPLFileInfo implements Storage
 	
 	protected function getLastNLines($count)
 	{
+		if (!$this->isReadable()) {
+			return false;
+		}
 		$lines = array();
 		$file = $this->openFile('r');
 		$file->setFlags(

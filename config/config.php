@@ -101,7 +101,7 @@ $config = array(
 					),
 				),
 				array(
-					'test'   => 'Google\BackLinks',
+					'test'   => 'Google\Backlinks',
 					'config' => array(
 						'host' => 'berlinergazette.de',
 					),
@@ -202,7 +202,7 @@ $config = array(
 					),
 				),
 				array(
-					'test'   => 'Google\BackLinks',
+					'test'   => 'Google\Backlinks',
 					'config' => array(
 						'host' => 'de.escapio.com',
 					),

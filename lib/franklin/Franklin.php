@@ -59,6 +59,7 @@ class Franklin
 	public function cron()
 	{
 		$argv = $_SERVER['argv'];
+		$options = array();
 		foreach($argv as $value) {
 			if (preg_match('@--([^=]+)=(.+)@', $value, $found)) {
 				$options[$found[1]] = $found[2];

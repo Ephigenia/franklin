@@ -15,6 +15,7 @@ class UserInfo extends Test
 	
 	public function run()
 	{
+		$this->beforeRun();
 		$url = 'http://vimeo.com/api/v2/'.$this->config->username.'/info.json';
 		$CURL = new CURL();
 		$result = $CURL->get($url);

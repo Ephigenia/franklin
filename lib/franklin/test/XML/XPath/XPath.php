@@ -27,6 +27,7 @@ class XPath extends Test
 	
 	public function run()
 	{
+		$this->beforeRun();
 		$CURL = new CURL();
 		$result = $CURL->get($this->config->url);
 		if ($result && $xmlElement = new \SimpleXMLElement($result)) {

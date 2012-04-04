@@ -15,6 +15,7 @@ class UserInfo extends Test
 	
 	public function run()
 	{
+		$this->beforeRun();
 		$url = 'https://github.com/api/v2/json/user/show/'.$this->config->username;
 		$CURL = new CURL();
 		$result = $CURL->get($url);

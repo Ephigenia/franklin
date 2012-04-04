@@ -15,6 +15,7 @@ class VideoInfo extends Test
 	
 	public function run()
 	{
+		$this->beforeRun();
 		$url = 'http://vimeo.com/api/v2/video/'.$this->config->id.'.json';
 		$CURL = new CURL();
 		$result = $CURL->get($url);

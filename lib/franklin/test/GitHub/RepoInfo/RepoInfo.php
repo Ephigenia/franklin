@@ -15,6 +15,7 @@ class RepoInfo extends Test
 	
 	public function run()
 	{
+		$this->beforeRun();
 		$endpoint = 'https://api.github.com/repos/';
 		$url = $endpoint.$this->config->username.'/'.$this->config->repository;
 		if (strtolower($this->config->key) == 'sloc') {

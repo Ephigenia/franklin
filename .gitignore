@@ -1,5 +1,4 @@
+phpunit.xml
 .sass-cache
 config/config.php
 data/*
-doc/report/*
-doc/wiki/*

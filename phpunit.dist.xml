@@ -16,5 +16,8 @@
 	</testsuites>
 	<php>
 		<ini name="error_reporting" value="E_ALL"/>
+		<!-- api keys used during some tests -->
+		<const name="MITE_API_KEY" value="" />
+		<const name="MITE_API_SUBDOMAIN" value="" />		
 	</php>
 </phpunit>

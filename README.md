@@ -1,6 +1,4 @@
-FRANKLIN, Readme File
----------------------------------------------------------------------------
-2009-06-19, [Marcel Eichner // Ephigenia](love@ephigenia.de)
+# README
 
 <img src="http://marceleichner.de/static/img/public/ca1920e3/620xauto/resize/franklin_creenshot_safari_iphone.jpg" />
 

@@ -25,6 +25,8 @@ $highlight-color: #0080FF;
 body {
 	font-family: $text-font;
 	color: $text-color;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
 }
 #{headings()} {
 	color: $text-color;

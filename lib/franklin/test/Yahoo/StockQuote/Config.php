@@ -1,6 +1,6 @@
 <?php
 
-namespace Franklin\test\Yahoo\Finance;
+namespace Franklin\test\Yahoo\StockQuote;
 
 use
 	Franklin\test\config\type\String

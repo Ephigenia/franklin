@@ -6,7 +6,10 @@ use
 	Franklin\test\Test,
 	Franklin\network\CURL
 	;
-	
+
+/**
+ * @TODO improve this test using the api http://api.bf3stats.com/360/player/?player=ephBox
+ */
 class Score extends Test
 {
 	public $name = 'Battlefield score';

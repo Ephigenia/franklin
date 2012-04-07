@@ -1,10 +1,10 @@
 <?php
 
-namespace Franklin\test\Yahoo\Finance\test;
+namespace Franklin\test\Yahoo\StockQuote\test;
 
 use
-	Franklin\test\Yahoo\Finance\Quote,
-	Franklin\test\Yahoo\Finance\Config
+	Franklin\test\Yahoo\StockQuote\StockQuote,
+	Franklin\test\Yahoo\StockQuote\Config
 	;
 
 /**
@@ -12,14 +12,14 @@ use
  * @group Yahoo
  * @group Finance
  */
-class QuoteTest extends \PHPUnit_Framework_TestCase
+class StockQuoteTest extends \PHPUnit_Framework_TestCase
 {
 	public function setUp()
 	{
 		$config = new Config(array(
 			'symbol' => 'AAPL',
 		));
-		$this->fixture = new Quote($config);
+		$this->fixture = new StockQuote($config);
 	}
 	
 	public function testRun()

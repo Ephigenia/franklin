@@ -1,14 +1,18 @@
 <?php
 
-namespace Franklin\test\Yahoo\Finance;
+namespace Franklin\test\Yahoo\StockQuote;
 
 use
 	Franklin\test\Test,
 	Franklin\network\CURL
 	;
 
-class Quote extends Test
+class StockQuote extends Test
 {
+	public $name = 'Yahoo Finance Stock Quote';
+	
+	public $description = 'Stock Quote for a symbol';
+	
 	public function run()
 	{
 		$this->beforeRun();

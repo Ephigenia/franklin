@@ -43,11 +43,8 @@ class CURL
 		return $this;
 	}
 	
-	public function get($url, $data = array(), Array $options = array())
+	public function get($url = null, $data = array(), Array $options = array())
 	{
-		if (empty($url)) {
-			throw new CURLEmptyURLException();
-		}
 		if (!empty($data)) {
 			$url .= '?';
 			if (is_array($data)) {

@@ -8,7 +8,7 @@ use
 	;
 
 /**
- * @TODO improve this test using the api http://api.bf3stats.com/360/player/?player=ephBox
+ * @TODO Also a good candidate for using a generic JSON API test
  */
 class Score extends Test
 {
@@ -20,61 +20,66 @@ class Score extends Test
 	{
 		$this->beforeRun();
 		$CURL = new CURL();
-		$url = 'http://bf3stats.com/stats_'.$this->config->platform.'/'.$this->config->username;
-		$source = $CURL->get($url);
-		if ($source) {
-			$DOMDocument = new \DOMDocument();
-			@$DOMDocument->loadHTML($source);
-			$DOMXPath = new \DOMXPath($DOMDocument);
-			switch(strtolower($this->config->metric)) {
-				case 'score':
-					$nodes = $DOMXPath->query('//dd[@id="scores-score"]');
-					break;
-				case 'spm': 
-					$nodes = $DOMXPath->query('//dd[@id="spm"]');
-					break;
-				case 'rounds': 
-					$nodes = $DOMXPath->query('//dd[@id="global-rounds"]');
-					break;
-				case 'finished-rounds': 
-					$nodes = $DOMXPath->query('//dd[@id="finishedrounds"]');
-					break;
-				case 'skill': 
-					$nodes = $DOMXPath->query('//dd[@id="global-elo"]');
-					break;
-				case 'wins': 
-					$nodes = $DOMXPath->query('//dd[@id="global-wins"]');
-					break;
-				case 'losses': 
-					$nodes = $DOMXPath->query('//dd[@id="global-losses"]');
-					break;
-				case 'kills': 
-					$nodes = $DOMXPath->query('//dd[@id="global-kills"]');
-					break;
-				case 'deaths':
-					$nodes = $DOMXPath->query('//dd[@id="global-deaths"]');
-					break;
-				case 'headshots':
-					$nodes = $DOMXPath->query('//dd[@id="global-headshots"]');
-					break;
-				case 'shots':
-					$nodes = $DOMXPath->query('//dd[@id="global-shots"]');
-					break;
-				case 'hits':
-					$nodes = $DOMXPath->query('//dd[@id="global-hits"]');
-					break;
-				case 'accuracy':
-					$nodes = $DOMXPath->query('//dd[@id="global-hits"]');
-					break;
-			}
-			
-			if ($nodes->length > 0) {
-				foreach($nodes as $node) {
-					$score = $node->textContent;
-					return (float) preg_replace('@[^0-9\.]+@', '', $score);
-				}
-			}
+		$source = $CURL->get('http://api.bf3stats.com/'.$this->config->platform.'/player/', array(
+			'player' => $this->config->username,
+		));
+		if (!$source || !($json = json_decode($source, true))) {
+			return null;
 		}
-		return 0;
+		if (empty($json['stats'])) {
+			return null;
+		}
+		switch(strtolower($this->config->metric)) {
+			default:
+				$avlue = 0;
+				break;
+			case 'skill':
+			case 'elo':
+				$value = $json['stats']['global']['elo'];
+				break;
+			case 'score':
+				$value = $json['stats']['scores']['score'];
+				break;
+			case 'spm': 
+				$value = $json['stats']['scores']['score'] / $json['stats']['global']['time'] * 60;
+				break;
+			case 'rounds':
+				$value = $json['stats']['global']['rounds'];
+				break;
+			case 'finished-rounds': 
+				$value = $json['stats']['global']['elo_games'];
+				break;
+			case 'wins': 
+				$value = $json['stats']['global']['wins'];
+				break;
+			case 'losses': 
+				$value = $json['stats']['global']['losses'];
+				break;
+			case 'wlratio':
+				$value = $json['stats']['global']['losses'] / $json['stats']['global']['wins'];
+				break;
+			case 'kills': 
+				$value = $json['stats']['global']['kills'];
+				break;
+			case 'deaths':
+				$value = $json['stats']['global']['deaths'];
+				break;
+			case 'kdratio':
+				$value = $json['stats']['global']['deaths'] / $json['stats']['global']['kills'];
+				break;
+			case 'headshots':
+				$value = $json['stats']['global']['headshots'];
+				break;
+			case 'shots':
+				$value = $json['stats']['global']['shots'];
+				break;
+			case 'hits':
+				$value = $json['stats']['global']['hits'];
+				break;
+			case 'accuracy':
+				$value = $json['stats']['global']['shots'] / $json['stats']['global']['hits'];
+				break;
+		}
+		return (float) preg_replace('@[^0-9\.]+@', '', $value);
 	}
 }

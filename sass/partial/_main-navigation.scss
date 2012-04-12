@@ -33,7 +33,7 @@ $main-navigation-height: 2.5em;
 			inversed($main-navigation-brand-color, 20) 0px 1px 0px
 		);
 	}
-	ul.nav {
+	nav > ul {
 		li, a {
 			display: inline-block;
 		}
@@ -44,6 +44,21 @@ $main-navigation-height: 2.5em;
 			&.current, &:hover {
 				text-decoration: underline;
 			}	
+		}
+	}
+	nav.responsive {
+		select {
+			font-size: 80%;
+			display: none;
+			margin: 0.65em;
+		}
+		@media (max-width: 520px) {
+			ul {
+				display: none;
+			}
+			select {
+				display: table;
+			}
 		}
 	}
 }

@@ -22,9 +22,10 @@ $highlight-color: #0080FF;
 @import "partial/table";
 @import "partial/main-navigation";
 
-body {
+body, input, textarea, select {
 	font-family: $text-font;
 	color: $text-color;
+	font-size: $base-font-size;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 }

@@ -9,6 +9,8 @@ use
 
 /**
  * @TODO Also a good candidate for using a generic JSON API test
+ * https://github.com/ninetwozero/BF3-Battlelog/blob/master/src/com/ninetwozero/battlelog/misc/Constants.java
+ * curl --header "X-Requested-With: XMLHttpRequest" --header "X-AjaxNavigation: 1" "http://battlelog.battlefield.com/bf3/bf3/overviewPopulateStats/2832659789446400837/None/1/"
  */
 class Score extends Test
 {

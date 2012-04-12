@@ -13,34 +13,10 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="favicon-iphone.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="favicon-iphone4.png">
 	<link rel="stylesheet" type="text/css" href="css/screen.css" />
+	<script type="text/javascript" src="js/source/lib/modernizr.js"></script>
+	<script type="text/javascript" src="js/source/lib/jquery.1.7.1.min.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript" charset="utf-8">
-		
-		var chartsAPIReadyCallbacks = [];
-		var chartsAPIReady = false;
-		
-		function onChartsReady(callback) {
-			if (typeof(callback) !== 'function') {
-				throw "Expection function as valid callback.";
-			}
-			if (!chartsAPIReady) {
-				chartsAPIReadyCallbacks.push(callback);
-			} else {
-				callback.call();
-			}
-			return true;
-		}
-		
-		function onChartsReadyCallback() {
-			chartsAPIReady = true;
-			for(var i = 0; i < chartsAPIReadyCallbacks.length; i++) {
-				chartsAPIReadyCallbacks[i].call();
-			}
-		}
-		
-		google.load('visualization', '1', {packages:['corechart']});
-	  	google.setOnLoadCallback(onChartsReadyCallback);
-	</script>
+	<script type="text/javascript" src="js/source/app/app.js"></script>
 </head>
 <body>
 	<div id="app">

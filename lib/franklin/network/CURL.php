@@ -39,7 +39,7 @@ class CURL
 		if (!function_exists('curl_init')) {
 			throw new CURLNotAvailableException();
 		}
-		$this->defaults = $this->defaults + $options;
+		$this->defaults = $options + $this->defaults;
 		return $this;
 	}
 	

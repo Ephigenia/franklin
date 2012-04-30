@@ -43,8 +43,9 @@ class TimeEntries extends Test
 				'revenue' => (float) $node->revenue / 100,
 			);
 		}
-		if (Isset($data[date('Y-m-d')])) {
-			return $data[date('Y-m-d')][$this->config->key];
+		$yesterday = date('Y-m-d', strtotime('yesterday'));
+		if (Isset($data[$yesterday])) {
+			return $data[$yesterday][$this->config->key];
 		}
 		return 0;
 	}

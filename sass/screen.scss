@@ -1,26 +1,15 @@
-@import "compass/reset";
 @import "compass";
-
-
-$grid-columns: 12;
-$grid-column-width: 60px;
-$grid-gutter: 20px;
-
-$text-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$text-color: #333;
-$base-font-size: 18px;
-$base-line-heigh: 30px;
-$highlight-color: #0080FF;
-
-@import "mixin/grid";
-@import "mixin/color";
+@import "global/variables";
+@import "plugin/reset";
+@import "plugin/color";
+@import "plugin/grid";
 @include establish-grid();
 @include establish-baseline();
+@import "shared/links";
+@import "shared/footer";
+@import "shared/table";
 
-@import "partial/links";
-@import "partial/footer";
-@import "partial/table";
-@import "partial/main-navigation";
+@import "component/main-navigation";
 
 body, input, textarea, select {
 	font-family: $text-font;

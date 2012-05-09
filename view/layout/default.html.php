@@ -13,6 +13,7 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="favicon-iphone.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="favicon-iphone4.png">
 	<link rel="stylesheet" type="text/css" href="css/screen.css" />
+	<link rel="stylesheet" type="text/css" href="css/theme/default.css" />
 	<script type="text/javascript" src="js/source/lib/modernizr.js"></script>
 	<script type="text/javascript" src="js/source/lib/jquery.1.7.1.min.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>

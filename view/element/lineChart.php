@@ -13,7 +13,7 @@ foreach($data as $index => $line) {
 		0
 	);
 	if (isset($data[$index - 1])) {
-		$data[$index][2] = $data[$index - 1][1] - $data[$index][1];
+		$data[$index][2] = $data[$index][1] - $data[$index - 1][1];
 	}
 }
 
@@ -36,14 +36,21 @@ $chartId = 'chart-'.$Test->uniqueId();
 			titlePosition: 'none',
 			lineWidth: 2,
 			pointSize: 3,
+			colors: ['#1B51C1', '#CAD5FF'],
 			chartArea: {
 				left: '15%',
-				width: '85%',
+				width: '65%',
 				height: '80%'
 			},
 			seriesType: 'line',
 			series: {
+				0: {
+					targetAxisIndex: 0,
+					type: 'line',
+				},
 				1: {
+					logScale: true,
+					targetAxisIndex: 1,
 					type: 'bars'
 				}
 			},

@@ -6,6 +6,11 @@
 	convertErrorsToExceptions="true"
 	convertNoticesToExceptions="true"
 	convertWarningsToExceptions="true">
+	<php>
+		<ini name="error_reporting" value="E_ALL"/>
+		<const name="MITE_API_KEY" value="" />
+		<const name="MITE_API_SUBDOMAIN" value="" />		
+	</php>
 	<testsuites>
 		<testsuite name="franklin">
 			<directory>./test</directory>
@@ -14,10 +19,4 @@
 			<directory>./lib/franklin/test/</directory>
 		</testsuite>
 	</testsuites>
-	<php>
-		<ini name="error_reporting" value="E_ALL"/>
-		<!-- api keys used during some tests -->
-		<const name="MITE_API_KEY" value="" />
-		<const name="MITE_API_SUBDOMAIN" value="" />		
-	</php>
 </phpunit>

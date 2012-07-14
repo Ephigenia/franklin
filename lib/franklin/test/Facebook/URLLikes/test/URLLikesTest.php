@@ -1,6 +1,6 @@
 <?php
 
-namespace Franklin\Test\test\Facebook\PakeLikes\test;
+namespace Franklin\test\Facebook\PakeLikes\test;
 
 use
 	\Franklin\test\Facebook\URLLikes\URLLikes,

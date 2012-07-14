@@ -22,7 +22,7 @@ class Config extends \Franklin\test\config\Config
 			case 'url':
 				return 'http://www.twitter.com/'.urlencode($this->username);
 			case 'regexp':
-				return '@id="follower_count" class="stats_count numeric">([\d+.,]+)\s*</span>@i';
+				return '@data-nav=\'followers\'><strong>([\d]+)</strong>@i';
 		}
 		return parent::offsetGet($offset);
 	}

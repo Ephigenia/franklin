@@ -24,6 +24,7 @@ class FollowingTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
-		$this->assertTrue($result > 0);
+		$this->assertInternalType('float', $result);
+		$this->assertGreaterThanOrEqual(100, $result);
 	}
 }

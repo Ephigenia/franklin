@@ -16,18 +16,18 @@ class XPathTest extends \PHPUnit_Framework_TestCase
 	public function testXPathNode()
 	{
 		$config = new Config(array(
-			'url' => 'https://github.com/api/v2/xml/user/show/ephigenia',
-			'xpath' => '/user/public-gist-count',
+			'url' => 'http://www.xmlfiles.com/examples/cd_catalog.xml',
+			'xpath' => '/CATALOG/CD/YEAR',
 		));
 		$test = new XPath($config);
 		$result = $test->run();
-		$this->assertGreaterThan(5, $result);
+		$this->assertGreaterThan(1900, $result);
 	}
 	
 	public function testInvalidXPath()
 	{
 		$config = new Config(array(
-			'url' => 'https://github.com/api/v2/xml/user/show/ephigenia',
+			'url' => 'http://www.xmlfiles.com/examples/cd_catalog.xml',
 			'xpath' => '/invalid/nodename',
 		));
 		$test = new XPath($config);

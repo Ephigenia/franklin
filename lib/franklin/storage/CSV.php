@@ -40,13 +40,12 @@ class CSV extends \SPLFileInfo implements Storage
 		}
 		$lines = array();
 		$file = $this->openFile('r');
-		$file->setFlags(
-			\SplFileObject::READ_CSV |
-			\SplFileObject::SKIP_EMPTY |
-			\SplFileObject::DROP_NEW_LINE
-		);
+		$file->setFlags(\SplFileObject::READ_CSV | \SplFileObject::SKIP_EMPTY | \SplFileObject::DROP_NEW_LINE);
 		$file->setCsvControl($this->seperator);
 		foreach($file as $data) {
+			if (!$data) {
+				continue;
+			}
 			array_push($lines, $data);
 			if (count($lines) > $count) {
 				array_shift($lines);

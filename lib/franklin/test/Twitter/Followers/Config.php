@@ -20,9 +20,9 @@ class Config extends \Franklin\test\config\Config
 	{
 		switch ($offset) {
 			case 'url':
-				return 'http://www.twitter.com/'.urlencode($this->username);
+				return sprintf('https://twitter.com/%s', urlencode($this->username));
 			case 'regexp':
-				return '@data-nav=\'followers\'>.*<strong>([\d]+)</strong>@is';
+				return '@<strong>([\d.]+)</strong> Follower@is';
 		}
 		return parent::offsetGet($offset);
 	}

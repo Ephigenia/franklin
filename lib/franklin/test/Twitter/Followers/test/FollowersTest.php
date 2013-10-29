@@ -24,7 +24,7 @@ class FollowersTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
-		$this->assertInternalType('float', $result);
-		$this->assertGreaterThanOrEqual(100, $result);
+		$this->assertInternalType('float', $result, 'Expected Result to be a float value');
+		$this->assertGreaterThanOrEqual(100, $result, 'Expected Result to be above 100');
 	}
 }

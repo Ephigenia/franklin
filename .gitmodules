@@ -1,3 +1,0 @@
-[submodule "lib/mite-api-php"]
-	path = lib/mite-api-php
-	url = https://github.com/thomasklein/mite.php.git

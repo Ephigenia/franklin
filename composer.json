@@ -9,7 +9,22 @@
         }
     ],
     "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "thomasklein/mite",
+                "version": "master",
+                "source": {
+                    "url": "https://github.com/thomasklein/mite.php.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
     "require": {
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "*",
+        "thomasklein/mite": "master"
     }
 }

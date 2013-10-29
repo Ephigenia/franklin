@@ -20,7 +20,7 @@ class TimeEntries extends Test
 			throw new \RuntimeException('SimpleXML not available.');
 		}
 		if (!class_exists('mite')) {
-			require FRANKLIN_ROOT.'/lib/mite-api-php/mite.php';
+			require FRANKLIN_ROOT.'/vendor/thomasklein/mite-api-php/mite.php';
 		}
 		if (empty($this->api)) {
 			$this->api = \mite::getInstance();

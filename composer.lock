@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5f4417bf21d64538071dd125b5b3c567",
+    "hash": "368b7d947aa862e46b107dc812b29205",
     "packages": [
         {
             "name": "phpunit/php-code-coverage",
@@ -580,6 +580,17 @@
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
             "time": "2013-10-17 11:48:11"
+        },
+        {
+            "name": "thomasklein/mite",
+            "version": "master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thomasklein/mite.php.git",
+                "reference": "master"
+            },
+            "type": "library",
+            "time": "2011-09-02 21:38:12"
         }
     ],
     "packages-dev": [

@@ -6,6 +6,10 @@ franklin is a library for storing and displaying various metrics aquired through
 
 The whole documentation (setup, configuration …) is now in the [franklin wiki](https://github.com/Ephigenia/franklin/wiki)
 
+# Running the Tests
+
+	vendor/bin/phpunit
+
 # BEWARE!
 
 This Version of franklin is currently in development and should only be used if you’re experienced with the previous version or programming.

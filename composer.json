@@ -1,0 +1,15 @@
+{
+    "name": "ephigenia/franklin",
+    "description": "franklin is a kpi recorder",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcel Eichner",
+            "email": "love@ephigenia.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "phpunit/phpunit": "*"
+    }
+}

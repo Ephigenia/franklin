@@ -22,7 +22,7 @@ class Config extends \Franklin\test\config\Config
 			case 'url':
 				return 'http://widgets.klout.com/badge/'.urlencode($this->username).'?size=s';
 			case 'regexp':
-				return '@klout_score"\>(\d+)@i';
+				return '@class=["\' ]+kscore[ "\']+title=[ "\'](\d+)[ "\']@i';
 		}
 		return parent::offsetGet($offset);
 	}

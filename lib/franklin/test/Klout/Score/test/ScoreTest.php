@@ -16,7 +16,7 @@ class ScoreTest extends \PHPUnit_Framework_TestCase
 	public function setUp()
 	{
 		$config = new Config(array(
-			'username' => 'horrorblogorg',
+			'username' => 'ibm',
 		));
 		$this->fixture = new Score($config);
 	}
@@ -24,6 +24,7 @@ class ScoreTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
-		$this->assertTrue($result > 0);
+		$this->assertInternalType('float', $result, 'Expected Result to be a float value');
+		$this->assertGreaterThanOrEqual(10, $result, 'Expected Result to be above 10');
 	}
 }

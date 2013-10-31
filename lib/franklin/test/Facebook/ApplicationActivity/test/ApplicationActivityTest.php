@@ -16,7 +16,7 @@ class ApplicationActivityTest extends \PHPUnit_Framework_TestCase
 	public function setUp()
 	{
 		$config = new Config(array(
-			'id' => '362508017141695',
+			'id' => '102452128776', // farmville id
 		));
 		$this->fixture = new ApplicationActivity($config);
 	}

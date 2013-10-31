@@ -24,13 +24,19 @@ class TrafficRankTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
-		$this->assertTrue($result > 10);
+		$this->assertInternalType('float', $result);
+		$this->assertGreaterThanOrEqual(50, $result);
 	}
 	
 	public function testRunWithCountryCode()
 	{
-		$this->fixture->country_code = 'DE';
+		$config = new Config(array(
+			'host' => 'spiegel.de',
+			'country_code' => 'de',
+		));
+		$this->fixture = new TrafficRank($config);
 		$result = $this->fixture->run();
-		$this->assertTrue($result > 10);
+		$this->assertInternalType('float', $result);
+		$this->assertLessThanOrEqual(20, $result);
 	}
 }

@@ -22,12 +22,13 @@ class Config extends \Franklin\test\config\Config
 		switch ($offset) {
 			case 'regexp':
 				if (!empty($this->country_code)) {
-					return '@'.strtoupper($this->country_code).'<\/a>:\s+([\d,.]+)@is';
+					return '@images/flags/'.$this->country_code.'.*Flag.*[\'\" ]>(\d+)@is';
 				} else {
-					return '@trafficstats">\s+([\d,.]+)@i';
+					return '@alt=[\'\" ]+Global[\w ]+[\'\" ]+.*font-big2.*[\'\" ]>(\d+)@i';
 				}
+				break;
 			case 'url':
-				return 'http://www.alexa.com/search?r=site_site&q='.urlencode($this->host);
+				return sprintf('http://www.alexa.com/siteinfo/%s', urlencode($this->host));
 				break;
 		}
 		return parent::offsetGet($offset);

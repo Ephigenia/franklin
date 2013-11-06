@@ -2,6 +2,8 @@
 
 namespace Franklin\test\config;
 
+use Franklin\test\config\Config;
+
 /**
  * @group Config
  */

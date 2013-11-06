@@ -32,6 +32,7 @@ class CURL
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_HEADER => false,
 		CURLOPT_COOKIESESSION => true,
+		CURLOPT_ENCODING => '', // disable gzip compressed responses
 	);
 	
 	public function __construct(Array $options = array())

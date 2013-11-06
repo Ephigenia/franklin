@@ -7,7 +7,7 @@ use
 	ArrayObject
 	;
 
-abstract class Config extends ArrayObject
+class Config extends ArrayObject
 {
 	protected $definition;
 	
@@ -27,7 +27,7 @@ abstract class Config extends ArrayObject
 	public function offsetSet($offset, $value)
 	{
 		if (!isset($this->definition[$offset])) {
-			throw new ConfigUndefinedVariableException($this, $key);
+			throw new ConfigUndefinedVariableException($this, $offset);
 		}
 		if ($this->definition[$offset]->required && !$this->definition[$offset]->validate($value)) {
 			throw new ConfigInvalidVariableValueException($offset, $value);

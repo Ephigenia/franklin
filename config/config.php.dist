@@ -13,6 +13,43 @@ $config = array(
 	'theme' => 'amber',
 
 	'groups' => array(
+
+		// Instagram PlayStore & AppStore Example
+		array(
+			'name' => 'Instagram',
+			'tests' => array(
+				// AppStore (Apple)
+				array(
+					'test' => 'Itunes\ApplicationInfo',
+					'config' => array(
+						'id' => 389801252,
+						'key' => 'averageUserRating',
+					)
+				),
+				array(
+					'test' => 'Itunes\ApplicationInfo',
+					'config' => array(
+						'id' => 389801252,
+						'key' => 'userRatingCount',
+					)
+				),
+				// PlayStore (Google)
+				array(
+					'test' => 'PlayStore\ApplicationInfo',
+					'config' => array(
+						'bundleIdentifier' => 'com.instagram.android',
+						'key' => 'averageUserRating',
+					)
+				),
+				array(
+					'test' => 'PlayStore\ApplicationInfo',
+					'config' => array(
+						'bundleIdentifier' => 'com.instagram.android',
+						'key' => 'userRatingCount',
+					)
+				),
+			),
+		),
 		
 		// Marcel Eichner
 		array(

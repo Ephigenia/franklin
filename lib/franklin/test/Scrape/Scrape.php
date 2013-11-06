@@ -20,13 +20,19 @@ class Scrape extends Test
 			} else {
 				$result = $found[1][0];
 			}
-			if (preg_match('@^-?\s?[\d\s,.-]+$@', $result)) {
-				// $result = str_replace(',', '.', $result);
-				$result = str_replace('.', '', $result);
-				$result = (float) $result;
-			}
+			$result = $this->convertValue($result);
 			return $result;
 		}
 		return false;
+	}
+
+	public function convertValue($value)
+	{
+		if (preg_match('@^-?\s?[\d\s,.-]+$@', $value)) {
+			// $value = str_replace(',', '.', $value);
+			$value = str_replace('.', '', $value);
+			$value = (float) $value;
+		}
+		return $value;
 	}
 }

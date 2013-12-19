@@ -26,7 +26,7 @@
     "require": {
         "thomasklein/mite": "master"
     },
-    "require_dev": {
+    "require-dev": {
         "phpunit/phpunit": "~3.7"
     }
 }

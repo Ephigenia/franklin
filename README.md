@@ -11,6 +11,7 @@ Checkout the wiki for a complete list of the 25+ tests that can be displayed usi
 
 # Running the Tests
 
+	composer install --dev
 	vendor/bin/phpunit
 
 # BEWARE!

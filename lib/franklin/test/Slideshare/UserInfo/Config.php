@@ -16,7 +16,7 @@ class Config extends \Franklin\test\config\Config
             'slides',
         ];
 		$this->definition->append(
-			new String('username', true, null, 'instagram username'),
+			new String('username', true, null, 'slideshare username'),
             new Enum('key', false, $options[0], 'Metric that should be recorded')
 		);
         $this->definition->key->options = $options;

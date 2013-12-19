@@ -7,7 +7,7 @@ franklin is a library for storing and displaying various metrics aquired through
 
 # List of available tests
 
-Checkout the wiki for a complete list of the 20+ tests that can be displayed using franklin: [franklin wiki](https://github.com/Ephigenia/franklin/wiki)
+Checkout the wiki for a complete list of the 25+ tests that can be displayed using franklin: [franklin wiki](https://github.com/Ephigenia/franklin/wiki)
 
 # Running the Tests
 

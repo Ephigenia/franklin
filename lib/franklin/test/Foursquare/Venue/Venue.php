@@ -45,8 +45,7 @@ class Venue extends Scrape
             }
             $data[$key] = $value;
         }
-        die(var_dump($data));
-        
+                
         // return the value that was desired in the config
         return $data[$this->config->key];
     }

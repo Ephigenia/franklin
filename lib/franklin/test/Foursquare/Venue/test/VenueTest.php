@@ -76,7 +76,7 @@ class VenueTest extends \PHPUnit_Framework_TestCase
     public function testPeople($venue, $expectedMinimumPeopleCount)
     {
         $this->fixture->key = 'people';
-        $this->fixture->venue = $venue;
+        $this->fixture->config->venue = $venue;
 
         $result = $this->fixture->run();
         $this->assertInternalType('integer', $result);

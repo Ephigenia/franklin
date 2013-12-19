@@ -24,7 +24,7 @@
         }
     ],
     "require": {
-        "phpunit/phpunit": "*",
+        "phpunit/phpunit": "~3.7",
         "thomasklein/mite": "master"
     }
 }

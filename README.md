@@ -16,3 +16,7 @@ Checkout the wiki for a complete list of the 20+ tests that can be displayed usi
 # BEWARE!
 
 This Version of franklin is currently in development and should only be used if you’re experienced with the previous version or programming.
+
+# Rewrite
+
+There will be a rewrite of the whole franklin architecture in node.js in 2014. If you want to help me and help to build the next standard open source solution for tracking kpis for everyone please contact me. You can find contact infos on my [github page](https://github.com/Ephigenia)

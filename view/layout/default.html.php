@@ -12,10 +12,10 @@
 	<link rel="apple-touch-icon" href="favicon-iphone.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="favicon-iphone.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="favicon-iphone4.png">
-	<link rel="stylesheet" type="text/css" href="css/screen.css" />
-	<link rel="stylesheet" type="text/css" href="css/theme/default.css" />
-	<script type="text/javascript" src="js/source/lib/modernizr.js"></script>
-	<script type="text/javascript" src="js/source/lib/jquery.1.7.1.min.js"></script>
+
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript" src="js/source/app/app.js"></script>
 </head>
@@ -25,7 +25,7 @@
 		<div id="content" role="main">
 			<?php echo $content ?>
 		</div>
-		<footer>
+		<footer class="container">
 			<a href="https://github.com/Ephigenia/franklin" rel="external" title="Franklin project page @ github">Franklin v.<?= file_get_contents(FRANKLIN_ROOT.'/VERSION'); ?></a> •
 			<a href="http://www.marceleichner.de/?ref=franklin" rel="external">Marcel Eichner // Ephigenia</a>
 		</footer>

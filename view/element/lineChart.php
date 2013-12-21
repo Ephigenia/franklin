@@ -38,9 +38,9 @@ $chartId = 'chart-'.$Test->uniqueId();
 			pointSize: 3,
 			colors: ['#1B51C1', '#CAD5FF'],
 			chartArea: {
-				left: '15%',
-				width: '65%',
-				height: '80%'
+				// left: '15%',
+				// width: '65%',
+				// height: '80%'
 			},
 			seriesType: 'line',
 			series: {
@@ -63,4 +63,4 @@ $chartId = 'chart-'.$Test->uniqueId();
 		chart.draw(data, options);
 	});
 </script>
-<div class="chart line-chart" id="<?php echo $chartId; ?>" style="width: 100%; height: 100%;"></div>
+<div id="<?php echo $chartId; ?>"></div>

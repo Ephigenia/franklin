@@ -1,7 +1,8 @@
-<li class="test">
-	<h2>
-		<input type="checkbox" name="ids[]" value="<?php echo $Test->uniqueId(); ?>" id="compare-checkbox-<?php echo $Test->uniqueId(); ?>" />
-		<a href="?action=test&amp;id=<?php echo $Test->uniqueId(); ?>" title="details"><?php echo $Test->name ?></a>
-	</h2>
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+	<h3>
+		<a href="?action=test&amp;id=<?php echo $Test->uniqueId(); ?>" title="details">
+            <?php echo $Test->name ?>
+        </a>
+	</h3>
 	<?php echo $this->element('lineChart', array('Test' => $Test)); ?>
-</li>
+</div>

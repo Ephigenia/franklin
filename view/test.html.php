@@ -1,19 +1,40 @@
+<?php
+$daysOptions = array(
+	3065 => 'All-Time',
+	30 => '30 Days',
+	60 => '60 Days',
+	90 => '90 Days',
+	180 => '180 Days',
+	365 => '1 Year',
+);
+?>
 <div class="container">
 	<div class="page-header">
-		<h1><?php
+		<div class="btn-group pull-right">
+		<?php
+			foreach ($daysOptions as $value => $label) {
+				$uri = '?action=test&amp;id='.$Test->uniqueId().'&amp;days='.$value;
+				?>
+				<a href="<?php echo $uri; ?>" class="btn btn-default"><?php echo $label ?></a>
+		<?php } ?>
+		</div>
+		<h1>
+		<?php
 			printf('%s / %s', 
 				$Test->group,
 				$Test->name
 			);
-		?></h1>
+		?>
+		</h1>
 	</div>
 	<div class="row">
 		<div class="col-md-12" style="height: 500px;">
 			<?php
-				$data = $this->franklin->storage($Test)->getLatestValues(30);
+				$data = $this->franklin->storage($Test)->getLatestValues($days);
 				echo $this->element('lineChart', array(
 					'Test' => $Test,
 					'lineWidth' => 5,
+					'days' => $days,
 				));
 			?>
 		</div>

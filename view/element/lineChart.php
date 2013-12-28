@@ -3,8 +3,11 @@
 if (!isset($lineWidth)) {
 	$lineWidth = 2;
 }
+if (!isset($days)) {
+	$days = 30;
+}
 
-$data = $this->franklin->storage($Test)->getLatestValues(30);
+$data = $this->franklin->storage($Test)->getLatestValues($days);
 
 if (empty($data)) {
 	echo 'no-data';

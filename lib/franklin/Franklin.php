@@ -25,6 +25,11 @@ class Franklin
 			case 'test':
 				$view = new \Franklin\view\View('test.html');
 				$view['Test'] = $this->findTestById($_GET['id']);
+				if (isset($_GET['days'])) {
+					$view['days'] = (int) $_GET['days'];
+				} else {
+					$view['days'] = 30;
+				}
 				$layout['Test'] = $view['Test'];
 				break;
 			case 'compare':

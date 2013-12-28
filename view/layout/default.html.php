@@ -14,6 +14,7 @@
 	<link rel="apple-touch-icon" sizes="114x114" href="favicon-iphone4.png">
 
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -27,6 +28,12 @@
 		padding: 15px 0px;
 		height: 60px;
 		background-color: #f5f5f5;
+	}
+	.asc {
+		color: #008000;
+	}
+	.desc {
+		color: #ff0000;
 	}
 	</style>
 </head>

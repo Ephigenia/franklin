@@ -17,7 +17,7 @@
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript" src="js/source/app/app.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
 	<div id="app">
@@ -25,9 +25,13 @@
 		<div id="content" role="main">
 			<?php echo $content ?>
 		</div>
-		<footer class="container">
-			<a href="https://github.com/Ephigenia/franklin" rel="external" title="Franklin project page @ github">Franklin v.<?= file_get_contents(FRANKLIN_ROOT.'/VERSION'); ?></a> •
-			<a href="http://www.marceleichner.de/?ref=franklin" rel="external">Marcel Eichner // Ephigenia</a>
+		<footer id="footer">
+			<div class="container">
+				<p class="muted">
+					<a href="https://github.com/Ephigenia/franklin" rel="external" title="Franklin project page @ github">Franklin v.<?= file_get_contents(FRANKLIN_ROOT.'/VERSION'); ?></a> •
+					<a href="http://www.marceleichner.de/?ref=franklin" rel="external">Marcel Eichner // Ephigenia</a>
+				</p>
+			</div>
 		</footer>
 	</div>
 </body>

@@ -18,6 +18,13 @@
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript" src="js/app.js"></script>
+	<style type="text/css">
+	#footer {
+		padding: 15px 0px;
+		height: 60px;
+		background-color: #f5f5f5;
+	}
+	</style>
 </head>
 <body>
 	<div id="app">

@@ -1,5 +1,9 @@
 <?php
 
+if (!isset($lineWidth)) {
+	$lineWidth = 2;
+}
+
 $data = $this->franklin->storage($Test)->getLatestValues(30);
 
 if (empty($data)) {
@@ -31,36 +35,56 @@ $chartId = 'chart-'.$Test->uniqueId();
 		data.addColumn('number', 'Value');
 		data.addColumn('number', 'Delta');
 		data.addRows(chartData);
+
 		var options = {
 			strictFirstColumnType: false,
 			titlePosition: 'none',
-			lineWidth: 2,
-			pointSize: 3,
+			lineWidth: <?= $lineWidth ?>,
+			pointSize: <?= ceil($lineWidth * 1.75) ?>,
 			colors: ['#1B51C1', '#CAD5FF'],
 			chartArea: {
-				// left: '15%',
-				// width: '65%',
-				// height: '80%'
+				width: '75%',
+				height: '80%'
 			},
-			seriesType: 'line',
+			height: '100%',
+			width: '500px',
 			series: {
 				0: {
 					targetAxisIndex: 0,
-					type: 'line',
+					type: 'line'
 				},
 				1: {
-					logScale: true,
 					targetAxisIndex: 1,
 					type: 'bars'
 				}
 			},
-			// theme: 'maximized',
+			bar: {
+				groupWidth: '50' // makes bars very thick
+			},
+			hAxis: {
+				format: "dd.M."
+			},
 			legend: {
 				position: 'none'
 			}
 		};
 		var chart = new google.visualization.ComboChart(document.getElementById('<?php echo $chartId; ?>'));
+
 		chart.draw(data, options);
+
+		// create callback on window resize that will redraw the charts after
+		// a small delay (so they are not re-drawn on every single pixel resize)
+		var resizeTimeout = null;
+		var redrawChart = function() {
+			chart.draw(data, options);
+		};
+		$(window).resize(function() {
+			if (resizeTimeout) {
+				window.clearTimeout(resizeTimeout)
+			}
+			resizeTimeout = window.setTimeout(redrawChart, 250);
+		});
+
 	});
 </script>
-<div id="<?php echo $chartId; ?>"></div>
+<div id="<?php echo $chartId; ?>" style="height: 100%;"></div>

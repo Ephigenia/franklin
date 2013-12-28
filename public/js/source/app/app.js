@@ -26,10 +26,7 @@ google.setOnLoadCallback(onChartsReadyCallback);
 // responsive menu
 $(document).ready(function() {
 	$('.navbar-fixed').bind('click', function(event) {
-	  window.scrollTo(0, 0);
-	  return true;
-	});
-	$('nav.responsive select').change(function(event) {
-		window.location = $(this).find("option:selected").val();
+		window.scrollTo(0, 0);
+		return true;
 	});
 });

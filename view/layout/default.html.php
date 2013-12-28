@@ -39,7 +39,7 @@
 		<footer id="footer">
 			<div class="container">
 				<p class="muted">
-					<a href="https://github.com/Ephigenia/franklin" rel="external" title="Franklin project page @ github">Franklin v.<?= file_get_contents(FRANKLIN_ROOT.'/VERSION'); ?></a> •
+					<a href="https://github.com/Ephigenia/franklin" rel="external" title="Franklin project page @ github">Franklin <?= file_get_contents(FRANKLIN_ROOT.'/VERSION'); ?></a> •
 					<a href="http://www.marceleichner.de/?ref=franklin" rel="external">Marcel Eichner // Ephigenia</a>
 				</p>
 			</div>

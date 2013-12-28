@@ -19,6 +19,10 @@
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	<style type="text/css">
+	body {
+		/* due to fixed top navbar */
+		padding-top: 70px;
+	}
 	#footer {
 		padding: 15px 0px;
 		height: 60px;

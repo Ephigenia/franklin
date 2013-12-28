@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<!-- Brand and toggle get grouped for better mobile display -->
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -14,12 +14,12 @@
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
 			<?php foreach($groups as $i => $TestGroup) { ?>
-			<li>
-				<a<?php
+			<li<?php
 					if (isset($Test) && $Test->group == $TestGroup) {
-						echo ' class="current"';
+						echo ' class="active"';
 					}
-				?> href="./#group-<?= preg_replace('@[^a-z0-9]@i', '-', (string) $TestGroup); ?>"><?php
+				?>>
+				<a href="./#group-<?= preg_replace('@[^a-z0-9]@i', '-', (string) $TestGroup); ?>"><?php
 				echo $TestGroup;
 				?></a>
 			</li>

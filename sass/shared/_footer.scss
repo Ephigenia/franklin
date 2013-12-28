@@ -1,9 +1,0 @@
-#app > footer {
-	padding: 0 0.75em;
-	@include clearfix();
-	@include leader(1);
-	font-size: 75%;
-	&, a {
-		color: $text-color;
-	}
-}

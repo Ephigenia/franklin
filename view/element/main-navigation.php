@@ -13,16 +13,35 @@
 
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<?php foreach($groups as $i => $TestGroup) { ?>
-			<li<?php
-					if (isset($Test) && $Test->group == $TestGroup) {
-						echo ' class="active"';
-					}
-				?>>
-				<a href="./#group-<?= preg_replace('@[^a-z0-9]@i', '-', (string) $TestGroup); ?>"><?php
-				echo $TestGroup;
-				?></a>
-			</li>
+			<?php 
+			
+			// only show the first 4 groups and the rest as a dropdown
+			// if there are to many options
+			$maxShownGroupsCount = 4;
+			$firstGroups = array_slice($groups, 0, $maxShownGroupsCount - 1);
+			$dropdownGroups = array_slice($groups, $maxShownGroupsCount - 1);
+
+			foreach($firstGroups as $TestGroup) { 
+				echo $this->element('groupMenuItem', array(
+					'TestGroup' => $TestGroup,
+				));
+			}
+
+			// show remaining groups
+			if (!empty($dropdownGroups)) { ?>
+
+			<li class="dropdown">
+        		<a href="#" class="dropdown-toggle" data-toggle="dropdown">mehr … <b class="caret"></b></a>
+        		<ul class="dropdown-menu">
+        		<?php
+        		foreach($dropdownGroups as $TestGroup) {
+        			echo $this->element('groupMenuItem', array(
+						'TestGroup' => $TestGroup,
+					));
+        		} ?>
+        		</ul>
+        	</li>
+
 			<?php } ?>
 		</ul>
 	</div>

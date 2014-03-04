@@ -25,6 +25,21 @@ class FollowingTest extends \PHPUnit_Framework_TestCase
 	{
 		$result = $this->fixture->run();
 		$this->assertInternalType('float', $result);
-		$this->assertGreaterThanOrEqual(100, $result);
+		$this->assertGreaterThanOrEqual(2, $result);
+	}
+
+	public function testUserNotFound()
+	{
+		$this->fixture->config['username'] = 'notfoundusername';
+		$result = $this->fixture->run();
+		$this->assertFalse($result);
+	}
+
+	public function testUserWithManyFollowing()
+	{
+		$this->fixture->config['username'] = 'kosmar';
+		$result = $this->fixture->run();
+		$this->assertInternalType('float', $result);
+		$this->assertGreaterThanOrEqual(3000, $result, 'Expected cosmar to follow more than 3000ppl.');
 	}
 }

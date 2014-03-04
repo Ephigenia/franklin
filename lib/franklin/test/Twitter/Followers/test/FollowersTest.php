@@ -27,4 +27,19 @@ class FollowersTest extends \PHPUnit_Framework_TestCase
 		$this->assertInternalType('float', $result, 'Expected Result to be a float value');
 		$this->assertGreaterThanOrEqual(100, $result, 'Expected Result to be above 100');
 	}
+
+	public function testUserNotFound()
+	{
+		$this->fixture->config['username'] = 'notfoundusername';
+		$result = $this->fixture->run();
+		$this->assertFalse($result);
+	}
+
+	public function testUserWithManyFollowers()
+	{
+		$this->fixture->config['username'] = 'instagram';
+		$result = $this->fixture->run();
+		$this->assertInternalType('float', $result, 'Expected Result to be a float value');
+		$this->assertGreaterThanOrEqual(31110000, $result, 'Expected Result to be above 3.1mio');	
+	}
 }

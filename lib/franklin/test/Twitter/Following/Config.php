@@ -22,7 +22,7 @@ class Config extends \Franklin\test\config\Config
 			case 'url':
 				return sprintf('https://twitter.com/%s', urlencode($this->username));
 			case 'regexp':
-				return '@<strong>([\d.]+)</strong> folgt@is';
+				return '@data-nav="following".*title="([\d\.]+)"@is';
 		}
 		return parent::offsetGet($offset);
 	}

@@ -1,6 +1,7 @@
 {
     "name": "ephigenia/franklin",
     "description": "franklin is a kpi recorder",
+    "version": "0.3.1",
     "license": "MIT",
     "authors": [
         {

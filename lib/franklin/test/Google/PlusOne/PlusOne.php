@@ -28,9 +28,17 @@ class PlusOne extends Test
 		));
 		$postData = '[{"method":"pos.plusones.get","id":"p","params":{"nolog":true,"id":"'.$this->config->url.'","source":"widget","userId":"@viewer","groupId":"@self"},"jsonrpc":"2.0","key":"p","apiVersion":"v1"}]';
 		$result = $CURL->post('https://clients6.google.com/rpc', $postData);
-		if ($result && $data = json_decode($result, true) && isset($data[0]['result'])) {
-			return (int) $data[0]['result']['metadata']['globalCounts']['count'];
+
+		// some network errors
+		if (!$result) {
+			return false;
 		}
-		return 0;
+		// json decode
+		$data = json_decode($result, true);
+		if (!isset($data[0]['result'])) {
+			return false;
+		}
+
+		return (int) $data[0]['result']['metadata']['globalCounts']['count'];
 	}
 }

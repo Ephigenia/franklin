@@ -25,6 +25,23 @@ class PlusOneTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
-		$this->assertTrue($result > 1000);
+		$this->assertInternalType('integer', $result);
+		$this->assertGreaterThan(1000, $result);
+	}
+
+	public function testWithComplicatedUrl()
+	{
+		$this->fixture->config['url'] = 'http://locationinsider.de/interview-raul-krauthausen-arbeitet-an-verschiedenen-projekten-fuer-mehr-barrierefreiheit/';
+		$result = $this->fixture->run();
+		$this->assertInternalType('integer', $result);
+		$this->assertGreaterThan(10, $result);
+	}
+
+	public function testInvalidUrl() 
+	{
+		$this->fixture->config['url'] = 'asldkjasdlk';
+		$result = $this->fixture->run();
+		$this->assertInternalType('boolean', $result);
+		$this->assertFalse($result);
 	}
 }

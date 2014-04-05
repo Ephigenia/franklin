@@ -17,7 +17,7 @@ class Venue extends Scrape
     {
         $this->beforeRun();
 
-        $url = "https://www.foursquare.com/v/".urlencode($this->config->venue);
+        $url = "https://de.foursquare.com/v/".$this->config->venue;
         $CURL = new CURL;
         if (!$response = $CURL->get($url)) {
             return 0;

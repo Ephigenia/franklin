@@ -28,6 +28,7 @@ class ApplicationInfo extends Scrape
         } else {
             $baseUrl = 'https://itunes.apple.com/search';
             $query['term'] = $this->config->id;
+            $query['entity'] = 'software';
         }
 
         $CURL = new CURL();

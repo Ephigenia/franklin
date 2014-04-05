@@ -47,7 +47,7 @@ class ApplicationInfoTest extends \PHPUnit_Framework_TestCase
     
     public function testWithTermWithSingleResults()
     {
-        $this->fixture->config->id = 'snoopet';
+        $this->fixture->config->id = 'spotify';
         $this->fixture->config->key = 'averageUserRating';
         $result = $this->fixture->run();
         // validate result
@@ -58,7 +58,7 @@ class ApplicationInfoTest extends \PHPUnit_Framework_TestCase
     public function testWithTermThatHasMultipleResults()
     {
         // "snoo" should have at least 30 results
-        $this->fixture->config->id = 'snoo';
+        $this->fixture->config->id = 'spotif';
         $this->fixture->config->key = 'averageUserRating';
         $result = $this->fixture->run();
         // validate result

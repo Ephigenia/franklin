@@ -28,6 +28,6 @@
         "thomasklein/mite": "master"
     },
     "require-dev": {
-        "phpunit/phpunit": "3.7.*"
+        "phpunit/phpunit": "~4.0.0"
     }
 }

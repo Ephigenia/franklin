@@ -7,9 +7,9 @@ class GooglePageRankChecker {
   private static $instance;
   
   // Constructor
-  function getRank($page) {
+  public static function getRank($page) {
     // Create the instance, if one isn't created yet
-    if(!isset(self::$instance)) {
+    if (!isset(self::$instance)) {
       self::$instance = new self();
     }
     // Return the result
@@ -88,15 +88,15 @@ class GooglePageRankChecker {
     return '7'.$check.$hashString;
   }
   
-  function check($page) {
+  public function check($page) {
 
     // Open a socket to the toolbarqueries address, used by Google Toolbar
     $socket = fsockopen("toolbarqueries.google.com", 80, $errno, $errstr, 30);
 
     // If a connection can be established
-    if($socket) {
+    if ($socket) {
       // Prep socket headers
-      $out = "GET /search?client=navclient-auto&ch=".$this->checkHash($this->createHash($page))."&features=Rank&q=info:".$page."&num=100&filter=0 HTTP/1.1\r\n";
+      $out = "GET /tbr?client=navclient-auto&ch=".$this->checkHash($this->createHash($page))."&ie=UTF-8&oe=UTF-8&features=Rank&q=info:".$page." HTTP/1.1\r\n";
       $out .= "Host: toolbarqueries.google.com\r\n";
       $out .= "User-Agent: Mozilla/4.0 (compatible; GoogleToolbar 2.0.114-big; Windows XP 5.1)\r\n";
       $out .= "Connection: Close\r\n\r\n";
@@ -114,6 +114,7 @@ class GooglePageRankChecker {
           $result += $pagerank;
         }
       }
+      
       // Close the connection
       fclose($socket);
       

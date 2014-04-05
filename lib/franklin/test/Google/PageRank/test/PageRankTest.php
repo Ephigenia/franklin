@@ -24,6 +24,15 @@ class PageRankTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
-		$this->assertGreaterThan(2, $result);
+		$this->assertInternalType('integer', $result);
+		$this->assertGreaterThan(1, $result, 'assuming that pagerank of spiegel.de is greater than 1');
+	}
+
+	public function testWithInvalidUrl()
+	{
+		$this->fixture->config['host'] = 'aslkdj';
+		$result = $this->fixture->run();
+		$this->assertInternalType('boolean', $result);
+		$this->assertFalse($result);
 	}
 }

@@ -1,5 +1,6 @@
 # README
 
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Ephigenia/franklin/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 <img src="https://scrutinizer-ci.com/g/Ephigenia/franklin/badges/quality-score.png?s=28d253b058abc7f0c31f0b2204549c09c16f4fa8" />
 <img src="https://circleci.com/gh/Ephigenia/franklin/tree/development.png?circle-token=24e1bc42eaed3d81beb444519263dbcf3ddb0e88" />
 

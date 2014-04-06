@@ -1,10 +1,10 @@
 <?php
 
-namespace Franklin\test\Google\Backlinks\test;
+namespace Franklin\test\Google\BackLinks\test;
 
 use
-	Franklin\test\Google\Backlinks\Backlinks,
-	Franklin\test\Google\Backlinks\Config
+	Franklin\test\Google\BackLinks\Backlinks,
+	Franklin\test\Google\BackLinks\Config
 	;
 
 /**

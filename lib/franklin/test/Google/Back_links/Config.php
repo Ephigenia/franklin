@@ -1,6 +1,6 @@
 <?php
 
-namespace Franklin\test\Google\Backlinks;
+namespace Franklin\test\Google\BackLinks;
 
 use
 	Franklin\test\config\type\String

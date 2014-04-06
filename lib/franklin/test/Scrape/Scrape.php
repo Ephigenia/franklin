@@ -29,7 +29,6 @@ class Scrape extends Test
 	public function convertValue($value)
 	{
 		if (preg_match('@^-?\s?[\d\s,.-]+$@', $value)) {
-			// $value = str_replace(',', '.', $value);
 			$value = str_replace('.', '', $value);
 			$value = (float) $value;
 		}

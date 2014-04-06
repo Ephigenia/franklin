@@ -11,12 +11,4 @@ class ApplicationInfo extends Scrape
     public $name = 'Play Store Application Information';
     
     public $description = 'Tracks kpis of applications in the google play store';
-
-    public function convertValue($value)
-    {
-        if (preg_match('/^\d+,\d+$/', $value)) {
-            return (float) str_replace(',', '.', $value);
-        }
-        return parent::convertValue($value);
-    }
 }

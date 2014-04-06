@@ -22,7 +22,7 @@ class Config extends \Franklin\test\config\Config
 			case 'url':
 				return 'http://www.bing.com/search?q='.urlencode($this->q).'&go=&form=QBLH&filt=all&qs=n&sk=';
 			case 'regexp':
-				return '@<span class="sb_count" id="count">([0-9.]+)@i';
+				return '@<span class="sb_count" id="count">([\d\.]+)@i';
 		}
 		return parent::offsetGet($offset);
 	}

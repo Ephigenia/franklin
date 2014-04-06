@@ -14,6 +14,7 @@ class Results extends Scrape
 
     public function convertValue($value)
     {
-        return (int) parent::convertValue($value);
+        $value = preg_replace('/[^\d]/', '', $value);
+        return (int) $value;
     }
 }

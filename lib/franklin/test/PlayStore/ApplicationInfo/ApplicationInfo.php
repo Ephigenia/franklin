@@ -17,6 +17,6 @@ class ApplicationInfo extends Scrape
         if (preg_match('/\d[,\.]\d/', $value)) {
             return (float) str_replace(',', '.', $value);
         }
-        return parent::convertValue($value);
+        return (integer) preg_replace('/[^\d]+/', '', $value);
     }
 }

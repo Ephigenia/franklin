@@ -1,6 +1,6 @@
 <?php
 
-namespace Franklin\test\Soundcloud\Trackinfo;
+namespace Franklin\test\Soundcloud\TrackInfo;
 
 use
 	Franklin\test\Test,

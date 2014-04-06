@@ -1,9 +1,9 @@
 <?php
 
-namespace Franklin\test\Soundcloud\Trackinfo\test;
+namespace Franklin\test\Soundcloud\TrackInfo\test;
 
 use
-	Franklin\test\Soundcloud\Trackinfo\TrackInfo,
+	Franklin\test\Soundcloud\TrackInfo\TrackInfo,
 	Franklin\test\Soundcloud\TrackInfo\Config
 	;
 

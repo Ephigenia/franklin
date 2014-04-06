@@ -24,6 +24,7 @@ class IndexedPagesTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
-		$this->assertTrue($result > 10);
+		$this->assertInternalType('integer', $result);
+		$this->assertGreaterThan(1000, $result);
 	}
 }

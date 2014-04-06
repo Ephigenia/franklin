@@ -21,9 +21,10 @@ class ResultsTest extends \PHPUnit_Framework_TestCase
 		$this->fixture = new Results($config);
 	}
 	
-	public function testRun()
+	public function testSearchResultsMoreThan1000()
 	{
 		$result = $this->fixture->run();
+		$this->assertInternalType('integer', $result);
 		$this->assertGreaterThan(100000, $result);
 	}
 }

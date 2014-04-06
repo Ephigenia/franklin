@@ -1,0 +1,107 @@
+<?php
+
+/**
+ * Example Configuration file for Franklin
+ * 	
+ * @since 2009-05-19
+ * @author Marcel Eichner
+ * @package franklin
+ */
+$config = array(
+
+	'timezone' => 'Europe/Berlin',
+	'theme' => 'amber',
+
+	'groups' => array(
+
+		// Instagram PlayStore & AppStore Example
+		array(
+			'name' => 'Instagram',
+			'tests' => array(
+				// AppStore (Apple)
+				array(
+					'test' => 'Itunes\ApplicationInfo',
+					'config' => array(
+						'id' => 389801252,
+						'key' => 'averageUserRating',
+					)
+				),
+				array(
+					'test' => 'Itunes\ApplicationInfo',
+					'config' => array(
+						'id' => 389801252,
+						'key' => 'userRatingCount',
+					)
+				),
+				// PlayStore (Google)
+				array(
+					'test' => 'PlayStore\ApplicationInfo',
+					'config' => array(
+						'bundleIdentifier' => 'com.instagram.android',
+						'key' => 'averageUserRating',
+					)
+				),
+				array(
+					'test' => 'PlayStore\ApplicationInfo',
+					'config' => array(
+						'bundleIdentifier' => 'com.instagram.android',
+						'key' => 'userRatingCount',
+					)
+				),
+			),
+		),
+		
+		// Marcel Eichner
+		array(
+			'name'	=> 'Marcel Eichner',
+			'host'	=> 'www.marceleichner.de',
+			// tests in this group
+			'tests'	=> array(
+				array(
+					// Please not that you will have to turn on awareness api
+					// in your feedburner account to use FeedburnerReaders test!
+					'test'	=> 'FeedburnerReaders',
+					'config' => array(
+						'name' 	=> 'Feedburner Readers',
+						'uri'	=> 'ephigenia',
+						'interval' => '12 hours',
+					),
+				),
+				array(
+					'test'	=> 'FeedburnerHits',
+					'config' => array(
+						'name' 	=> 'Feedburner Hits',
+						'uri'	=> 'ephigenia',
+						'interval' => '12 hours',
+					),
+				),
+				array(
+					'test'	 => 'GoogleResultsCount',
+					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours'),
+				),
+				array(
+					'test'	 => 'GoogleResultsCount',
+					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours'),
+				),
+			),
+		),
+		
+		// WeSC
+		array(
+			'name'	=> 'WeSC',
+			'host'	=> 'www.wesc.com',
+			// tests in this group
+			'tests'	=> array(
+				array(
+					'test'	 => 'GoogleResultsCount',
+					'config' => array('search' => 'site:%host%', 'name'	 => 'indexed pages', 'interval' => '12 hours'),
+				),
+				array(
+					'test'	 => 'GoogleResultsCount',
+					'config' => array('search' => 'link:%host%', 'name' => 'inbound links', 'interval' => '12 hours'),
+				),
+			), 
+		),
+		
+	), // groups
+);

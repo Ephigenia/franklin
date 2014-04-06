@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phpunit bootstrap="config/bootstrap.php"
+	colors="true"
+	stopOnFailure="false"
+	syntaxCheck="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true">
+	<php>
+		<ini name="error_reporting" value="E_ALL"/>
+		<const name="MITE_API_KEY" value="" />
+		<const name="MITE_API_SUBDOMAIN" value="" />		
+	</php>
+	<testsuites>
+		<testsuite name="franklin">
+			<directory>./test</directory>
+		</testsuite>
+		<testsuite name="tests">
+			<directory>./lib/franklin/test/</directory>
+		</testsuite>
+	</testsuites>
+</phpunit>

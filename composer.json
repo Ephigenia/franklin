@@ -1,0 +1,33 @@
+{
+    "name": "ephigenia/franklin",
+    "description": "franklin is a kpi recorder",
+    "version": "0.3.1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcel Eichner",
+            "email": "love@ephigenia.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "thomasklein/mite",
+                "version": "master",
+                "source": {
+                    "url": "https://github.com/thomasklein/mite.php.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
+    "require": {
+        "thomasklein/mite": "master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0.0"
+    }
+}

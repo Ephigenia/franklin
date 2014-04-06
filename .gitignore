@@ -1,2 +1,5 @@
-app/data/*.txt
-app/config/config.php
+phpunit.xml
+.sass-cache
+config/config.php
+data/*
+/vendor/

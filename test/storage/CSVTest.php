@@ -14,8 +14,11 @@ class CSVTest extends \PHPUnit_Framework_TestCase
 	
 	public function setUp()
 	{
-		$this->filename = __DIR__.'/fixture/testfile.csv';
-		chmod(__DIR__.'/fixture/', 0777);
+		$fixtureDir = __DIR__.'/fixture';
+		if (!is_dir($fixtureDir)) {
+			mkdir($fixtureDir);
+		}
+		$this->filename = $fixtureDir.'/testfile.csv';
 		$this->fixture = new CSV($this->filename);
 	}
 	

@@ -14,7 +14,7 @@ class ApplicationInfo extends Scrape
     
     public function convertValue($value)
     {
-        if (preg_match('/\d[,\.]\d/', $value)) {
+        if (preg_match('/^\d[,\.]\d$/', $value)) {
             return (float) str_replace(',', '.', $value);
         }
         return (integer) preg_replace('/[^\d]+/', '', $value);

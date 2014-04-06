@@ -37,8 +37,8 @@ class ApplicationInfoTest extends \PHPUnit_Framework_TestCase
         $this->fixture->config->key = 'userRatingCount';
         $result = $this->fixture->run();
         // validate result
-        $this->assertInternalType('float', $result);
-        $this->assertGreaterThanOrEqual(6000000, $result);
+        $this->assertInternalType('integer', $result);
+        $this->assertGreaterThanOrEqual(1000000, $result, 'assuming that instagram has more than 1 million user ratings');
     }
 
     public function testAverageUserRatingInCountryUs()

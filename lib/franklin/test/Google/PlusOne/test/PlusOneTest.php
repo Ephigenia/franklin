@@ -4,7 +4,7 @@ namespace Franklin\test\Google\Results\test;
 
 use
 	Franklin\test\Google\PlusOne\PlusOne,
-	Franklin\test\Google\Plusone\Config
+	Franklin\test\Google\PlusOne\Config
 	;
 
 /**

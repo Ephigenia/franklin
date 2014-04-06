@@ -24,7 +24,7 @@ class FollowingTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
-		$this->assertInternalType('float', $result);
+		$this->assertInternalType('integer', $result);
 		$this->assertGreaterThanOrEqual(2, $result);
 	}
 
@@ -39,7 +39,7 @@ class FollowingTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->fixture->config['username'] = 'kosmar';
 		$result = $this->fixture->run();
-		$this->assertInternalType('float', $result);
+		$this->assertInternalType('integer', $result);
 		$this->assertGreaterThanOrEqual(3000, $result, 'Expected cosmar to follow more than 3000ppl.');
 	}
 }

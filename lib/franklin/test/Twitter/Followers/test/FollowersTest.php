@@ -24,7 +24,7 @@ class FollowersTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
-		$this->assertInternalType('float', $result, 'Expected Result to be a float value');
+		$this->assertInternalType('integer', $result, 'Expected Result to be a integer value');
 		$this->assertGreaterThanOrEqual(100, $result, 'Expected Result to be above 100');
 	}
 
@@ -39,7 +39,7 @@ class FollowersTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->fixture->config['username'] = 'instagram';
 		$result = $this->fixture->run();
-		$this->assertInternalType('float', $result, 'Expected Result to be a float value');
+		$this->assertInternalType('integer', $result, 'Expected Result to be a integer value');
 		$this->assertGreaterThanOrEqual(31110000, $result, 'Expected Result to be above 3.1mio');	
 	}
 }

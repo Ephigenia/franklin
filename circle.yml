@@ -3,4 +3,4 @@ machine:
     version: 5.5.8
 test:
   override:
-    - vendor/bin/phpunit -c phpunit.dist.xml --exclude=TimeEntriesTest
+    - vendor/bin/phpunit -c phpunit.dist.xml ----exclude-group=Mite

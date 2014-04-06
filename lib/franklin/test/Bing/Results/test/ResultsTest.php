@@ -3,8 +3,8 @@
 namespace Franklin\test\Bing\Results\test;
 
 use
-	Franklin\test\Google\Results\Results,
-	Franklin\test\Google\Results\Config
+	Franklin\test\Bing\Results\Results,
+	Franklin\test\Bing\Results\Config
 	;
 
 /**
@@ -21,7 +21,7 @@ class ResultsTest extends \PHPUnit_Framework_TestCase
 		$this->fixture = new Results($config);
 	}
 	
-	public function testSearchResultsMoreThan1000()
+	public function testRun()
 	{
 		$result = $this->fixture->run();
 		$this->assertInternalType('integer', $result);

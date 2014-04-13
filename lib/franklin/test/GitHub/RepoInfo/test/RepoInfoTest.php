@@ -22,11 +22,21 @@ class RepoInfoTest extends \PHPUnit_Framework_TestCase
 		));
 		$this->fixture = new RepoInfo($config);
 	}
-	
-	public function testRun()
+
+	public function testRepoNotFound()
 	{
+		$this->fixture->config->username = 'something';
+		$this->fixture->config->repository = 'which_cannot_be_found';
 		$result = $this->fixture->run();
-		$this->assertGreaterThan(10, $result);
+		$this->assertInternalType('boolean', $result);
+		$this->assertFalse($result);
+	}
+
+	public function testWatchers()
+	{
+		$this->fixture->config->key = 'watchers';
+		$result = $this->fixture->run();
+		$this->assertGreaterThan(1, $result);
 	}
 	
 	public function testSLOC()
@@ -36,7 +46,7 @@ class RepoInfoTest extends \PHPUnit_Framework_TestCase
 		$this->assertGreaterThan(10000, $result);
 	}
 	
-	public function testFollowing()
+	public function testForks()
 	{
 		$this->fixture->config->key = 'forks';
 		$result = $this->fixture->run();

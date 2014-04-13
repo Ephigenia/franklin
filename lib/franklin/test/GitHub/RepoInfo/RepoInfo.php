@@ -23,12 +23,26 @@ class RepoInfo extends Test
 		}
 		$CURL = new CURL();
 		$result = $CURL->get($url);
-		if ($result && $data = json_decode($result, true)) {
-			if (strtolower($this->config->key) == 'sloc') {
-				return array_sum($data);
-			} else {
-				return (int) $data[$this->config->key];
+
+		if (!$result) {
+			return false;
+		}
+		if (!($data = json_decode($result, true))) {
+			return false;
+		}
+		if (isset($data['message'])) {
+			switch ($data['message']) {
+				case 'Not Found':
+					return false;
+					break;
+				default:
+					break;
 			}
+		}
+		if (strnatcasecmp($this->config->key, 'sloc') === 0) {
+			return array_sum($data);
+		} else {
+			return (int) $data[$this->config->key];
 		}
 		return 0;
 	}

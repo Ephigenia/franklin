@@ -14,13 +14,21 @@ class Scrape extends Test
 		$this->beforeRun();
 		$curl = new CURL();
 		$response = $curl->get($this->config->url);
+
+		if ($result = $this->processResponse($response)) {
+			$result = $this->convertValue($result);
+		}
+		return $result;
+	}
+
+	public function processResponse($response)
+	{
 		if (preg_match_all($this->config->regexp, $response, $found)) {
 			if (isset($found['match'])) {
 				$result = $found['match'][0];
 			} else {
 				$result = $found[1][0];
 			}
-			$result = $this->convertValue($result);
 			return $result;
 		}
 		return false;

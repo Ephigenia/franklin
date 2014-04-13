@@ -21,11 +21,26 @@ class FollowersTest extends \PHPUnit_Framework_TestCase
 		$this->fixture = new Followers($config);
 	}
 	
-	public function testRun()
+	public function usernames()
 	{
+		return array(
+			array('ephigenia'),
+			array('berlinergazette'),
+			array('bzberlin')
+		);
+	}
+
+	/**
+	 * @dataProvider usernames
+	 */
+	public function testRun($username, $expectedCount = 100)
+	{
+		$this->fixture->config['username'] = $username;
 		$result = $this->fixture->run();
 		$this->assertInternalType('integer', $result, 'Expected Result to be a integer value');
-		$this->assertGreaterThanOrEqual(100, $result, 'Expected Result to be above 100');
+		$this->assertGreaterThanOrEqual($expectedCount, $result, sprintf(
+			"expected twitter user %s to have at least %d followers", $username, $expectedCount
+		));
 	}
 
 	public function testUserNotFound()

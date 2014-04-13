@@ -20,12 +20,27 @@ class FollowingTest extends \PHPUnit_Framework_TestCase
 		));
 		$this->fixture = new Following($config);
 	}
-	
-	public function testRun()
+
+	public function usernames()
 	{
+		return array(
+			array('ephigenia', 2),
+			array('berlinergazette', 50),
+			array('bzberlin', 300)
+		);
+	}
+
+	/**
+	 * @dataProvider usernames
+	 */
+	public function testRun($username, $expectedCount = 10)
+	{
+		$this->fixture->config['username'] = $username;
 		$result = $this->fixture->run();
-		$this->assertInternalType('integer', $result);
-		$this->assertGreaterThanOrEqual(2, $result);
+		$this->assertInternalType('integer', $result, 'Expected Result to be a integer value');
+		$this->assertGreaterThanOrEqual($expectedCount, $result, sprintf(
+			"expected twitter user %s to have at follow at least %d", $username, $expectedCount
+		));
 	}
 
 	public function testUserNotFound()

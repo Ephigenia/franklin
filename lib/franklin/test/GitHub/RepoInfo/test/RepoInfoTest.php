@@ -16,9 +16,8 @@ class RepoInfoTest extends \PHPUnit_Framework_TestCase
 	public function setUp()
 	{
 		$config = new Config(array(
-			'username' => 'ephigenia',
-			'repository' => 'franklin',
-			'key' => 'watchers',
+			'username' => 'symfony',
+			'repository' => 'symfony-standard',
 		));
 		$this->fixture = new RepoInfo($config);
 	}
@@ -32,11 +31,18 @@ class RepoInfoTest extends \PHPUnit_Framework_TestCase
 		$this->assertFalse($result);
 	}
 
+	public function testStargazers()
+	{
+		$this->fixture->config->key = 'stargazers';
+		$result = $this->fixture->run();
+		$this->assertGreaterThan(900, $result);
+	}
+
 	public function testWatchers()
 	{
 		$this->fixture->config->key = 'watchers';
 		$result = $this->fixture->run();
-		$this->assertGreaterThan(1, $result);
+		$this->assertGreaterThan(900, $result);
 	}
 	
 	public function testSLOC()

@@ -14,7 +14,7 @@ class Config extends \Franklin\test\config\Config
 		$this->definition->append(
 			new String('username', true, null, 'username'),
 			new String('repository', true, null, 'repository name'),
-			new String('key', true, 'followers', 'key that should be recorded (open_issues, watchers, forks, size, sloc)')
+			new String('key', true, 'followers', 'key that should be recorded (open_issues, watchers, forks, size, sloc, stargazers)')
 		);
 		return true;
 	}

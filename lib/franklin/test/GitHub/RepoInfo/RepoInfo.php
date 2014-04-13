@@ -24,6 +24,7 @@ class RepoInfo extends Test
 		$CURL = new CURL();
 		$result = $CURL->get($url);
 
+		// something in the response went wrong
 		if (!$result) {
 			return false;
 		}
@@ -39,11 +40,24 @@ class RepoInfo extends Test
 					break;
 			}
 		}
-		if (strnatcasecmp($this->config->key, 'sloc') === 0) {
+
+		// sloc count sums up the json response
+		if ($this->config->key == 'sloc') {
 			return array_sum($data);
-		} else {
-			return (int) $data[$this->config->key];
 		}
-		return 0;
+
+		// other keys may need mapping
+		$keypmapping = array(
+			'stargazers' => 'stargazers_count',
+			'watchers' => 'watchers_count',
+			'forks' => 'forks_count',
+			'open_issues' => 'open_issues',
+			'size' => 'size',
+		);
+		if (!isset($keypmapping[$this->config->key])) {
+			return false;
+		}
+		$mappedKey = $keypmapping[$this->config->key];
+		return (int) $data[$mappedKey];
 	}
 }

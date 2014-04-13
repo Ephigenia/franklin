@@ -14,7 +14,6 @@ class Scrape extends Test
 		$this->beforeRun();
 		$curl = new CURL();
 		$response = $curl->get($this->config->url);
-
 		if ($result = $this->processResponse($response)) {
 			$result = $this->convertValue($result);
 		}
@@ -38,7 +37,7 @@ class Scrape extends Test
 	{
 		if (preg_match('@^-?\s?[\d\s,.-]+$@', $value)) {
 			$value = str_replace('.', '', $value);
-			$value = (float) $value;
+			$value = (int) $value;
 		}
 		return $value;
 	}

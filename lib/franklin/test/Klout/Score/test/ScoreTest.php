@@ -13,18 +13,29 @@ use
  */
 class ScoreTest extends \PHPUnit_Framework_TestCase
 {
-	public function setUp()
+	public function usernames()
 	{
-		$config = new Config(array(
-			'username' => 'ibm',
-		));
-		$this->fixture = new Score($config);
+		return array(
+			array('ibm', 20),
+			array('ephigenia', 30)
+		);
 	}
 	
-	public function testRun()
+	/**
+	 * @dataProvider usernames
+	 */
+	public function testRun($username, $expectedMinimumScore = 1)
 	{
+		$config = new Config(array(
+			'username' => $username,
+		));
+		$this->fixture = new Score($config);
 		$result = $this->fixture->run();
-		$this->assertInternalType('float', $result, 'Expected Result to be a float value');
-		$this->assertGreaterThanOrEqual(10, $result, 'Expected Result to be above 10');
+		$this->assertInternalType('integer', $result, 'Expected Result to be a float value');
+		$this->assertGreaterThanOrEqual($expectedMinimumScore, $result, sprintf(
+			"Expected klout user %s to have a score higher or equal %d",
+			$username,
+			$expectedMinimumScore
+		));
 	}
 }

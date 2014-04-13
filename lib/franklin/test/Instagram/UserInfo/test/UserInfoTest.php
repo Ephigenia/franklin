@@ -26,13 +26,13 @@ class UserInfoTest extends \PHPUnit_Framework_TestCase
     {
         $result = $this->fixture->run();
         $this->assertInternalType('integer', $result, 'Expected Result to be a integer value');
-        $this->assertGreaterThanOrEqual(130, $result, 'Expected Result to be above 30');
+        $this->assertGreaterThanOrEqual(100, $result, 'Expected Result to be above 100');
     }
 
     public function followersValues()
     {
         return array(
-            array('ephigenia', 130),
+            array('ephigenia', 100),
             array('tonyhawk', 1109000),
             array('instagram', 53000000),
         );
@@ -50,7 +50,10 @@ class UserInfoTest extends \PHPUnit_Framework_TestCase
         $this->assertGreaterThanOrEqual(
             $expectedMinimumFollowersCount,
             $result,
-            'Expected Result to be above '.$expectedMinimumFollowersCount
+            sprintf(
+                "Expected instagram user %s to have at least %d followers",
+                $username, $expectedMinimumFollowersCount
+            )
         );
     }
 
@@ -74,7 +77,10 @@ class UserInfoTest extends \PHPUnit_Framework_TestCase
         $this->assertGreaterThanOrEqual(
             $expectedMinimumPostsCount,
             $result,
-            'Expected Result to be above '.$expectedMinimumPostsCount
+            sprintf(
+                "Expected instagram user %s to have at least %d posts",
+                $username, $expectedMinimumPostsCount
+            )
         );
     }
 
@@ -83,6 +89,14 @@ class UserInfoTest extends \PHPUnit_Framework_TestCase
         $this->fixture->config->key = 'following';
         $result = $this->fixture->run();
         $this->assertInternalType('integer', $result, 'Expected Result to be a integer value');
-        $this->assertGreaterThanOrEqual(110, $result, 'Expected Result to be above 110');
+        $this->assertGreaterThanOrEqual(
+            110,
+            $result,
+            sprintf(
+                "Expected  user %s to follow at least %d other users",
+                $this->fixture->config['username'],
+                110
+            )
+        );
     }
 }

@@ -27,7 +27,7 @@ class CURL
 		CURLOPT_FOLLOWLOCATION => true,
 		CURLOPT_TIMEOUT => 5,
 		CURLOPT_COOKIE => false,
-		CURLOPT_REFERER => false,
+		// CURLOPT_REFERER => false,
 		CURLOPT_USERAGENT => 'franklin website metric recorder',
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_HEADER => false,

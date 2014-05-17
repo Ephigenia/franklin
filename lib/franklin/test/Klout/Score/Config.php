@@ -20,9 +20,9 @@ class Config extends \Franklin\test\config\Config
 	{
 		switch ($offset) {
 			case 'url':
-				return 'http://widgets.klout.com/badge/'.urlencode($this->username).'?size=s';
+				return 'http://klout.com/'.urlencode($this->username);
 			case 'regexp':
-				return '@class=["\' ]+kscore[ "\']+title=[ "\'](\d+)[ "\']@i';
+				return '/<span class="score">(\d+)<\/span>/i';
 		}
 		return parent::offsetGet($offset);
 	}

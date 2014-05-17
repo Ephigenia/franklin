@@ -16,7 +16,7 @@ class ScoreTest extends \PHPUnit_Framework_TestCase
 	public function usernames()
 	{
 		return array(
-			array('ibm', 20),
+			array('instagram', 45),
 			array('ephigenia', 30)
 		);
 	}
@@ -31,6 +31,7 @@ class ScoreTest extends \PHPUnit_Framework_TestCase
 		));
 		$this->fixture = new Score($config);
 		$result = $this->fixture->run();
+		$this->assertNotFalse($result, 'Expect klout test to work');
 		$this->assertInternalType('integer', $result, 'Expected Result to be a float value');
 		$this->assertGreaterThanOrEqual($expectedMinimumScore, $result, sprintf(
 			"Expected klout user %s to have a score higher or equal %d",

@@ -25,14 +25,14 @@ class StockQuoteTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
-		$this->assertGreaterThan(200, $result);
+		$this->assertGreaterThan(20, $result);
 	}
 	
 	public function testMultipleSymbols()
 	{
 		$this->fixture->config->symbol = 'AAPL+RIMM';
 		$result = $this->fixture->run();
-		$this->assertGreaterThan(200, $result);
+		$this->assertGreaterThan(20, $result);
 	}
 	
 	public function testInvalidSymbol()

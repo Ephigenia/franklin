@@ -24,6 +24,6 @@ class PageTalkingAboutTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
-		$this->assertGreaterThan(5, $result);
+		$this->assertGreaterThan(3, $result);
 	}
 }

@@ -48,4 +48,9 @@ class ChannelInfo extends Scrape
 
         return false;
     }
+
+    public function convertValue($value)
+    {
+        return preg_replace('/[^\d]+/', '', $value);
+    }
 }

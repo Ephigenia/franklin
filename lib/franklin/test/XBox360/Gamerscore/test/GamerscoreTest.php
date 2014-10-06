@@ -1,6 +1,6 @@
 <?php
 
-namespace Franklin\test\Vimeo\UserInfo\test;
+namespace Franklin\test\XBox360\UserInfo\test;
 
 use
 	Franklin\test\XBox360\Gamerscore\Gamerscore,

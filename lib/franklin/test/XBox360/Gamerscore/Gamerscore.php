@@ -3,40 +3,53 @@
 namespace Franklin\test\XBox360\Gamerscore;
 
 use
-	Franklin\test\Test,
+	Franklin\test\Scrape\Scrape,
 	Franklin\network\CURL
 	;
 
-class Gamerscore extends Test
+class Gamerscore extends Scrape
 {
 	public $name = 'XBox 360 Gamercore';
 	
 	public $description = 'Gamerscore of a xbox user (aka Gamerscore)';
-	
+
 	public function run()
 	{
-		$url = 'https://live.xbox.com/de-DE/Profile';
-		// scrape url and extract gamerscore from the DOM
-		$data = array('gamertag' => $this->config->username);
-		$curl = new CURL(array(
-			// ms servers are really slow so give them a chance 
-			// with higher timeout
-			CURLOPT_TIMEOUT => 20, 
-		));
-		$source = $curl->get($url, $data);
-		if (!$source) {
-			return 0;
+		$this->beforeRun();
+
+		$url = sprintf('http://www.xboxgamertag.com/search/%s/', $this->config->username);
+		$CURL = new CURL();
+		$response = $CURL->get($url);
+		if ($result = $this->processResponse($response)) {
+			$result = $this->convertValue($result);
 		}
+
+		return $result;
+	}
+	
+	public function processResponse($response)
+	{
+		if (!$response) {
+			return false;
+		}
+		
 		// parse source and extract score
 		$DOMDocument = new \DOMDocument();
-		@$DOMDocument->loadHTML($source);
+		@$DOMDocument->loadHTML($response);
 		$DOMXPath = new \DOMXPath($DOMDocument);
-		$nodes = $DOMXPath->query('//div[@class="gamerscore"]');
+		$nodes = $DOMXPath->query('//p[@class="rightGS"]');
+
 		if ($nodes->length > 0) {
 			foreach($nodes as $node) {
-				return (int) $node->textContent;
+				return trim($node->textContent);
 			}
 		}
+
 		return false;
+	}
+
+	public function convertValue($string)
+	{
+		return (int) preg_replace('/[^\d]+/', '', $string);
 	}
 }

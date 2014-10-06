@@ -23,15 +23,32 @@ class GamerscoreTest extends \PHPUnit_Framework_TestCase
 
 	public function testInvalidUsername()
 	{
-		$this->fixture->username = 'notfoundusernamehehe';
+		$this->fixture->config->username = 'notfoundusernamehehe';
 		$result = $this->fixture->run();
 		$this->assertInternalType('boolean', $result);
 		$this->assertFalse($result);
 	}
-	
-	public function testScore()
+
+	public function getUsernamesAndScores()
 	{
+		return array(
+			array('ephBox', 11500),
+			array('tjayars', 720000),
+		);
+	}
+	
+	/**
+	 * @dataProvider getUsernamesAndScores
+	 */
+	public function testScore($username, $expectedMinimumScore)
+	{
+		$this->fixture->config->username = $username;
 		$result = $this->fixture->run();
-		$this->assertGreaterThan(8500, $result);
+		$this->assertInternalType('integer', $result);
+		$this->assertGreaterThan($expectedMinimumScore, $result, sprintf(
+			'Expected %s to have at least a score of %s',
+			$username,
+			$expectedMinimumScore
+		));
 	}
 }

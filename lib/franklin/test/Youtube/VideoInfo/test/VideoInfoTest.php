@@ -11,7 +11,7 @@ use
  * @group Tests
  * @group Youtube
  */
-class UserInfoTest extends \PHPUnit_Framework_TestCase
+class VideoInfoTest extends \PHPUnit_Framework_TestCase
 {
 	public function setUp()
 	{

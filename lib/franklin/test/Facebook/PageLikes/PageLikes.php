@@ -20,8 +20,14 @@ class PageLikes extends Test
 		$CURL = new CURL();
 		$response = $CURL->get('http://graph.facebook.com/'.$this->config->id);
 		if (($json = json_decode($response, true)) && isset($json['likes'])) {
-			return (float) $json['likes'];
+			return $this->convertValue($json['likes']);
 		}
 		return false;
 	}
+
+	public function convertValue($value)
+    {
+        $value = (int) preg_replace('/[^\d]+/', '', $value);
+        return $value;
+    }
 }

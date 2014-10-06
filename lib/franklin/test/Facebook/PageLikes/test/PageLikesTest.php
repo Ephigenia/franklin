@@ -24,6 +24,15 @@ class PageLikesTest extends \PHPUnit_Framework_TestCase
 	public function testRun()
 	{
 		$result = $this->fixture->run();
+		$this->assertInternalType('integer', $result);
 		$this->assertTrue(is_float($result));
+	}
+
+	public function testRunWithNameInsteadOfId() 
+	{
+		$this->fixture->config['id'] = 'CDU';
+		$result = $this->fixture->run();
+		$this->assertInternalType('integer', $result);
+		$this->assertGreaterThanOrEqual(10000, $result);
 	}
 }

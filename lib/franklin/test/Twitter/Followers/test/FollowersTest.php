@@ -26,7 +26,8 @@ class FollowersTest extends \PHPUnit_Framework_TestCase
 		return array(
 			array('ephigenia'),
 			array('berlinergazette'),
-			array('bzberlin')
+			array('bzberlin'),
+			array('CDU'),
 		);
 	}
 

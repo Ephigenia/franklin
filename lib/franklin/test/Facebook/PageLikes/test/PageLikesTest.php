@@ -16,7 +16,7 @@ class PageLikesTest extends \PHPUnit_Framework_TestCase
 	public function setUp()
 	{
 		$config = new Config(array(
-			'id' => '115046791864216',
+			'id' => 'ironmaiden',
 		));
 		$this->fixture = new PageLikes($config);
 	}
@@ -25,7 +25,7 @@ class PageLikesTest extends \PHPUnit_Framework_TestCase
 	{
 		$result = $this->fixture->run();
 		$this->assertInternalType('integer', $result);
-		$this->assertTrue(is_float($result));
+		$this->assertGreaterThanOrEqual(1000000, $result);
 	}
 
 	public function testRunWithNameInsteadOfId() 

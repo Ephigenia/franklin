@@ -51,6 +51,6 @@ class ChannelInfo extends Scrape
 
     public function convertValue($value)
     {
-        return preg_replace('/[^\d]+/', '', $value);
+        return (int) preg_replace('/[^\d]+/', '', $value);
     }
 }

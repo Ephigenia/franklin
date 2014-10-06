@@ -37,6 +37,6 @@ class Gamerscore extends Test
 				return (int) $node->textContent;
 			}
 		}
-		return 0;
+		return false;
 	}
 }

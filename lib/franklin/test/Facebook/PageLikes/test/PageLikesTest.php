@@ -20,19 +20,31 @@ class PageLikesTest extends \PHPUnit_Framework_TestCase
 		));
 		$this->fixture = new PageLikes($config);
 	}
-	
-	public function testRun()
+
+	public function testInvalidUsername()
 	{
+		$this->fixture->config['id'] = 'this is not a found username';
 		$result = $this->fixture->run();
-		$this->assertInternalType('integer', $result);
-		$this->assertGreaterThanOrEqual(1000000, $result);
+		$this->assertInternalType('boolean', $result);
+		$this->assertFalse($result);
 	}
 
-	public function testRunWithNameInsteadOfId() 
+	public function getUsernameValues()
 	{
-		$this->fixture->config['id'] = 'CDU';
+		return array(
+			array('ironmaiden', 10000000),
+			array('CDU', 10000),
+		);
+	}
+
+	/**
+	 * @dataProvider getUsernameValues
+	 */
+	public function testRunWithNameInsteadOfId($username, $expectedMinimumCount) 
+	{
+		$this->fixture->config['id'] = $username;
 		$result = $this->fixture->run();
 		$this->assertInternalType('integer', $result);
-		$this->assertGreaterThanOrEqual(10000, $result);
+		$this->assertGreaterThanOrEqual($expectedMinimumCount, $result);
 	}
 }

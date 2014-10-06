@@ -33,8 +33,8 @@ class ChannelInfo extends Scrape
         }
 
         $regexps = array(
-            'followers' => '/([\d\.]+)<\/b> Abonnenten/',
-            'views' => '/([\d\.]+)<\/b> Aufrufe/',
+            'followers' => '/([\d\.\,]+)<\/b> (Abonnenten|subscribers)/',
+            'views' => '/([\d\.\,]+)<\/b> (Aufrufe|views)/',
         );
 
         // invalid key that should be found

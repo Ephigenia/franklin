@@ -18,7 +18,11 @@ class ChannelInfo extends Scrape
         $this->beforeRun();
 
         $url = sprintf('https://www.youtube.com/user/%s/about', $this->config->username);
-        $CURL = new CURL();
+        $CURL = new CURL(array(
+            CURLOPT_HTTPHEADER => array(
+                'Accept-Language' => 'en_us',
+            )
+        ));
         $response = $CURL->get($url);
         if ($result = $this->processResponse($response)) {
             $result = $this->convertValue($result);

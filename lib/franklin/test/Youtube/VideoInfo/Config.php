@@ -13,7 +13,7 @@ class Config extends \Franklin\test\config\Config
 	{
 		$this->definition->append(
 			new String('id', true, null, 'video id'),
-			new String('key', true, 'likes', 'Key of json result to inspect (rating, likeCount, ratingCount, viewCount, favoriteCount, commentCount)')
+			new String('key', true, 'likeCount', 'Key of json result to inspect (rating, likeCount, ratingCount, viewCount, favoriteCount, commentCount)')
 		);
 		return true;
 	}

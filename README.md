@@ -13,8 +13,12 @@ Checkout the wiki for a complete list of the 35+ tests that can be displayed usi
 
 # Running the Tests
 
-	composer install --dev
+	composer install
 	vendor/bin/phpunit
+
+# Running specific groups of tests
+
+    vendor/bin/phpunit --group=Flipboard 
 
 # BEWARE!
 

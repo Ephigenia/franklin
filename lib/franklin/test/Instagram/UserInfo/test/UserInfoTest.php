@@ -34,7 +34,7 @@ class UserInfoTest extends \PHPUnit_Framework_TestCase
         return array(
             array('ephigenia', 100),
             array('tonyhawk', 1109000),
-            array('instagram', 53000000),
+            array('instagram', 51000000),
         );
     }
 

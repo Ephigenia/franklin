@@ -2,7 +2,7 @@ machine:
   timezone:
     Europe/Berlin
   php:
-    version: 5.5.8
+    version: 5.6.2
 test:
   override:
     - vendor/bin/phpunit -c phpunit.dist.xml --exclude-group=Mite

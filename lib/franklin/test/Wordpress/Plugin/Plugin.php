@@ -7,6 +7,10 @@ use
     Franklin\network\CURL
     ;
 
+/**
+ * Scraper which scrapes the http://wpapi.org/ wwebsite for plugin 
+ * information.
+ */
 class Plugin extends Scrape
 {
     public $name = 'Wordpress Plugin Stats';

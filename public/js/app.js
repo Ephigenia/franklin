@@ -25,7 +25,7 @@ google.setOnLoadCallback(onChartsReadyCallback);
 
 // responsive menu
 $(document).ready(function() {
-	$('.navbar-fixed').bind('click', function(event) {
+	$('.navbar-fixed').bind('click touchstart', function(event) {
 		window.scrollTo(0, 0);
 		return true;
 	});

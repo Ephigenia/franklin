@@ -8,39 +8,48 @@ $daysOptions = array(
 	365 => '1 Year',
 );
 ?>
-<div class="container">
-	<div class="page-header">
-		<div class="btn-group pull-right">
-		<?php
-			foreach ($daysOptions as $value => $label) {
-				$uri = '?action=test&amp;id='.$Test->uniqueId().'&amp;days='.$value;
-				?>
-				<a href="<?php echo $uri; ?>" class="btn btn-default"><?php echo $label ?></a>
-		<?php } ?>
-		</div>
-		<h1>
-		<?php
-			printf('%s / %s', 
-				$Test->group,
-				$Test->name
-			);
-		?>
-		</h1>
+
+<div class="page-header">
+	<div class="btn-group pull-right">
+	<?php
+		foreach ($daysOptions as $value => $label) {
+			$uri = '?action=test&amp;id='.$Test->uniqueId().'&amp;days='.$value;
+			?>
+			<a href="<?php echo $uri; ?>" class="btn btn-default"><?php echo $label ?></a>
+	<?php } ?>
 	</div>
+	<h1>
+	<?php
+		printf('%s / %s', 
+			$Test->group,
+			$Test->name
+		);
+	?>
+	</h1>
+</div>
+<?php
+
+$data = $this->franklin->storage($Test)->getLatestValues($days);
+
+?>
+
+<?php if (!$data) { ?>
+	<div class="alert alert-info">
+		There was no data found for this test.
+	</div>
+<?php } else { ?>
 	<div class="row">
 		<div class="col-md-12" style="height: 500px;">
 			<?php
-				$data = $this->franklin->storage($Test)->getLatestValues($days);
+				
 				echo $this->element('lineChart', array(
 					'Test' => $Test,
-					'lineWidth' => 5,
 					'days' => $days,
 				));
 			?>
 		</div>
 	</div>
-	
-	<table class="table striped bordered">
+	<table class="table table-striped table-responsive">
 		<thead>
 			<tr>
 				<th>Date</th>
@@ -84,5 +93,4 @@ $daysOptions = array(
 		} ?>
 		</tbody>
 	</table>
-	
-</div>
+<?php } ?>

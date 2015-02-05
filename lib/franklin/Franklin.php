@@ -80,6 +80,10 @@ class Franklin
 		foreach($this->config['groups'] as $groupConfig) {
 			$this->groups[] = new Group($groupConfig['name'], $groupConfig);
 		}
+		// set the timezone from the config
+		if (!empty($this->config->timezone)) {
+			date_default_timezone_set($this->config->timezone);
+		}
 		return $this;
 	}
 	

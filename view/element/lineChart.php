@@ -1,8 +1,5 @@
 <?php
 
-if (!isset($lineWidth)) {
-	$lineWidth = 2;
-}
 if (!isset($days)) {
 	$days = 30;
 }
@@ -42,13 +39,14 @@ $chartId = 'chart-'.$Test->uniqueId();
 		var options = {
 			strictFirstColumnType: false,
 			titlePosition: 'none',
-			lineWidth: <?= $lineWidth ?>,
-			pointSize: <?= ceil($lineWidth * 1.75) ?>,
-			colors: ['#1B51C1', '#CAD5FF'],
+			lineWidth: 3,
+			pointSize: 5,
+			colors: ['#02b076', '#29476d'],
 			chartArea: {
 				width: '75%',
 				height: '80%'
 			},
+			backgroundColor: 'transparent',
 			height: '100%',
 			width: '500px',
 			series: {
@@ -64,8 +62,23 @@ $chartId = 'chart-'.$Test->uniqueId();
 			bar: {
 				groupWidth: '50' // makes bars very thick
 			},
+			fontName: "Lato,Helvetica Neue,Helvetica,Arial,sans-serif",
+			vAxis: {
+				textStyle: {
+					color: '#a0a0a0'
+				},
+				gridlines: {
+					color: '#2b2a2a'
+				}
+			},
 			hAxis: {
-				format: "dd.M."
+				format: "dd.M.",
+				textStyle: {
+					color: '#a0a0a0'
+				},
+				gridlines: {
+					color: '#2b2a2a'
+				}
 			},
 			legend: {
 				position: 'none'

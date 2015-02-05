@@ -7,7 +7,6 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
     	</button>
-
 		<a class="navbar-brand" href="./" rel="home">Franklin</a>
 	</div>
 

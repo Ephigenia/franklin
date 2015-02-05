@@ -11,11 +11,11 @@ class Config extends \Franklin\test\config\Config
 {
 	public function init()
 	{
-        $options = [
+        $options = array(
             'followers',
             'following',
             'posts',
-        ];
+        );
 		$this->definition->append(
 			new String('username', true, null, 'instagram username'),
             new Enum('key', false, $options[0], 'Metric that should be recorded')

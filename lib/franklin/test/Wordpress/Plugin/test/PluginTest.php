@@ -58,24 +58,13 @@ class PluginTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($result);
     }
 
-    public function testAverageDownloads()
+    public function testDownloadsYesterday()
     {
-        $this->fixture->config->key = 'average_downloads';
-        $result = $this->fixture->run();
-        $this->assertInternalType('float', $result);
-        $this->assertGreaterThan(
-            100,
-            $result
-        );
-    }
-
-    public function testHits()
-    {
-        $this->fixture->config->key = 'hits';
+        $this->fixture->config->key = 'downloads_yesterday';
         $result = $this->fixture->run();
         $this->assertInternalType('integer', $result);
         $this->assertGreaterThan(
-            1,
+            100,
             $result
         );
     }

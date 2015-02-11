@@ -14,25 +14,44 @@ class UserInfo extends Scrape
 
     public function processResponse($response)
     {
-        $regexp = '/class=[\"\']metric-value[\"\']>([\d,.]+)<\/div>/i';
-        if (!preg_match_all($regexp, $response, $matches)) {
+        // the response is a json response which was designed to work well 
+        // with the react framework which flipboard uses since Feb. 2014
+        // the metrics have a own section in the json response
+        $json = json_decode($response, true);
+
+        if (!$json) {
             return false;
         }
-        switch($this->config->key) {
-            case 'articles':
-                $value = $matches[1][0];
-                break;
-            case 'followers':
-                $value = $matches[1][2];
-                break;
-            case 'magazines':
-                $value = $matches[1][1];
-                break;
+        
+        // the json cotains arrays with differnt data, we need the one with
+        // the user meta data whcih has the "authorUsername" as key which
+        // matches the username from the config
+        foreach($json as $sectionData) {
+            if (!isset($sectionData['authorUsername'])) {
+                continue;
+            }
+            if ($sectionData['authorUsername'] == $this->config->username) {
+                $userMetaData = $sectionData;
+            }
         }
-        return $this->convertValue($value);
-    }
+        if (!isset($userMetaData)) {
+            return false;
+        }
 
-    public function convertValue($value) {
-        return (int) str_replace(',', '', $value);
+        $metrics = $userMetaData['groups'][0]['metrics'];
+        $searchedKey = $this->config->key;
+        if ($searchedKey == 'magazines') {
+            $searchedKey = 'magazineCount';
+        }
+        if ($searchedKey == 'followers') {
+            $searchedKey = 'follower';
+        }
+        foreach($metrics as $metricsSection) {
+            if ($metricsSection['type'] == $searchedKey) {
+                return $this->convertValue($metricsSection['raw']);
+            }
+        }
+
+        return false;
     }
 }

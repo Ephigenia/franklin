@@ -28,9 +28,7 @@ class Config extends \Franklin\test\config\Config
     {
         switch($offset) {
             case 'url':
-                return sprintf('https://flipboard.com/profile/%s',
-                    urlencode($this->username)
-                );
+                return 'https://flipboard.com/api/users/updateFeed?limit=0&sections=flipboard%2Fusername%252F'.urlencode($this->username).'&wantsMetadata=true';
                 break;
         }
         return parent::offsetGet($offset);

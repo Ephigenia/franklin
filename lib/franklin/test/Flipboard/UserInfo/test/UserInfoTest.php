@@ -45,4 +45,11 @@ class UserInfoTest extends \PHPUnit_Framework_TestCase
         $result = $this->fixture->run();
         $this->assertGreaterThan(1, $result);
     }
+
+    public function testInvalidUsername()
+    {
+        $this->fixture->config->username = 'iamnotavalidusernameisweartoyou';
+        $result = $this->fixture->run();
+        $this->assertFalse($result);
+    }
 }

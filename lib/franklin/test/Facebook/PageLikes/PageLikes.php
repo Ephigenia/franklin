@@ -18,16 +18,18 @@ class PageLikes extends Test
 		$this->beforeRun();
 		$this->config->validate();
 		$CURL = new CURL();
-		$response = $CURL->get('http://graph.facebook.com/'.$this->config->id);
-		if (($json = json_decode($response, true)) && isset($json['likes'])) {
-			return $this->convertValue($json['likes']);
+		
+		$url = 'https://www.facebook.com/'.$this->config->id;
+		$response = $CURL->get($url);
+		if ($response && preg_match('/PagesLikesCountDOMID">.+>([\d\.]+)/i', $response, $matches)) {
+			return $this->convertValue($matches[1]);
 		}
 		return false;
 	}
 
 	public function convertValue($value)
-    {
-        $value = (int) preg_replace('/[^\d]+/', '', $value);
-        return $value;
-    }
+	{
+		$integer = (int) preg_replace('/[^\d]+/', '', $value);
+		return $integer;
+	}
 }

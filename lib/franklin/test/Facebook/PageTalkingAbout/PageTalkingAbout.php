@@ -18,10 +18,16 @@ class PageTalkingAbout extends Test
 		$this->beforeRun();
 		$this->config->validate();
 		$CURL = new CURL();
-		$response = $CURL->get('http://graph.facebook.com/'.$this->config->id);
-		if (($json = json_decode($response, true)) && isset($json['likes'])) {
-			return (float) $json['talking_about_count'];
+		$response = $CURL->get('https://www.facebook.com/'.$this->config->id.'/likes');
+		if ($response && preg_match('/\[\{"__m":"m_0_8"\},([\d\.]+)/i', $response, $matches)) {
+			return $this->convertValue($matches[1]);
 		}
 		return false;
+	}
+
+	public function convertValue($value)
+	{
+		$integer = (int) preg_replace('/[^\d]+/', '', $value);
+		return $integer;
 	}
 }

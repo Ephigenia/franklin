@@ -9,6 +9,8 @@
 
 franklin is a library for storing and displaying various metrics aquired through different apis, web-services or scraped contents. Check the [franklin demo page](http://franklin2.marceleichner.de/) for a first impression.
 
+One important ambition for franklin is that all access is made through public available content. No use of any API keys or tokens which makes it easier to setup.
+
 # List of available tests
 
 Checkout the wiki for a complete list of the 35+ tests that can be displayed using franklin: [franklin wiki](https://github.com/Ephigenia/franklin/wiki)
